@@ -1,0 +1,166 @@
+/*index.php*/
+*{ margin: 0;}
+body{
+    background:#F5F6F9;
+}
+#wrap{
+    width: 450px;
+    height: 500px;
+    margin: auto;
+  
+}
+#user, #pass, #send{
+    width: 430px;
+    height: 60px;
+    margin-top: 10px ;
+    padding:5px;
+   
+}
+#user, #pass{
+    border-radius: 5px;
+    border:1px solid rgba(137, 137, 137, 0.3);
+}
+.error{
+    color:#F65633;
+}
+
+
+
+#logo1{
+    width: 300px;
+    margin: auto;
+}
+
+
+#logo1 img{
+    width: 100%;
+}
+
+#form-login{
+    margin: 0px 0px 50px 0px;
+    width: 100%;
+
+}
+#logoSimg{
+    width: 200px;
+    margin: auto;
+   
+    
+}
+#logoSimg img{
+    width: 100%;
+    margin-top:50px;
+}
+
+
+
+
+/* list.php */
+h2{
+    width: 400px;
+    float: left;
+}
+
+#right{
+    width: 650px;
+   float: right;
+   
+   margin-bottom: 10px;
+    
+}
+#add-right{
+    width: 300px;
+    float:right;
+    margin-bottom: 10px;
+}
+#top-right{
+    width: 120px;
+    float:right;
+    
+}
+#btnSearch{
+    border:0px;
+    background:none;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+   
+    
+}
+
+#btnSearch img{
+    width: 40px;
+    position: relative;
+    top: -2px;
+    left: -5px;
+}
+#btnadd{
+    background:#00B247;
+    
+}
+#searchoption{
+    background:#000;
+    height: 40px;
+}
+#txtSearch{
+    height: 40px;
+    border: 1px #898989 solid ;
+    
+}
+
+
+
+#txtSearch option{
+    color:#fff;
+}
+select{
+    color:#fff;
+    border:0px;
+    height: 40px;
+    padding:0px 10px;
+}
+#right form{
+    float:right;
+}
+
+#btndelete{
+    background:#F32C00;
+    color: #fff;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* paging */
+
+#paging-left{
+    border-radius: 5px 0px 0px 5px;
+    
+}
+
+
+
+
+
+
+
+  #page1 {
+    width: 500px;
+    height: 100px;
+    
+    margin: auto;
+  }
+
+  tr{
+    background: #fff;
+  }
+/* list page */
+.listcol{
+    width: 18%;
+    
+    
+  }
+
+
+ 

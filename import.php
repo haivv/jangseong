@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" > 
-            //
+            
 
             function checkempty(){
                 var dem = 0;
@@ -52,54 +52,90 @@
     </div>
 
     <div class="container mt-3 p-3">
-        <form method="post" action="proaddexcel.php" name="fadd">
+        <form method="post" action="" name="" enctype="multipart/form-data">
             <div class="container mt-3">
                 <div id="add-right"> 
                     <a  href="list.php" type="button" class="btn btn-warning" >취소</a>
                     <button  type="button" class="btn btn-success" onclick="checkempty()">회원 추가 </button>
-                    <a type="hidden" href="import.php" class="btn btn-primary">불러오기</a>   
                 </div>
             </div>
+       
+        </div>       
+        <div class="container mt-3">
+            <input type="file" name="excel" required value="">
+            <button  type="submit"  name="import" class="btn btn-primary">불러오기</button>
+        </div>
+        
+        <div class="container  mt-3">
+            <table class="table mt-3">
+                <thead class="table-dark">
+                <tr>
+                    <th id="col1"><input class="form-check-input" type="checkbox" id="myCheck" onclick="checkall()"></th>
+                    <th id="col2">기수</th>
+                    <th id="col3">입소일</th>
+                    <th id="col4">군번</th>
+                    <th id="col5">이름</th>
+                    <th id="col6">&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                require 'config.php';
+                $dem=0;
+                if(isset($_POST["import"])){
+                    $fileName = $_FILES["excel"]["name"];
+                    $fileExtension = explode('.', $fileName);
+                    $fileExtension = strtolower(end($fileExtension));
+                    $newFileName = date("Y.m.d") . " - " . date("h.i.sa") . "." . $fileExtension;
 
-            <div class="container  mt-3">
-                <table class="table mt-3">
-                    <thead class="table-dark">
-                    <tr>
-                        <th id="col1"><input class="form-check-input" type="checkbox" id="myCheck" onclick="checkall()"></th>
-                        <th id="col2">기수</th>
-                        <th id="col3">입소일</th>
-                        <th id="col4">군번</th>
-                        <th id="col5">이름</th>
-                        <th id="col6">&nbsp;</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    
-                    <input type="hidden" id="numofmem" value="<?php  ?>">
-                    
+                    $targetDirectory = "uploads/" . $newFileName;
+                    move_uploaded_file($_FILES['excel']['tmp_name'], $targetDirectory);
 
-                    <tr>
-                        <td><input class="form-check-input" type="checkbox" id="myCheck<?php  ?>" name="mem[]" value="<?php ?>"></td>
-                        <td><input  type="text" name="num" id="str1"> <span class="error" id ="str1err"> </span></td>
-                        <td><input  type="date" name="date" id="str2"> <span class="error" id ="str2err"> </span></td>
-                        <td><input  type="text" name="memID" id="str3"> <span class="error" id ="str3err"> </span></td>
-                        <td><input  type="text" name="name" id="str4"> <span class="error" id ="str4err"></span></td>
-                        <td><i class="bi bi-person-dash-fill"></i></td>
-                    </tr>
-                
-                
-                    </tbody>
+                    error_reporting(0);
+                    ini_set('display_errors', 0);
+
+                    require 'excelReader/excel_reader2.php';
+                    require 'excelReader/SpreadsheetReader.php';
+
+                    $reader = new SpreadsheetReader($targetDirectory);
                     
-                </table>
+                    foreach($reader as $key => $row){
+
+                       
+                        $num = $row[1];
+
+                        $date = $row[2];
+                        $newdate = date('d-m-yy', strtotime($date));
+                        $memID = $row[3];
+                        $name = $row[4];
+
+                        
+                        $sql = "INSERT INTO member VALUES (NULL, '$num', '$date', '$memID', '$name')";
+                        echo $sql;
+                        $result = $conn->query($sql);
+                        
+                        echo "<script>
+                        alert('추가 원성 !!!');
+                        window.location.assign('list.php')";
+                     
+                  
+                 
+                    }
+                }
+                ?>
+            
+                </tbody>
                 
-            </div>
+            </table>
+            
+        </div>
         </form>
         
        
 
     
             
-    </div>
+    
 
 
 </body>

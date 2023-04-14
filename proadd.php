@@ -16,6 +16,9 @@ if ($result->num_rows > 0) {
 
     <?php
 }
-header('location: add.php');
+echo "<script>
+alert('추가 원성 !!!');
+window.location.assign('add.php');
+</script>";
 
 ?>

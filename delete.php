@@ -10,6 +10,10 @@ foreach ($name as $memID){
 
     $result = $conn->query($sql);
 }
-header('location: list.php');
+
+echo "<script>
+alert('삭제 원성 !!!');
+window.location.assign('list.php');
+</script>";
 
 ?>

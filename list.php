@@ -159,7 +159,7 @@ else{
                 $start_from = ($page-1) * $per_page_record;
 
 
-                $sql = "SELECT * FROM member  LIMIT $start_from, $per_page_record";
+                $sql = "SELECT * FROM member  ORDER BY id DESC LIMIT $start_from, $per_page_record ";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -178,7 +178,7 @@ else{
                 <td><?php echo $row['date']; ?></td>
                 <td><?php echo $row['memID']; ?></td>
                 <td><?php echo $row['name']; ?></td>
-                <td id="cot"><a href="view.php?memID=<?php echo $memberID ?>" class="btn btn-primary" >상세보기</a></td>
+                <td id="cot"><a href="view.php?memID=<?php echo $memberID ?>" class="btn btn-primary" >상세보기</a> <a href="edit.php?id=<?php echo $memberID ?>" class="btn btn-warning" style="color:white" >수정</a></td>
             </tr>
            
             <?php
@@ -203,7 +203,7 @@ else{
     <ul class="pagination" id="page1" >
                 <?php
 
-                    $query = "SELECT COUNT(*) FROM member";
+                    $query = "SELECT COUNT(*) FROM member ORDER BY id";
                     $rs_result = mysqli_query($conn, $query);
                     $row = mysqli_fetch_row($rs_result);
                     $total_records = $row[0];

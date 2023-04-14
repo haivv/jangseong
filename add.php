@@ -19,7 +19,7 @@ else{
     <script src="src/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="src/bootstrap.min.css">
     <link rel="stylesheet" href="src/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <script type="text/javascript" > 
             //
 

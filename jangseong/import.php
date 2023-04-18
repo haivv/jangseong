@@ -111,13 +111,14 @@
 
                         
                         $sql = "INSERT INTO member VALUES (NULL, '$num', '$date', '$memID', '$name','','','')";
-						echo "불러오기가 완료되었습니다. <a href='list.php'> 홈 화면으로 돌아갑니다. </a>";
+						
                         $result = $conn->query($sql);
                         
                       
                   
                  
                     }
+			echo "불러오기가 완료되었습니다. <a href='list.php'> 홈 화면으로 돌아갑니다. </a>";
                 }
                 ?>
             

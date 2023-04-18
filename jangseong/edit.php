@@ -140,10 +140,10 @@ else{
             <thead class="table-dark">
             <tr>
                 
-                <th class="listcol">장비</th>
-                <th class="listcol">합격 횟수</th>
-                <th class="listcol">시험 횟수</th>
-                <th class="listcol">총 훈련 시간</th>
+                <th class="listcol">기수</th>
+                <th class="listcol">입소일</th>
+                <th class="listcol">군번</th>
+                <th class="listcol">이름</th>
                 <th class="listcol">&nbsp;</th>
             </tr>
             </thead>

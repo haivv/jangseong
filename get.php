@@ -1,1 +1,0 @@
-<a href="showget.php?mod=cart&act=insert&id=122">Send</a>

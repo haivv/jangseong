@@ -154,20 +154,6 @@ else{
             <tbody>
             <?php
                 
-               // $memID = $_GET["memID"];
-                echo $memID;
-                
-                $sql2 = "SELECT * FROM test where tbmemID = $memID and equipment='휠형 굴착기'";
-                $result2 = $conn->query($sql2);
-                $equiment1_pass = 0;
-                while($row2 = $result2->fetch_assoc()) {
-                    if($row2["result"] == "합격"){
-                    $equiment1_pass+=1;
-                }
-                }
-                echo $equiment1_pass;
-                
-               //end loop 2
                
                function result_numof_pass($equip){
                 require 'config.php';
@@ -182,38 +168,64 @@ else{
                 }
                 return $pass;
                }
+
+
                function result_numof_test($equip){
                 require 'config.php';
                 $memID=$_GET["memID"];
                 $sql = "SELECT * FROM test where tbmemID = $memID and equipment='$equip'";
+                
                 $result = $conn->query($sql);
-                $couttest = 0;
-                while($row2 = $result->fetch_assoc()) {
-                    
-                    $couttest+=1;
+                $coutoftest = 0;
+                while($row = $result->fetch_assoc()) {
+                
+                    if(($row["result"] == "합격")||($row["result"] == "불합격")){
+                        $coutoftest+=1;
+                    }
                 
                 }
-                return $couttest;
+                
+                return $coutoftest;
                }
+
 
                function count_time($equip){
-                require 'config.php';
-                $memID=$_GET["memID"];
-                $sql = "SELECT * FROM test where tbmemID = $memID";
-                $result = $conn->query($sql);
-                $total_time = 0;
-                while($row = $result->fetch_assoc()) {
+                    require 'config.php';
+                    $memID=$_GET["memID"];
+                    $sql = "SELECT * FROM test where tbmemID = $memID and equipment='$equip'";
+                    $result = $conn->query($sql);
+                    $total_time = 0;
+                    $time_list=array();
+                    while($row = $result->fetch_assoc()) {
+                        array_push($time_list,$row["time"]);
+                        
+                    }
+                    $total_seconds = 0;
+                    foreach ($time_list as $time) {
+                        $time_parts = explode(':', $time);
+                        $hours = (int)$time_parts[0];
+                        $minutes = (int)$time_parts[1];
+                        $seconds = (int)$time_parts[2];
+                        $total_seconds += ($hours * 3600) + ($minutes * 60) + $seconds;
+                    }
 
-                    
-                    
-                    $total_time=strtotime($row["time"]);
+                    // Convert total seconds back to hours, minutes, and seconds
+                    $total_hours = floor($total_seconds / 3600);
+                    $total_seconds %= 3600;
+                    $total_minutes = floor($total_seconds / 60);
+                    $total_seconds %= 60;
 
-                   //echo $timeadd;
+                    // Get the formatted string representation of the total sum
+                    $total_time_str = sprintf("%02d:%02d:%02d", $total_hours, $total_minutes, $total_seconds);
+
+                    // Print the total sum
                 
-                }
-                $newdate = time ( 'Y-m-j' , $total_time );
-                return $newdate;
+                    
+                    return $total_time_str;
                }
+
+
+
 
 
             ?>
@@ -230,12 +242,12 @@ else{
                 </td>
                 <td>
                     <?php
-                        echo result_numof_test("궤도형 굴착기");
+                        echo result_numof_test("휠형 굴착기");
                     ?>
                 </td>
                 <td>
                     <?php
-                       // echo count_time("궤도형 굴착기");
+                       echo count_time("휠형 굴착기");
                     ?>
                 
                 </td>        
@@ -255,7 +267,12 @@ else{
                     ?>
 
                 </td>
-                <td>-</td>        
+                <td>
+                    <?php
+                       echo count_time("궤도형 굴착기");
+                    ?>
+
+                </td>        
             </tr>
             <tr>      
                 <td>도저</td>
@@ -272,7 +289,12 @@ else{
                     ?>
 
                 </td>
-                <td>-</td>        
+                <td>
+                    <?php
+                       echo count_time("궤도형 굴착기");
+                    ?>
+
+                </td>        
             </tr>
             <tr>      
                 <td>로더</td>
@@ -288,7 +310,12 @@ else{
                     ?>
 
                 </td>
-                <td>-</td>        
+                <td>
+                    <?php
+                       echo count_time("도저");
+                    ?>
+
+                </td>        
             </tr>
             <tr>  
                 <td>그레이더</td>
@@ -304,7 +331,12 @@ else{
                     ?>
 
                 </td>
-                <td>-</td>          
+                <td>
+                    <?php
+                       echo count_time("그레이더");
+                    ?>
+
+                </td>          
                 <?php
                 
                 

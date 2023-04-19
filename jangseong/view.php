@@ -90,7 +90,7 @@ else{
             $result1 = $conn->query($sql);
             while($row1 = $result1->fetch_assoc()) {
                 echo $row1["name"]."님 기록 조회";
-            
+            }
             ?>
             
 
@@ -125,12 +125,7 @@ else{
     </div> -->
 
     <div class="container" >
-    <?php
-   
-                
-
-                
-            ?>
+  
     </div>
 
     <div class="container">
@@ -138,6 +133,15 @@ else{
         <table class="table">
         <form method="get" action="delete.php" name="listmember">
             <thead class="table-dark">
+            
+            <?php
+
+
+            ?>
+
+
+
+
             <tr>
                 
                 <th class="listcol">장비</th>
@@ -150,36 +154,124 @@ else{
             <tbody>
             <?php
                 
+               // $memID = $_GET["memID"];
+                echo $memID;
                 
+                $sql2 = "SELECT * FROM test where tbmemID = $memID and equipment='휠형 굴착기'";
+                $result2 = $conn->query($sql2);
+                $equiment1_pass = 0;
+                while($row2 = $result2->fetch_assoc()) {
+                    if($row2["result"] == "합격"){
+                    $equiment1_pass+=1;
+                }
+                }
+                echo $equiment1_pass;
                 
-                // $result = $conn->query($sql);
-                 
-                //  if ($result->num_rows > 0) {
-                //  // output data of each row
-                //  $num = 0;
-                //  while($row = $result->fetch_assoc()) {
-                     
+               //end loop 2
+               
+               function result_numof_pass($equip){
+                require 'config.php';
+                $memID=$_GET["memID"];
+                $sql = "SELECT * FROM test where tbmemID = $memID and equipment='$equip'";
+                $result = $conn->query($sql);
+                $pass = 0;
+                while($row2 = $result->fetch_assoc()) {
+                    if($row2["result"] == "합격"){
+                    $pass+=1;
+                }
+                }
+                return $pass;
+               }
+               function result_numof_test($equip){
+                require 'config.php';
+                $memID=$_GET["memID"];
+                $sql = "SELECT * FROM test where tbmemID = $memID and equipment='$equip'";
+                $result = $conn->query($sql);
+                $couttest = 0;
+                while($row2 = $result->fetch_assoc()) {
                     
+                    $couttest+=1;
+                
+                }
+                return $couttest;
+               }
+
+               function count_time($equip){
+                require 'config.php';
+                $memID=$_GET["memID"];
+                $sql = "SELECT * FROM test where tbmemID = $memID";
+                $result = $conn->query($sql);
+                $total_time = 0;
+                while($row = $result->fetch_assoc()) {
+
+                    
+                    
+                    $total_time=strtotime($row["time"]);
+
+                   //echo $timeadd;
+                
+                }
+                $newdate = time ( 'Y-m-j' , $total_time );
+                return $newdate;
+               }
+
+
             ?>
             
             
 
             <tr>      
                 <td>휠형 굴착기</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>        
+                <td>
+                <?php
+                   echo result_numof_pass("휠형 굴착기");
+                ?>
+                
+                </td>
+                <td>
+                    <?php
+                        echo result_numof_test("궤도형 굴착기");
+                    ?>
+                </td>
+                <td>
+                    <?php
+                       // echo count_time("궤도형 굴착기");
+                    ?>
+                
+                </td>        
             </tr>
             <tr>      
                 <td>궤도형 굴착기</td>
-                <td>-</td>
-                <td>-</td>
+                <td>
+                    <?php
+                     echo result_numof_pass("궤도형 굴착기");
+                    ?>
+
+                </td>
+                <td>
+                    
+                    <?php
+                        echo result_numof_test("궤도형 굴착기");
+                    ?>
+
+                </td>
                 <td>-</td>        
             </tr>
             <tr>      
                 <td>도저</td>
-                <td>-</td>
-                <td>-</td>
+                <td>
+                    <?php
+                     echo result_numof_pass("도저");
+                    ?>
+
+
+                </td>
+                <td>
+                    <?php
+                        echo result_numof_test("궤도형 굴착기");
+                    ?>
+
+                </td>
                 <td>-</td>        
             </tr>
             <tr>      
@@ -194,7 +286,8 @@ else{
                 <td>-</td>
                 <td>-</td>          
                 <?php
-                }
+                
+                
                 ?>
             </tr>
             <?php

@@ -164,21 +164,35 @@ else{
             
             
 
-            <tr>
-                
+            <tr>      
+                <td>휠형 굴착기</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>        
+            </tr>
+            <tr>      
                 <td>궤도형 굴착기</td>
                 <td>-</td>
                 <td>-</td>
-                <td><?php //echo $row['date']; ?>00:5:00</td>
-                
+                <td>-</td>        
             </tr>
-            <tr>
-               
-                <td>휠형 굴칙기</td>
-                <td><?php echo $row1['nofpass'];?></td>
-                <td><?php echo $row1['noftest'];?></td>
-                <td><?php //echo $row['date']; ?>1:40:00</td>
-                
+            <tr>      
+                <td>도저</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>        
+            </tr>
+            <tr>      
+                <td>로더</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>        
+            </tr>
+            <tr>  
+                <td>그레이더</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>          
                 <?php
                 }
                 ?>

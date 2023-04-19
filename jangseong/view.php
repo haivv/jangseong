@@ -276,14 +276,34 @@ else{
             </tr>
             <tr>      
                 <td>로더</td>
-                <td>-</td>
-                <td>-</td>
+                <td>
+                    <?php
+                     echo result_numof_pass("도저");
+                    ?>
+
+                </td>
+                <td>
+                    <?php
+                        echo result_numof_test("도저");
+                    ?>
+
+                </td>
                 <td>-</td>        
             </tr>
             <tr>  
                 <td>그레이더</td>
-                <td>-</td>
-                <td>-</td>
+                <td>
+                    <?php
+                        echo result_numof_pass("그레이더");
+                    ?>
+
+                </td>
+                <td>
+                    <?php
+                        echo result_numof_test("그레이더");
+                    ?>
+
+                </td>
                 <td>-</td>          
                 <?php
                 

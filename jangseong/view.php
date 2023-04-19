@@ -81,13 +81,13 @@ else{
 
             <?php
             $memID = $_GET["memID"];
-            echo $memID;
+           // echo $memID;
             require 'config.php';
             if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
             }
 
-            $sql = "SELECT * FROM member where id = '$memID'";
+            $sql = "SELECT * FROM member where memID = '$memID'";
             $result1 = $conn->query($sql);
             while($row1 = $result1->fetch_assoc()) {
                 echo $row1["name"]."님 기록 조회";

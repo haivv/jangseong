@@ -81,12 +81,13 @@ else{
 
             <?php
             $memID = $_GET["memID"];
+            echo $memID;
             require 'config.php';
             if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
             }
 
-            $sql = "SELECT * FROM member where id = $memID";
+            $sql = "SELECT * FROM member where id = '$memID'";
             $result1 = $conn->query($sql);
             while($row1 = $result1->fetch_assoc()) {
                 echo $row1["name"]."님 기록 조회";
@@ -158,7 +159,7 @@ else{
                function result_numof_pass($equip){
                 require 'config.php';
                 $memID=$_GET["memID"];
-                $sql = "SELECT * FROM record  where tbmemID = $memID and equipment='$equip'";
+                $sql = "SELECT * FROM record where memID = '$memID' and equipment='$equip'";
                 $result = $conn->query($sql);
                 $pass = 0;
                 while($row2 = $result->fetch_assoc()) {
@@ -173,7 +174,7 @@ else{
                function result_numof_test($equip){
                 require 'config.php';
                 $memID=$_GET["memID"];
-                $sql = "SELECT * FROM record where tbmemID = $memID and equipment='$equip'";
+                $sql = "SELECT * FROM record where memID = '$memID' and equipment='$equip'";
                 
                 $result = $conn->query($sql);
                 $coutoftest = 0;
@@ -192,7 +193,7 @@ else{
                function count_time($equip){
                     require 'config.php';
                     $memID=$_GET["memID"];
-                    $sql = "SELECT * FROM record where tbmemID = $memID and equipment='$equip'";
+                    $sql = "SELECT * FROM record where memID = '$memID' and equipment='$equip'";
                     $result = $conn->query($sql);
                     $total_time = 0;
                     $time_list=array();

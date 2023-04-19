@@ -188,7 +188,7 @@ else{
                 <td><?php echo $row['date']; ?></td>
                 <td><?php echo $row['memID']; ?></td>
                 <td><?php echo $row['name']; ?></td>
-                <td><a href="view.php?memID=<?php echo $memberID ?>" class="btn btn-primary" >상세보기</a>  <a href="edit.php?id=<?php echo $memberID ?>" class="btn btn-warning" style="color:white" >수정</a></td>
+                <td><a href="view.php?memID=<?php echo $row['memID']; ?>" class="btn btn-primary" >상세보기</a>  <a href="edit.php?id=<?php echo $memberID ?>" class="btn btn-warning" style="color:white" >수정</a></td>
             </tr>
            
             <?php

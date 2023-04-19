@@ -285,13 +285,13 @@ else{
                 </td>
                 <td>
                     <?php
-                        echo result_numof_test("궤도형 굴착기");
+                        echo result_numof_test("도저");
                     ?>
 
                 </td>
                 <td>
                     <?php
-                       echo count_time("궤도형 굴착기");
+                       echo count_time("도저");
                     ?>
 
                 </td>        
@@ -300,19 +300,19 @@ else{
                 <td>로더</td>
                 <td>
                     <?php
-                     echo result_numof_pass("도저");
+                     echo result_numof_pass("로더");
                     ?>
 
                 </td>
                 <td>
                     <?php
-                        echo result_numof_test("도저");
+                        echo result_numof_test("로더");
                     ?>
 
                 </td>
                 <td>
                     <?php
-                       echo count_time("도저");
+                       echo count_time("로더");
                     ?>
 
                 </td>        

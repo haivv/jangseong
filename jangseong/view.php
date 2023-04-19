@@ -158,7 +158,7 @@ else{
                function result_numof_pass($equip){
                 require 'config.php';
                 $memID=$_GET["memID"];
-                $sql = "SELECT * FROM test where tbmemID = $memID and equipment='$equip'";
+                $sql = "SELECT * FROM record  where tbmemID = $memID and equipment='$equip'";
                 $result = $conn->query($sql);
                 $pass = 0;
                 while($row2 = $result->fetch_assoc()) {
@@ -173,7 +173,7 @@ else{
                function result_numof_test($equip){
                 require 'config.php';
                 $memID=$_GET["memID"];
-                $sql = "SELECT * FROM test where tbmemID = $memID and equipment='$equip'";
+                $sql = "SELECT * FROM record where tbmemID = $memID and equipment='$equip'";
                 
                 $result = $conn->query($sql);
                 $coutoftest = 0;
@@ -192,7 +192,7 @@ else{
                function count_time($equip){
                     require 'config.php';
                     $memID=$_GET["memID"];
-                    $sql = "SELECT * FROM test where tbmemID = $memID and equipment='$equip'";
+                    $sql = "SELECT * FROM record where tbmemID = $memID and equipment='$equip'";
                     $result = $conn->query($sql);
                     $total_time = 0;
                     $time_list=array();

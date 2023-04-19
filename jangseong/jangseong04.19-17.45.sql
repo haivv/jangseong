@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `member` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL PRIMARY KEY,
   `num` varchar(10) NOT NULL,
   `date` text NOT NULL,
-  `memID` varchar(20) NOT NULL,
+  `memID` varchar(20) NOT NULL UNIQUE KEY,
   `name` text NOT NULL,
   `password` varchar(20) NOT NULL,
   `nofpass` int(11) NOT NULL,
@@ -43,14 +43,10 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`id`, `num`, `date`, `memID`, `name`, `password`, `nofpass`, `noftest`) VALUES
-(30, '23-2', '2023-04-17', '23-000003', '정재혁', '', 0, 0),
-(32, '23-2', '2023-04-17', '23-000002', '김신우', '1234', 0, 0),
-(33, '22-1', '2022-01-17', '22-000001', '황희철', '1234', 0, 0),
-(34, '24-1', '2024-01-17', '24-000002', '권정인', '1234', 0, 0),
-(48, '22-3', '2023-10-14', '23-123145', '김원수', '', 0, 0),
-(49, '22-3', '2023-10-14', '23-123145', '김원수', '', 0, 0),
-(50, '22-3', '2023-10-14', '23-123145', '김원수2', '', 0, 0),
-(51, '23', '2023-04-18', '23', '임은수', '', 0, 0);
+(1, '23-2', '2023-04-17', '23-000001', '정재혁', '', 0, 0),
+(2, '23-2', '2023-04-17', '23-000002', '김신우', '', 0, 0),
+(3, '23-2', '2023-04-17', '23-000003', '황희철', '', 0, 0),
+(4, '24-1', '2024-01-17', '24-000002', '권정인', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -58,9 +54,9 @@ INSERT INTO `member` (`id`, `num`, `date`, `memID`, `name`, `password`, `nofpass
 -- Table structure for table `test`
 --
 
-CREATE TABLE `test` (
-  `id` int(11) NOT NULL,
-  `tbmemID` int(11) NOT NULL,
+CREATE TABLE `record` (
+  `id` int(11) NOT NULL PRIMARY KEY,
+  `memID` varchar(20) NOT NULL,
   `result` varchar(10) NOT NULL,
   `time` time NOT NULL,
   `equipment` varchar(30) NOT NULL
@@ -70,60 +66,26 @@ CREATE TABLE `test` (
 -- Dumping data for table `test`
 --
 
-INSERT INTO `test` (`id`, `tbmemID`, `result`, `time`, `equipment`) VALUES
-(1, 51, '합격', '00:34:40', '휠형 굴착기'),
-(2, 51, '불합격', '00:02:40', '휠형 굴착기'),
-(3, 51, '불합격', '00:34:40', '궤도형 굴착기'),
-(4, 51, '합격', '00:02:40', '도저'),
-(5, 30, '불합격', '00:34:40', '휠형 굴착기'),
-(6, 30, '합격', '00:02:40', '도저'),
-(7, 32, '합격', '00:34:40', '휠형 굴착기'),
-(8, 34, '합격', '00:02:40', '도저');
+INSERT INTO `record` (`id`, `memID`, `result`, `time`, `equipment`) VALUES
+(1, '23-000001', '합격', '00:03:30', '휠형 굴착기'),
+(2, '23-000001', '합격', '00:03:30', '휠형 굴착기'),
+(3, '23-000001', '합격', '00:03:30', '휠형 굴착기'),
+(4, '23-000001', '합격', '00:03:30', '휠형 굴착기'),
+(5, '23-000001', '합격', '00:03:30', '휠형 굴착기'),
+(6, '23-000001', '합격', '00:03:30', '휠형 굴착기'),
+(7, '23-000001', '합격', '00:03:30', '휠형 굴착기'),
+(8, '23-000001', '합격', '00:03:30', '휠형 굴착기'),
+(9, '23-000001', '합격', '00:03:30', '휠형 굴착기');
 
---
--- Indexes for dumped tables
---
+ALTER TABLE `record`
+  ADD KEY `ReTest` (`memID`);
 
---
--- Indexes for table `member`
---
-ALTER TABLE `member`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `test`
---
-ALTER TABLE `test`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `ReTest` (`tbmemID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `member`
---
 ALTER TABLE `member`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
---
--- AUTO_INCREMENT for table `test`
---
-ALTER TABLE `test`
+ALTER TABLE `record`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `test`
---
-ALTER TABLE `test`
-  ADD CONSTRAINT `ReTest` FOREIGN KEY (`tbmemID`) REFERENCES `member` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `record`
+  ADD CONSTRAINT `ReTest` FOREIGN KEY (`memID`) REFERENCES `member` (`memID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

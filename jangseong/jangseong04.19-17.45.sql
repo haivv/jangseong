@@ -33,20 +33,18 @@ CREATE TABLE `member` (
   `date` text NOT NULL,
   `memID` varchar(20) NOT NULL UNIQUE KEY,
   `name` text NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `nofpass` int(11) NOT NULL,
-  `noftest` int(11) NOT NULL
+  `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `member`
 --
 
-INSERT INTO `member` (`id`, `num`, `date`, `memID`, `name`, `password`, `nofpass`, `noftest`) VALUES
-(1, '23-2', '2023-04-17', '23-000001', '정재혁', '', 0, 0),
-(2, '23-2', '2023-04-17', '23-000002', '김신우', '', 0, 0),
-(3, '23-2', '2023-04-17', '23-000003', '황희철', '', 0, 0),
-(4, '24-1', '2024-01-17', '24-000002', '권정인', '', 0, 0);
+INSERT INTO `member` (`id`, `num`, `date`, `memID`, `name`, `password`) VALUES
+(1, '23-2', '2023-04-17', '23-000001', '정재혁', ''),
+(2, '23-2', '2023-04-17', '23-000002', '김신우', ''),
+(3, '23-2', '2023-04-17', '23-000003', '황희철', ''),
+(4, '24-1', '2024-01-17', '24-000002', '권정인', '');
 
 -- --------------------------------------------------------
 

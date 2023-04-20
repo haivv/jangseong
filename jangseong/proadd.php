@@ -6,7 +6,7 @@ $memID = $_POST["memID"];
 $name = $_POST["name"];
 
 require 'config.php';
-$sql = "INSERT INTO member VALUES (NULL, '$num', '$date', '$memID', '$name','', '0', '0');";
+$sql = "INSERT INTO member VALUES (NULL, '$num', '$date', '$memID', '$name','');";
 $result = $conn->query($sql);
 
 echo "<script>

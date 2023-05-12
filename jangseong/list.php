@@ -1,5 +1,7 @@
 <?php
 session_start();
+require 'config.php';
+
 if(isset($_POST["user"]))
 {
     $user = $_POST["user"];
@@ -15,14 +17,36 @@ else{
 }  
 
 
-if($user=="admin"&&$pass=="123"){
-    
+$sqllogin = "SELECT * FROM account WHERE username = '$user' and password ='$pass'";
+
+$resultlogin = $conn->query($sqllogin);
+$numoflogin = $resultlogin->num_rows;
+if ($numoflogin > 0) {
+// output data of each row
     $_SESSION["login"]="ok";
+    while($rowlogin = $resultlogin->fetch_assoc()) {
+        $_SESSION["authority"]=$rowlogin['authority']; 
+    }
+
 }
+else{
+    
+}
+
+
 
 if(!isset($_SESSION["login"]))
 {
-    header('location: index.php');
+    echo "
+    <div id='messagebox'>
+    <script>
+    alert('관리자 권한이 없는 계정입니다!');
+    window.location.assign('index.php');
+    </script>
+    </div>
+    ";
+    
+    //header('location: index.php');
 }
 else{
 
@@ -45,7 +69,8 @@ else{
     <link rel="stylesheet" href="src/style.css">
     
     <script type="text/javascript" > 
-            //
+        
+
 
             function checkall(){
                 var numofmem = document.getElementById("numofmem").value;
@@ -142,7 +167,7 @@ else{
             </thead>
             <tbody>
             <?php
-                require 'config.php';
+                
                 if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
                 }

@@ -82,6 +82,7 @@ else{
             <?php
             $memID = $_GET["memID"];
            // echo $memID;
+           //echo $_SESSION["authority"];
             require 'config.php';
             if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
@@ -106,29 +107,13 @@ else{
         </div>
     </div>
 
-    <!-- <div class="container mt-3 p-3">
-        <div id="right">
-            <button type="button" id="btndelete" class="btn" onclick="checkCheckbox()">회원 삭제</button>
-            <a href="add.php" type="button" id="btnadd" class="btn btn-success">회원 추가 </a>
-            <a href="export.php" class="btn btn-primary">불러오기</a>
-       
-        
-            <form action="search.php" method="post">
-                <select name="searchoption" id="searchoption">
-                    <option value ="name">이름</option>
-                    <option value ="kulbon">군번</option>
-                </select>
-                
-                <input type="text" id="txtSearch" placeholder="검색어를 입력하세요" name="txtsearch" >
-                <button id="btnSearch" type="submit"><img src="imgs/search.png"></button>
-            </form>    
-        </div>
-    </div> -->
-
+    
     <div class="container" >
   
     </div>
+<style>
 
+</style>
     <div class="container">
    
         <table class="table">
@@ -225,21 +210,36 @@ else{
                     return $total_time_str;
                }
 
+               switch($_SESSION["authority"]){    
+                case 2:                    
+                   
+                    echo "<style>#rowdata2,#rowdata3,#rowdata4,#rowdata5{display:none;}</style>";
+                    break;
+                case "3":         
+                    echo "<style>#rowdata1,#rowdata3,#rowdata4,#rowdata5{display:none;}</style>";
+                    break;
+                case 4:                
+                    echo "<style>#rowdata1,#rowdata2,#rowdata4,#rowdata5{display:none;}</style>";
+                    break;
+                case 5:               
+                    echo "<style>#rowdata1,#rowdata2,#rowdata3,#rowdata5{display:none;}</style>";
+                    break;
+                case 6:                
+                    echo "<style>#rowdata1,#rowdata2,#rowdata3,#rowdata4{display:none;}</style>";
+                    break;
+                default:
+                break;
 
-
-
+            }
 
             ?>
-            
-            
 
-            <tr>      
-                <td>휠형 굴착기</td>
+            <tr  id="rowdata1">      
+                <td >휠형 굴착기</td>
                 <td>
                 <?php
                    echo result_numof_pass("휠형 굴착기");
                 ?>
-                
                 </td>
                 <td>
                     <?php
@@ -253,7 +253,7 @@ else{
                 
                 </td>        
             </tr>
-            <tr>      
+            <tr id="rowdata2">      
                 <td>궤도형 굴착기</td>
                 <td>
                     <?php
@@ -261,8 +261,7 @@ else{
                     ?>
 
                 </td>
-                <td>
-                    
+                <td>    
                     <?php
                         echo result_numof_test("궤도형 굴착기");
                     ?>
@@ -272,99 +271,74 @@ else{
                     <?php
                        echo count_time("궤도형 굴착기");
                     ?>
-
                 </td>        
             </tr>
-            <tr>      
+            <tr id="rowdata3">      
                 <td>도저</td>
                 <td>
                     <?php
                      echo result_numof_pass("도저");
                     ?>
-
-
                 </td>
                 <td>
                     <?php
                         echo result_numof_test("도저");
                     ?>
-
                 </td>
                 <td>
                     <?php
                        echo count_time("도저");
                     ?>
-
                 </td>        
             </tr>
-            <tr>      
+            <tr id="rowdata4">      
                 <td>로더</td>
                 <td>
                     <?php
                      echo result_numof_pass("로더");
                     ?>
-
                 </td>
                 <td>
                     <?php
                         echo result_numof_test("로더");
                     ?>
-
                 </td>
                 <td>
                     <?php
                        echo count_time("로더");
                     ?>
-
                 </td>        
             </tr>
-            <tr>  
+            <tr id="rowdata5">  
                 <td>그레이더</td>
                 <td>
                     <?php
                         echo result_numof_pass("그레이더");
                     ?>
-
                 </td>
                 <td>
                     <?php
                         echo result_numof_test("그레이더");
                     ?>
-
                 </td>
                 <td>
                     <?php
                        echo count_time("그레이더");
                     ?>
-
                 </td>          
-                <?php
-                
-                
+                <?php             
                 ?>
             </tr>
             <?php
-            //     $num+=1;
-            // }
-            // } else {
-          
-            // }
+            
             $conn->close();
 
-
-            ?>  
-           
-           
-           
+            ?>                
             </tbody>
             </form>
         </table>
         
     </div>
-
-
-    
-
 
 </body>
 </html>

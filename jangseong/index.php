@@ -15,22 +15,22 @@
     <script>
         function checkfile(){
 
-                    if(document.getElementById('user').value==""||document.getElementById('user').value!="admin") {
+                    if(document.getElementById('user').value=="") {
                         document.getElementById('usererr').innerHTML="등록되지 않은 ID입니다.";
-                         return false;
-                       
+                         return false;   
                     }
                     else{
-                        
+
                         document.getElementById('usererr').innerHTML="";    
                     }   
-                    if(document.getElementById('pass').value==""||document.getElementById('pass').value!="123") {
+                    
+                    if(document.getElementById('pass').value=="") {
                         document.getElementById('passerr').innerHTML="등록되지 않은 ID입니다.";
                         return false;
                     }
                     else{
                         
-                        document.getElementById('passerr').innerHTML=""    
+                        document.getElementById('passerr').innerHTML="";   
                     }   
 
                 document.flogin.submit();

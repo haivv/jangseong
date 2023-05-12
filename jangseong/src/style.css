@@ -163,4 +163,12 @@ a{
   }
 
 
- 
+  #messagebox{
+    background: red;
+  }
+
+/*authority */
+#row1, #row2, #row3, #row4{
+    display: none !important; 
+    background:#00B247 !important ;
+  }

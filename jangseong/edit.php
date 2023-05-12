@@ -68,6 +68,24 @@ else{
                 }
                
             }
+
+            function checkyear(){
+                var str1 = document.getElementById('str1').value;
+                var firstStr1 = str1.slice(0, 2);
+                //alert("list 1: " + firstStr1);
+            
+
+                var str2 = document.getElementById('str2').value;
+                var firstStr2 = str2.slice(2, 4);
+                
+                var str3 = document.getElementById('str3').value;
+                var firstStr3 = str3.slice(0, 2);
+
+                if((firstStr1 != firstStr2) || (firstStr1 != firstStr3) )
+                {
+                    alert("기수와 입소일이 군번과 일치하지 않습니다!");
+                }  
+        }
             
     </script>
     
@@ -170,7 +188,7 @@ else{
                 <td><input type="date" name="date" value="<?php echo $row['date'];?>"></td>
                 <td><input type="text" name="memID" value="<?php echo $row['memID'];?>"></td>
                 <td><input type="text" name="name" value="<?php echo $row['name'];?>"></td>
-                <td><button type="submit" class="btn btn-warning" style="color:white" >수정</button></td>
+                <td><button type="button" class="btn btn-warning" style="color:white" onclick="checkyear();" >수정</button></td>
             </tr>
             <input type="hidden" name="id" value="<?php echo $row["id"]?>">
             <?php

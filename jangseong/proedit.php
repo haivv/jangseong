@@ -10,6 +10,15 @@ else{
     $num = $_POST['num'];
 }
 
+if(!isset($_POST['class']))
+{
+    $_POST['class']="";
+}
+else{
+    $class = $_POST['class'];
+}
+
+
 if(!isset($_POST['date']))
 {
     $_POST['date']="";
@@ -39,10 +48,10 @@ else{
 
 
     
-    $sql= "UPDATE member SET num = '$num', date = '$date', memID = '$memID', name = '$name' WHERE id = $id";
+    $sql= "UPDATE member SET num = '$num', class = '$class', date = '$date', memID = '$memID', name = '$name' WHERE id = $id";
     //echo $sql;
     $result = $conn->query($sql);
-
+    
 echo "<script>
 alert('수정이 완료되었습니다!');
 window.location.assign('list.php');

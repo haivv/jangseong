@@ -78,7 +78,7 @@ else{
         <div id="top-right">
             <div id="btnlogout">
                 <a href="logout.php">로그아웃</a>
-                <a id="home" href="list.php">
+                <a class="home" href="list.php">
                     <img src="imgs/home.png">
                 </a>
             </div>
@@ -93,13 +93,15 @@ else{
        
         
             <form action="search.php" method="post">
-                <select name="searchoption" id="searchoption">
+            <select name="searchoption" id="searchoption">
                     <option value ="name">이름</option>
                     <option value ="kulbon">군번</option>
                 </select>
                 
                 <input type="text" id="txtSearch" placeholder="검색어를 입력하세요" name="txtsearch" >
                 <button id="btnSearch" type="submit"><img src="imgs/search.png"></button>
+
+                
             </form>    
         </div>
     </div>
@@ -164,6 +166,7 @@ else{
                 <th ><input class="form-check-input" type="checkbox" id="myCheck" onclick="checkall()"></th>
                 <th class="listcol">기수</th>
                 <th class="listcol">입소일</th>
+                <th class="listcol">입소일</th>
                 <th class="listcol">군번</th>
                 <th class="listcol">이름</th>
                 <th class="listcol">&nbsp;</th>
@@ -185,6 +188,7 @@ else{
             <tr>
                 <td><input class="form-check-input" type="checkbox" id="myCheck<?php  echo $num;?>" name="mem[]" value="<?php echo $row['id'];?>"></td>
                 <td><?php echo $row['num']; ?></td>
+                <td><?php echo $row['class']; ?></td>
                 <td><?php echo $row['date']; ?></td>
                 <td><?php echo $row['memID']; ?></td>
                 <td><?php echo $row['name']; ?></td>

@@ -60,7 +60,7 @@
 
         </div>
         <div id="logoSimg">
-            <img src="imgs/logo.png" alt="">
+            <img src="imgs/logo.png" alt="" />
         </div>
     </div>
 </body>

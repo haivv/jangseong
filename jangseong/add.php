@@ -24,7 +24,7 @@ else{
             //
             function checkempty(){
                 var dem = 0;
-                for(var q=1;q<5;q++){
+                for(var q=1;q<6;q++){
                     if(document.getElementById('str'+q).value=="") {
                         document.getElementById('str'+q+'err').innerHTML="필수";
                         dem+=1;
@@ -46,10 +46,10 @@ else{
             //alert("list 1: " + firstStr1);
            
 
-            var str2 = document.getElementById('str2').value;
+            var str2 = document.getElementById('str3').value;
             var firstStr2 = str2.slice(2, 4);
 			
-            var str3 = document.getElementById('str3').value;
+            var str3 = document.getElementById('str4').value;
             var firstStr3 = str3.slice(0, 2);
 
             if((firstStr1 != firstStr2) || (firstStr1 != firstStr3) )
@@ -93,6 +93,7 @@ else{
                     <tr>
                         <th ><input class="form-check-input" type="checkbox" id="myCheck" onclick="checkall()"></th>
                         <th>기수</th>
+                        <th >클래스</th>
                         <th >입소일</th>
                         <th >군번</th>
                         <th>이름</th>
@@ -107,9 +108,10 @@ else{
                     <tr>
                         <td><input class="form-check-input" type="checkbox" id="myCheck<?php  ?>" name="mem[]" value="<?php ?>"></td>
                         <td><input  type="text" name="num" id="str1"> <span class="error" id ="str1err"> </span></td>
-                        <td><input  type="date" name="date" id="str2"> <span class="error" id ="str2err"> </span></td>
-                        <td><input  type="text" name="memID" id="str3"> <span class="error" id ="str3err"> </span></td>
-                        <td><input  type="text" name="name" id="str4"> <span class="error" id ="str4err"></span></td>
+                        <td><input  type="text" name="class" id="str2"> <span class="error" id ="str2err"> </span></td>
+                        <td><input  type="date" name="date" id="str3"> <span class="error" id ="str3err"> </span></td>
+                        <td><input  type="text" name="memID" id="str4"> <span class="error" id ="str4err"> </span></td>
+                        <td><input  type="text" name="name" id="str5"> <span class="error" id ="str5err"></span></td>
                         <td ><i class="bi bi-person-dash-fill"></i></td>
                     </tr>
                 

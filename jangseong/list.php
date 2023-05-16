@@ -121,33 +121,37 @@ else{
 
 <body>
 
-    <div class="container p-3 mt-5">
+    <div class="container p-3 mt-5" >
         <h2>회원 조회</h2>
         <div id="top-right">
-            <div id="btnlogout">
-                <a href="logout.php">로그아웃</a>
-                <a id="home" href="list.php">
+            <div class="btnlogout">
+                
+                <a class="home" href="list.php">
                     <img src="imgs/home.png">
                 </a>
+                <a class="logtext" href="logout.php" >로그아웃</a>
             </div>
         </div>
     </div>
 
-    <div class="container mt-3 p-3">
+    <div class="container mt-5 p-3">
         <div id="right">
-            <button type="button" id="btndelete" class="btn" onclick="checkCheckbox()">회원 삭제</button>
-            <a href="add.php" type="button" id="btnadd" class="btn btn-success">회원 추가 </a>
-            <a href="export.php" class="btn btn-primary">다운로드</a>
-       
-        
+            <div id="btnaction">
+                <button type="button" id="btndelete" class="btn" onclick="checkCheckbox()">회원 삭제</button>
+                <a href="add.php" type="button" id="btnadd" class="btn btn-success">회원 추가 </a>
+                <a href="export.php" class="btn btn-primary" id="btndownload">다운로드</a>      
+            </div>
+
             <form action="search.php" method="post">
+                
+                
                 <select name="searchoption" id="searchoption">
                     <option value ="name">이름</option>
                     <option value ="kulbon">군번</option>
                 </select>
                 
-                <input type="text" id="txtSearch" placeholder="검색어를 입력하세요" name="txtsearch" >
                 <button id="btnSearch" type="submit"><img src="imgs/search.png"></button>
+                <input type="text" id="txtSearch" placeholder="검색어를 입력하세요" name="txtsearch" >
             </form>    
         </div>
     </div>
@@ -159,6 +163,7 @@ else{
             <tr>
                 <th ><input class="form-check-input" type="checkbox" id="myCheck" onclick="checkall()"></th>
                 <th class="listcol">기수</th>
+                <th class="listcol">클래스</th>
                 <th class="listcol">입소일</th>
                 <th class="listcol">군번</th>
                 <th class="listcol">이름</th>
@@ -200,6 +205,7 @@ else{
             <tr>
                 <td><input class="form-check-input" type="checkbox" id="myCheck<?php  echo $num;?>" name="mem[]" value="<?php echo $row['id'];?>"></td>
                 <td><?php echo $row['num']; ?></td>
+                <td><?php echo $row['class']; ?></td>
                 <td><?php echo $row['date']; ?></td>
                 <td><?php echo $row['memID']; ?></td>
                 <td><?php echo $row['name']; ?></td>
@@ -215,8 +221,7 @@ else{
 
             ?>  
             
-           
-           
+    
            
             </tbody>
             </form>

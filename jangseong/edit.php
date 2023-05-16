@@ -23,51 +23,25 @@ else{
     <script type="text/javascript" > 
       
           
-
-
-            function checkall(){
-                var numofmem = document.getElementById("numofmem").value;
-                if(document.getElementById("myCheck").checked == true)   {
-                    for (var i = 0; i<numofmem; i++){
-						document.getElementById("myCheck"+i).checked = true;                
-					}
-      
-                }
-                else
-                {
-                    for (var j = 0; j<numofmem; j++){
-						document.getElementById("myCheck"+j).checked = false;  
-					}
-                }
-                return false;
-            }
-			
-            
-            function checkCheckbox() {
-                var numofmem = document.getElementById("numofmem").value;
-              
-
+            function checkempty(){
                 var dem = 0;
-                for (var i = 0; i<numofmem; i++) {
-                    if(document.getElementById("myCheck"+i).checked == true)  {
+                for(var q=1;q<6;q++){
+                    if(document.getElementById('str'+q).value=="") {
+                        document.getElementById('str'+q+'err').innerHTML="필수";
                         dem+=1;
+
                     }
+                    else{
+                        document.getElementById('str'+q+'err').innerHTML="";
+                    }   
                 }
-                if(dem==0) {
-                    alert("삭제할 회원을 선택해주세요!");
-                }
-                else{
-                     let text = "회원을 삭제하겠습니까?";
-                    if (confirm(text) == true) {
-                         document.listmember.submit();
+                
+   
+            }   
 
-                     } else {
-                        
-                     }
-
-                }
-               
-            }
+            
+            
+           
 
             function checkyear(){
                 var str1 = document.getElementById('str1').value;
@@ -75,16 +49,19 @@ else{
                 //alert("list 1: " + firstStr1);
             
 
-                var str2 = document.getElementById('str2').value;
+                var str2 = document.getElementById('str3').value;
                 var firstStr2 = str2.slice(2, 4);
                 
-                var str3 = document.getElementById('str3').value;
+                var str3 = document.getElementById('str4').value;
                 var firstStr3 = str3.slice(0, 2);
 
                 if((firstStr1 != firstStr2) || (firstStr1 != firstStr3) )
                 {
                     alert("기수와 입소일이 군번과 일치하지 않습니다!");
                 }  
+                else{
+                    document.listmember.submit();
+                }
         }
             
     </script>
@@ -123,32 +100,8 @@ else{
         </div>
     </div>
 
-    <!-- <div class="container mt-3 p-3">
-        <div id="right">
-            <button type="button" id="btndelete" class="btn" onclick="checkCheckbox()">회원 삭제</button>
-            <a href="add.php" type="button" id="btnadd" class="btn btn-success">회원 추가 </a>
-            <a href="export.php" class="btn btn-primary">불러오기</a>
-       
-        
-            <form action="search.php" method="post">
-                <select name="searchoption" id="searchoption">
-                    <option value ="name">이름</option>
-                    <option value ="kulbon">군번</option>
-                </select>
-                
-                <input type="text" id="txtSearch" placeholder="검색어를 입력하세요" name="txtsearch" >
-                <button id="btnSearch" type="submit"><img src="imgs/search.png"></button>
-            </form>    
-        </div>
-    </div> -->
-
     <div class="container" >
-    <?php
-   
-                
 
-                
-            ?>
     </div>
 
     <div class="container">
@@ -159,6 +112,7 @@ else{
             <tr>
                 
                 <th class="listcol">기수</th>
+                <th class="listcol">클래스</th>
                 <th class="listcol">입소일</th>
                 <th class="listcol">군번</th>
                 <th class="listcol">이름</th>
@@ -167,9 +121,7 @@ else{
             </thead>
             <tbody>
             <?php
-                
-                
-                
+
                 $result = $conn->query($sql);
                  
                  if ($result->num_rows > 0) {
@@ -184,10 +136,11 @@ else{
 
             <tr>
                 
-                <td><input type="text" name="num" value="<?php echo $row['num'];?>"></td>
-                <td><input type="date" name="date" value="<?php echo $row['date'];?>"></td>
-                <td><input type="text" name="memID" value="<?php echo $row['memID'];?>"></td>
-                <td><input type="text" name="name" value="<?php echo $row['name'];?>"></td>
+                <td><input type="text" id="str1" name="num" value="<?php echo $row['num'];?>"></td>
+                <td><input type="text" id="str2" name="class" value="<?php echo $row['class'];?>"></td>
+                <td><input type="date" id="str3" name="date" value="<?php echo $row['date'];?>"></td>
+                <td><input type="text" id="str4" name="memID" value="<?php echo $row['memID'];?>"></td>
+                <td><input type="text" id="str5" name="name" value="<?php echo $row['name'];?>"></td>
                 <td><button type="button" class="btn btn-warning" style="color:white" onclick="checkyear();" >수정</button></td>
             </tr>
             <input type="hidden" name="id" value="<?php echo $row["id"]?>">

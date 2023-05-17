@@ -19,6 +19,16 @@ else{
     <script src="src/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="src/bootstrap.min.css">
     <link rel="stylesheet" href="src/style.css">
+    <style>
+        input[type="text"]{
+            height: 40px;
+        }
+        input[type="date"]{
+            height: 40px;
+        }
+        
+
+    </style>
     
     <script type="text/javascript" > 
       
@@ -70,35 +80,39 @@ else{
 </head>
 
 <body>
+    <div class="container" >
+        <div id="top">
+            <h2>
+                <?php 
+                    $id = $_GET["id"];
+                    require 'config.php';
+                    if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                    }
+        
+                    $sql = "SELECT * FROM member where id = $id";
+                    $result1 = $conn->query($sql);
+                    while($row1 = $result1->fetch_assoc()) {
+                        echo $row1["name"]."님의 정보 수정";
+                    }
+                ?>
 
-    <div class="container p-3 mt-5">
-        <h2>
-
-            <?php
-            $id = $_GET["id"];
-            require 'config.php';
-            if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-            }
-
-            $sql = "SELECT * FROM member where id = $id";
-            $result1 = $conn->query($sql);
-            while($row1 = $result1->fetch_assoc()) {
-                echo $row1["name"]."님의 정보 수정";
-            }
-            ?>
-            
-
-        </h2>
-        <div id="top-right">
-            <div id="btnlogout">
-                <a href="logout.php">로그아웃</a>
-                <a id="home" href="list.php">
-                    <img src="imgs/home.png">
-                </a>
+            </h2>
+            <div id="top-right">
+                <div class="btnlogout">
+                    
+                    <a id="home" href="list.php">
+                        <img src="imgs/home.png">
+                    </a>
+                    <a id="logtext" href="logout.php" >로그아웃</a>
+                </div>
             </div>
         </div>
     </div>
+
+
+
+    
 
     <div class="container" >
 
@@ -110,13 +124,13 @@ else{
         <form method="post" action="proedit.php" name="listmember">
             <thead class="table-dark">
             <tr>
-                
-                <th class="listcol">기수</th>
-                <th class="listcol">클래스</th>
-                <th class="listcol">입소일</th>
-                <th class="listcol">군번</th>
-                <th class="listcol">이름</th>
-                <th class="listcol">&nbsp;</th>
+                <th>&nbsp;</th>
+                <th class="">기수</th>
+                <th class="">클래스</th>
+                <th class="">입소일</th>
+                <th class="">군번</th>
+                <th class="">이름</th>
+                <th class="">&nbsp;</th>
             </tr>
             </thead>
             <tbody>
@@ -135,7 +149,7 @@ else{
             
 
             <tr>
-                
+                <td>&nbsp;</td>
                 <td><input type="text" id="str1" name="num" value="<?php echo $row['num'];?>"></td>
                 <td><input type="text" id="str2" name="class" value="<?php echo $row['class'];?>"></td>
                 <td><input type="date" id="str3" name="date" value="<?php echo $row['date'];?>"></td>

@@ -6,16 +6,42 @@ body{
     line-height: 24px !important;
     font-size: 16px !important;
 }
+#top{
+    width: 100%;
+    height: 53px;
+    margin-top: 160px;
+ 
+}
 h2{
+    width: 500px;
+    float: left;
+  
     font-size: 37.9px;
     font-weight: 700;
     line-height: 53.06px;
     font-family: 'Pretendard';
     padding-bottom: 32px;
 }
+
+#home{
+    float: right;
+    margin-top: 5px;
+}
+#home img{
+    width: 42px;
+}
+#logtext{
+    line-height: 53px;
+    float: right;
+    margin-right: 10px;
+
+ 
+ }
+
 button{
     font-size: 16px !important;
     line-height: 150%;
+    margin: 0px;
     
 
 }
@@ -73,17 +99,33 @@ button{
 
 
 
+
 /* list.php */
-h2{
-    width: 500px;
-    float: left;
+
+
+#listaction{
+    width: 100%;
+    height: 42px;
+    margin-top: 32px;
+   
+   
+   
 }
 
+
+#numofresult{           /* search page only */
+    width: 200px;
+    float:left;
+    height: 40px;
+    background: #00B247;
+}
+
+
+
 #right{
-    width: 630px;
+    width: 622px;
    float: right;
   
-   
    margin-bottom: 10px;
     
 }
@@ -95,23 +137,14 @@ h2{
 #top-right{
     width: 200px;
     float:right;
- 
-    
-}
-.home{
-    float: right;
-}
-
-.logtext{
-   margin-top: 5px;
-    float: right;
-
 }
 
 #btnaction{
-    width: 310px;
+    width: 312px;
     float: left;
-    background: #00B247;
+    position: relative;
+    left: 15px;
+   
 }
 #btndelete{
     background:#F32C00;
@@ -143,23 +176,23 @@ h2{
 }
 
 #right form {
-    width: 320px;
+    width: 308px;
     float: right;
-    background: #F32C00;
+   
  
 }
 #searchoption{
     background:#000;
-    height: 40px;
-    border-radius: 6px;
-    margin: 0px 10px 0px 0px;
-   
     
+    border-radius: 6px;
+    float: left;
+
 }
 #txtSearch{
     height: 40px;
     border: 1px #898989 solid ;
     float: right;
+    border-radius: 5px;
     
 }
 
@@ -170,15 +203,28 @@ h2{
 #right form select{
     color:#fff;
     border:0px;
-    height: 40px;
+    height: 38px;
     padding:0px 10px;
 }
 
 
+/* main */
+#main{
+    width: 100%;
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+.firstcol{
+    width: 100px;
+}
+
+tbody tr{
+    line-height: 52px;
+ 
+}
 
 a{
     text-decoration: none;
-    margin: 0px 5px;
 }
 
 /* paging */
@@ -192,30 +238,41 @@ a{
     height: 32px !important;
 }
 
-#page1 {
-width: 500px;
-height: 100px;
 
-margin: auto;
-}
 
   tr{
     background: #fff;
   }
+ 
 /* list page */
 .listcol{
     width: 15%;
     
-    
   }
 
 
-  #messagebox{
-    background: red;
-  }
+#messagebox{
+background: red;
+}
 
 /*authority */
 #row1, #row2, #row3, #row4{
     display: none !important; 
     background:#00B247 !important ;
   }
+
+
+
+.checklist{
+    position: relative;
+    left:-20px;
+}
+.checkitem{
+    position: relative;
+   top:13px;
+   left:-20px;
+}
+
+
+/* add page */
+

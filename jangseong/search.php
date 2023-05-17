@@ -20,6 +20,11 @@ else{
     <link rel="stylesheet" href="src/bootstrap.min.css">
     <link rel="stylesheet" href="src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .lastcol{
+            width: 15%;
+        }
+    </style>
     <script type="text/javascript" > 
             //
 
@@ -73,38 +78,50 @@ else{
 
 <body>
 
-<div class="container p-3 mt-5">
-        <h2>회원 조회</h2>
-        <div id="top-right">
-            <div id="btnlogout">
-                <a href="logout.php">로그아웃</a>
-                <a class="home" href="list.php">
-                    <img src="imgs/home.png">
-                </a>
+    <div class="container"  >
+        <div id="top">
+            <h2>회원 조회</h2>
+            <div id="top-right">
+                <div class="btnlogout">
+                    
+                    <a id="home" href="list.php">
+                        <img src="imgs/home.png">
+                    </a>
+                    <a id="logtext" href="logout.php" >로그아웃</a>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="container mt-3 p-3">
-        <div id="right">
-            <button type="button" id="btndelete" class="btn" onclick="checkCheckbox()">회원 삭제</button>
-            <a href="add.php" type="button" id="btnadd" class="btn btn-success">회원 추가 </a>
-            <a href="export.php" class="btn btn-primary">다운로드</a>
-       
-        
-            <form action="search.php" method="post">
-            <select name="searchoption" id="searchoption">
-                    <option value ="name">이름</option>
-                    <option value ="kulbon">군번</option>
-                </select>
-                
-                <input type="text" id="txtSearch" placeholder="검색어를 입력하세요" name="txtsearch" >
-                <button id="btnSearch" type="submit"><img src="imgs/search.png"></button>
 
+
+    <div class="container" >
+        <div id="listaction">
+            <div id="right">
+                <div id="btnaction">
+                    <button type="button" id="btndelete" class="btn" onclick="checkCheckbox()">회원 삭제</button>
+                    <a href="add.php" type="button" id="btnadd" class="btn btn-success">회원 추가 </a>
+                    <a href="export.php" class="btn btn-primary" id="btndownload">다운로드</a>      
+                </div>
+
+                <form action="search.php" method="post">
+                    
+                    <select name="searchoption" id="searchoption">
+                        <option value ="name">이름</option>
+                        <option value ="kulbon">군번</option>
+                    </select>
                 
-            </form>    
+                    
+                    <button id="btnSearch" type="submit"><img src="imgs/search.png"></button>
+                    <input type="text" id="txtSearch" placeholder="검색어를 입력하세요" name="txtsearch" >
+                </form>    
+            </div>
         </div>
     </div>
+
+
+
+    
     <div class="container" >
     <?php
     require 'config.php';
@@ -163,13 +180,12 @@ else{
         <form method="get" action="delete.php" name="listmember">
             <thead class="table-dark">
             <tr>
-                <th ><input class="form-check-input" type="checkbox" id="myCheck" onclick="checkall()"></th>
-                <th class="listcol">기수</th>
-                <th class="listcol">입소일</th>
-                <th class="listcol">입소일</th>
-                <th class="listcol">군번</th>
-                <th class="listcol">이름</th>
-                <th class="listcol">&nbsp;</th>
+                <th class="text-center firstcol " ><input class="form-check-input checklist"  type="checkbox" id="myCheck" onclick="checkall()"></th>
+                <th class="">기수</th>
+                <th class="">입소일</th>
+                <th class="">군번</th>
+                <th class="">이름</th>
+                <th class="lastcol">&nbsp;</th>
             </tr>
             </thead>
             <tbody>
@@ -186,9 +202,8 @@ else{
             
 
             <tr>
-                <td><input class="form-check-input" type="checkbox" id="myCheck<?php  echo $num;?>" name="mem[]" value="<?php echo $row['id'];?>"></td>
+                <td class="text-center"><input class="form-check-input checkitem" type="checkbox"  id="myCheck<?php  echo $num;?>" name="mem[]" value="<?php echo $row['id'];?>"></td>
                 <td><?php echo $row['num']; ?></td>
-                <td><?php echo $row['class']; ?></td>
                 <td><?php echo $row['date']; ?></td>
                 <td><?php echo $row['memID']; ?></td>
                 <td><?php echo $row['name']; ?></td>

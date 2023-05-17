@@ -10,6 +10,7 @@ include_once 'config.php';
   <tr>
     <td>#</td>
     <td>기수</td>
+    <td>클래스</td>
     <td>입소일</td>
     <td>군번</td>
     <td>이름</td>
@@ -22,6 +23,7 @@ include_once 'config.php';
   <tr>
     <td> <?php echo $i++; ?> </td>
     <td> <?php echo $row["num"]; ?> </td>
+    <td> <?php echo $row["class"]; ?> </td>
     <td> <?php echo $row["date"]; ?> </td>
     <td> <?php echo $row["memID"]; ?> </td>
     <td> <?php echo $row["name"]; ?> </td>

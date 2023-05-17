@@ -19,6 +19,16 @@ else{
     <script src="src/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="src/bootstrap.min.css">
     <link rel="stylesheet" href="src/style.css">
+    <style>
+        input[type="text"]{
+            height: 40px;
+        }
+        input[type="date"]{
+            height: 40px;
+        }
+        
+
+    </style>
     
     <script type="text/javascript" > 
             //
@@ -64,34 +74,39 @@ else{
 </head>
 
 <body>
-    <div class="container p-3 mt-5">
-        <h2>회원 추가</h2>
-        <div id="top-right">
-            <div id="btnlogout">
-                <a href="logout.php">로그아웃</a>
-                <a id="home" href="list.php">
-                    <img src="imgs/home.png">
-                </a>
+    <div class="container">
+        <div id="top">
+            <h2>회원 조회</h2>
+            <div id="top-right">
+                <div class="btnlogout">
+                    
+                    <a id="home" href="list.php">
+                        <img src="imgs/home.png">
+                    </a>
+                    <a id="logtext" href="logout.php" >로그아웃</a>
+                </div>
             </div>
         </div>
     </div>
     
-    <div class="container mt-3 p-3">
-        
-        <form method="post" action="proadd.php" name="fadd">
-            <div class="container mt-3">
-                <div id="add-right"> 
-                    <a  href="list.php" type="button" class="btn btn-warning" >취소</a>
-                    <button  type="button" class="btn btn-success" onclick="checkempty();checkyear()">회원 추가 </button>
-                    <a type="hidden" href="import.php" class="btn btn-primary">불러오기</a>   
-                </div>
+    <form method="post" action="proadd.php" name="fadd">
+    <div class="container" >
+        <div id="listaction">
+            <div id="add-right">
+                <a  href="list.php" type="button" class="btn btn-warning" >취소</a>
+                <button  type="button" class="btn btn-success" onclick="checkempty();checkyear()">회원 추가 </button>
+                <a type="hidden" href="import.php" class="btn btn-primary">불러오기</a>
             </div>
+        </div>
+    </div>
 
-            <div class="container  mt-3">
-                <table class="table mt-3">
+        
+    <div class="container ">
+        <div id="main">
+        <table class="table mt-3">
                     <thead class="table-dark">
                     <tr>
-                        <th ><input class="form-check-input" type="checkbox" id="myCheck" onclick="checkall()"></th>
+                        <th>&nbsp;</th>
                         <th>기수</th>
                         <th >클래스</th>
                         <th >입소일</th>
@@ -106,7 +121,8 @@ else{
                     
 
                     <tr>
-                        <td><input class="form-check-input" type="checkbox" id="myCheck<?php  ?>" name="mem[]" value="<?php ?>"></td>
+                        <td>&nbsp;</td>
+                        
                         <td><input  type="text" name="num" id="str1"> <span class="error" id ="str1err"> </span></td>
                         <td><input  type="text" name="class" id="str2"> <span class="error" id ="str2err"> </span></td>
                         <td><input  type="date" name="date" id="str3"> <span class="error" id ="str3err"> </span></td>
@@ -119,15 +135,17 @@ else{
                     </tbody>
                     
                 </table>
-                
-            </div>
-        </form>
+
+        </div>
+    </div>
+
+            
         
        
-
+        
     
             
-    </div>
+   
 
 
 </body>

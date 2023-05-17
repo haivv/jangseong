@@ -39,29 +39,35 @@
 </head>
 
 <body>
-    <div class="container p-3 mt-5">
-        <h2>회원 추가  import</h2>
-        <div id="top-right">
-            <div id="btnlogout">
-                <a href="#">로그아웃</a>
-                <a id="home" href="list.php">
-                    <img src="imgs/home.png">
-                </a>
+<div class="container"  >
+        <div id="top">
+            <h2>회원 조회</h2>
+            <div id="top-right">
+                <div class="btnlogout">
+                    
+                    <a id="home" href="list.php">
+                        <img src="imgs/home.png">
+                    </a>
+                    <a id="logtext" href="logout.php" >로그아웃</a>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="container mt-3 p-3">
-        <form method="post" action="" name="" enctype="multipart/form-data">
-            <div class="container mt-3">
-                <div id="add-right"> 
-                    <a  href="list.php" type="button" class="btn btn-warning" >취소</a>
-                    <button  type="button" class="btn btn-success" onclick="checkempty()">회원 추가 </button>
-                </div>
+    <div class="container" >
+        <div id="listaction">
+            <div id="right">
+                    <div id="add-right"> 
+                        <a  href="list.php" type="button" class="btn btn-warning" >취소</a>
+                        <button  type="button" class="btn btn-success" onclick="checkempty()">회원 추가 </button>
+                    </div>
+                </form>    
             </div>
-       
-        </div>       
-        <div class="container mt-3">
+        </div>
+    </div>
+    <form method="post" action="" name="" enctype="multipart/form-data">
+          
+    <div class="container mt-3">
             <input type="file" name="excel" required value="">
             <button  type="submit"  name="import" class="btn btn-primary">불러오기</button>
         </div>
@@ -72,6 +78,7 @@
                 <tr>
                     <th id="col1"><input class="form-check-input" type="checkbox" id="myCheck" onclick="checkall()"></th>
                     <th id="col2">기수</th>
+                    <th id="col2">클래스</th>
                     <th id="col3">입소일</th>
                     <th id="col4">군번</th>
                     <th id="col5">이름</th>
@@ -103,14 +110,15 @@
 
                        
                         $num = $row[1];
+                        $class = $row[2];
 
-                        $date = $row[2];
+                        $date = $row[3];
                         $newdate = date('d-m-yy', strtotime($date));
-                        $memID = $row[3];
-                        $name = $row[4];
+                        $memID = $row[4];
+                        $name = $row[5];
 
                         
-                        $sql = "INSERT INTO member VALUES (NULL, '$num', '$date', '$memID', '$name','','','')";
+                        $sql = "INSERT INTO member VALUES (NULL, '$num', '$class', '$date', '$memID', '$name','')";
 						
                         $result = $conn->query($sql);
                         

@@ -20,6 +20,7 @@ else{
     <link rel="stylesheet" href="src/bootstrap.min.css">
     <link rel="stylesheet" href="src/style.css">
     
+    
     <script type="text/javascript" > 
       
           
@@ -75,72 +76,58 @@ else{
 </head>
 
 <body>
+    <div class="container"  >
+        <div id="top">
+            <h2>
+                <?php
+                $memID = $_GET["memID"];
+            // echo $memID;
+            //echo $_SESSION["authority"];
+                require 'config.php';
+                if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+                }
 
-    <div class="container p-3 mt-5">
-        <h2>
+                $sql = "SELECT * FROM member where memID = '$memID'";
+                $result1 = $conn->query($sql);
+                while($row1 = $result1->fetch_assoc()) {
+                    echo $row1["name"]."님 기록 조회";
+                }
+                ?>
 
-            <?php
-            $memID = $_GET["memID"];
-           // echo $memID;
-           //echo $_SESSION["authority"];
-            require 'config.php';
-            if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-            }
-
-            $sql = "SELECT * FROM member where memID = '$memID'";
-            $result1 = $conn->query($sql);
-            while($row1 = $result1->fetch_assoc()) {
-                echo $row1["name"]."님 기록 조회";
-            }
-            ?>
-            
-
-        </h2>
-        <div id="top-right">
-            <div id="btnlogout">
-                <a href="logout.php">로그아웃</a>
-                <a id="home" href="list.php">
-                    <img src="imgs/home.png">
-                </a>
+            </h2>
+            <div id="top-right">
+                <div class="btnlogout">
+                    
+                    <a id="home" href="list.php">
+                        <img src="imgs/home.png">
+                    </a>
+                    <a id="logtext" href="logout.php" >로그아웃</a>
+                </div>
             </div>
         </div>
     </div>
 
-    
-    <div class="container" >
-  
-    </div>
-<style>
 
-</style>
+
     <div class="container">
    
         <table class="table">
         <form method="get" action="delete.php" name="listmember">
             <thead class="table-dark">
-            
-            <?php
-
-
-            ?>
-
-
-
-
-            <tr>
-                
-                <th class="listcol">장비</th>
-                <th class="listcol">합격 횟수</th>
-                <th class="listcol">시험 횟수</th>
-                <th class="listcol">총 훈련 시간</th>
-                
-            </tr>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th class="">장비</th>
+                    <th class="">합격 횟수</th>
+                    <th class="">시험 횟수</th>
+                    <th class="">총 훈련 시간</th>
+                    
+                </tr>
             </thead>
+           
             <tbody>
             <?php
                 
-               
                function result_numof_pass($equip){
                 require 'config.php';
                 $memID=$_GET["memID"];
@@ -228,107 +215,112 @@ else{
                     echo "<style>#rowdata1,#rowdata2,#rowdata3,#rowdata4{display:none;}</style>";
                     break;
                 default:
+                    echo "<style>#rowdata5,#rowdata2,#rowdata3,#rowdata4{display:none;}</style>";
                 break;
 
             }
 
             ?>
+                <tr  id="rowdata1">      
+                    <td>&nbsp;</td>
+                    <td >휠형 굴착기</td>
+                    <td>
+                    <?php
+                    echo result_numof_pass("휠형 굴착기");
+                    ?>
+                    </td>
+                    <td>
+                        <?php
+                            echo result_numof_test("휠형 굴착기");
+                        ?>
+                    </td>
+                    <td>
+                        <?php
+                        echo count_time("휠형 굴착기");
+                        ?>
+                    
+                    </td>        
+                </tr>
+                <tr id="rowdata2">     
+                    <td>&nbsp;</td> 
+                    <td>궤도형 굴착기</td>
+                    <td>
+                        <?php
+                        echo result_numof_pass("궤도형 굴착기");
+                        ?>
 
-            <tr  id="rowdata1">      
-                <td >휠형 굴착기</td>
-                <td>
-                <?php
-                   echo result_numof_pass("휠형 굴착기");
-                ?>
-                </td>
-                <td>
-                    <?php
-                        echo result_numof_test("휠형 굴착기");
-                    ?>
-                </td>
-                <td>
-                    <?php
-                       echo count_time("휠형 굴착기");
-                    ?>
-                
-                </td>        
-            </tr>
-            <tr id="rowdata2">      
-                <td>궤도형 굴착기</td>
-                <td>
-                    <?php
-                     echo result_numof_pass("궤도형 굴착기");
-                    ?>
+                    </td>
+                    <td>    
+                        <?php
+                            echo result_numof_test("궤도형 굴착기");
+                        ?>
 
-                </td>
-                <td>    
-                    <?php
-                        echo result_numof_test("궤도형 굴착기");
+                    </td>
+                    <td>
+                        <?php
+                        echo count_time("궤도형 굴착기");
+                        ?>
+                    </td>        
+                </tr>
+                <tr id="rowdata3"> 
+                    <td>&nbsp;</td>     
+                    <td>도저</td>
+                    <td>
+                        <?php
+                        echo result_numof_pass("도저");
+                        ?>
+                    </td>
+                    <td>
+                        <?php
+                            echo result_numof_test("도저");
+                        ?>
+                    </td>
+                    <td>
+                        <?php
+                        echo count_time("도저");
+                        ?>
+                    </td>        
+                </tr>
+                <tr id="rowdata4">     
+                    <td>&nbsp;</td> 
+                    <td>로더</td>
+                    <td>
+                        <?php
+                        echo result_numof_pass("로더");
+                        ?>
+                    </td>
+                    <td>
+                        <?php
+                            echo result_numof_test("로더");
+                        ?>
+                    </td>
+                    <td>
+                        <?php
+                        echo count_time("로더");
+                        ?>
+                    </td>        
+                </tr>
+                <tr id="rowdata5">  
+                    <td>&nbsp;</td>
+                    <td>그레이더</td>
+                    <td>
+                        <?php
+                            echo result_numof_pass("그레이더");
+                        ?>
+                    </td>
+                    <td>
+                        <?php
+                            echo result_numof_test("그레이더");
+                        ?>
+                    </td>
+                    <td>
+                        <?php
+                        echo count_time("그레이더");
+                        ?>
+                    </td>          
+                    <?php             
                     ?>
-
-                </td>
-                <td>
-                    <?php
-                       echo count_time("궤도형 굴착기");
-                    ?>
-                </td>        
-            </tr>
-            <tr id="rowdata3">      
-                <td>도저</td>
-                <td>
-                    <?php
-                     echo result_numof_pass("도저");
-                    ?>
-                </td>
-                <td>
-                    <?php
-                        echo result_numof_test("도저");
-                    ?>
-                </td>
-                <td>
-                    <?php
-                       echo count_time("도저");
-                    ?>
-                </td>        
-            </tr>
-            <tr id="rowdata4">      
-                <td>로더</td>
-                <td>
-                    <?php
-                     echo result_numof_pass("로더");
-                    ?>
-                </td>
-                <td>
-                    <?php
-                        echo result_numof_test("로더");
-                    ?>
-                </td>
-                <td>
-                    <?php
-                       echo count_time("로더");
-                    ?>
-                </td>        
-            </tr>
-            <tr id="rowdata5">  
-                <td>그레이더</td>
-                <td>
-                    <?php
-                        echo result_numof_pass("그레이더");
-                    ?>
-                </td>
-                <td>
-                    <?php
-                        echo result_numof_test("그레이더");
-                    ?>
-                </td>
-                <td>
-                    <?php
-                       echo count_time("그레이더");
-                    ?>
-                </td>          
-                <?php             
-                ?>
-            </tr>
+                </tr>
             <?php
             
             $conn->close();

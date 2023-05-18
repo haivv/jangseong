@@ -100,7 +100,7 @@ else{
             <div id="right">
                 <div id="btnaction">
                     <button type="button" id="btndelete" class="btn" onclick="checkCheckbox()">회원 삭제</button>
-                    <a href="add.php" type="button" id="btnadd" class="btn btn-success">회원 추가 </a>
+                    <a href="add.php" type="button" id="btnadd" class="btn btn-success">회원 등록 </a>
                     <a href="export.php" class="btn btn-primary" id="btndownload">다운로드</a>      
                 </div>
 
@@ -129,46 +129,95 @@ else{
     die("Connection failed: " . $conn->connect_error);
     }
 
+                 $per_page_record = 6;  // Number of entries to show in a page.
+
+    // Look for a GET variable page if not found default is 1.
+
+                    if (isset($_GET["page"])) {
+                        $page  = $_GET["page"];
+                    }
+                    else {
+                        $page=1;
+                    }
+                    $start_from = ($page-1) * $per_page_record;
+
                     //get search option
                     if((!isset($_POST["searchoption"])||$_POST["searchoption"]=="")&&(!isset($_POST["txtsearch"]) ||$_POST["txtsearch"]==""))
                     {
-                        $sql = "SELECT * FROM member";
+                        $sql = "SELECT * FROM member ORDER BY id DESC LIMIT $start_from, $per_page_record ";
                     }
                     else{
                         $txtsearch = $_POST["txtsearch"];
                         if(!isset($_POST['searchoption'])) {
-                           $sql = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch'";
+                           $sql = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
                         } else {
                             $selected = $_POST['searchoption'];
 
 
                             if($_POST["txtsearch"] ==""){
-                                $sql = "SELECT * FROM member";
+                                $sql = "SELECT * FROM member ORDER BY id DESC LIMIT $start_from, $per_page_record ";
                             }
                             else{
                                 
                                 if($selected=="name"){
-                                    $sql = "SELECT * FROM member where name ='$txtsearch'";
+                                    $sql = "SELECT * FROM member where name ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
 
                                 }
                                 else if($selected=="gunbeon"){
-                                    $sql = "SELECT * FROM member where memID ='$txtsearch'";
+                                    $sql = "SELECT * FROM member where memID ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
                                 }
                                 else{
-                                    $sql = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch'";
+                                    $sql = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
                                 }
 
                             }
 
                         }
-                        
 
-                        
                     }
 
-                $result = $conn->query($sql);
-                $num = $result->num_rows;
-                echo "결과 ".$num." 명!!!";
+
+
+
+                    if((!isset($_POST["searchoption"])||$_POST["searchoption"]=="")&&(!isset($_POST["txtsearch"]) ||$_POST["txtsearch"]==""))
+                    {
+                        $sql2 = "SELECT * FROM member  ";
+                    }
+                    else{
+                        $txtsearch = $_POST["txtsearch"];
+                        if(!isset($_POST['searchoption'])) {
+                           $sql2 = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch'  ";
+                        } else {
+                            $selected = $_POST['searchoption'];
+
+
+                            if($_POST["txtsearch"] ==""){
+                                $sql2 = "SELECT * FROM member ";
+                            }
+                            else{
+                                
+                                if($selected=="name"){
+                                    $sql2 = "SELECT * FROM member where name ='$txtsearch'  ";
+
+                                }
+                                else if($selected=="gunbeon"){
+                                    $sql2 = "SELECT * FROM member where memID ='$txtsearch'  ";
+                                }
+                                else{
+                                    $sql2 = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch'  ";
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                // Get num of result
+
+                $result2 = $conn->query($sql2);
+                $num2 = $result2->num_rows;
+                echo "결과 ".$num2." 명!!!";
 
                 
             ?>
@@ -182,6 +231,7 @@ else{
             <tr>
                 <th class="text-center firstcol " ><input class="form-check-input checklist"  type="checkbox" id="myCheck" onclick="checkall()"></th>
                 <th class="">기수</th>
+                <th class="">클래스</th>
                 <th class="">입소일</th>
                 <th class="">군번</th>
                 <th class="">이름</th>
@@ -190,6 +240,15 @@ else{
             </thead>
             <tbody>
             <?php
+
+
+                
+
+
+                   
+                    $result = $conn->query($sql);
+
+
                 if ($result->num_rows > 0) {
                     // output data of each row
                     $num=0;
@@ -204,6 +263,7 @@ else{
             <tr>
                 <td class="text-center"><input class="form-check-input checkitem" type="checkbox"  id="myCheck<?php  echo $num;?>" name="mem[]" value="<?php echo $row['id'];?>"></td>
                 <td><?php echo $row['num']; ?></td>
+                <td><?php echo $row['class']; ?></td>
                 <td><?php echo $row['date']; ?></td>
                 <td><?php echo $row['memID']; ?></td>
                 <td><?php echo $row['name']; ?></td>
@@ -216,7 +276,7 @@ else{
             } else {
           
             }
-            $conn->close();
+            
 
 
             ?>  
@@ -229,6 +289,48 @@ else{
         </table>
         
     </div>
+
+
+    <div    class="container">
+        <ul class="pagination  justify-content-center"  >
+    
+            <?php
+
+                $query = "SELECT COUNT(*) FROM member ORDER BY id";
+                $rs_result = mysqli_query($conn, $query);
+                $row = mysqli_fetch_row($rs_result);
+                $total_records = $row[0];
+
+                echo "</br>";
+
+                // Number of pages required.
+                $total_pages = ceil($total_records / $per_page_record);
+                $pagLink = "";
+                if($page>=2){
+                    echo "<li class='page-item' ><a class='page-link' id='paging-left' href='search.php?page=".($page-1)."'>  이전 </a></li>";
+                }
+
+                for ($i=1; $i<=$total_pages; $i++) {
+                    if ($i == $page) {
+                        $pagLink .= "<li class='page-item active'><a class = 'page-link' href='search.php?page=".$i."'>".$i." </a></li>";
+                        
+                    }
+                    else  {
+                        $pagLink .= "<li class='page-item '><a class='page-link' href='search.php?page=".$i."'> ".$i." </a></li>";
+                    }
+                }
+
+                echo $pagLink;
+
+                if($page<$total_pages){
+                    echo "<li class='page-item'><a class='page-link' href='search.php?page=".($page+1)."'>  다음 </a></li>";
+                }
+
+                ?>
+        </ul>
+
+    </div>
+
 
 
     

@@ -76,7 +76,6 @@ else{
             
     </script>
     
-
 </head>
 
 <body>
@@ -155,7 +154,7 @@ else{
                 <td><input type="date" id="str3" name="date" value="<?php echo $row['date'];?>"></td>
                 <td><input type="text" id="str4" name="memID" value="<?php echo $row['memID'];?>"></td>
                 <td><input type="text" id="str5" name="name" value="<?php echo $row['name'];?>"></td>
-                <td><button type="button" class="btn btn-warning" style="color:white" onclick="checkyear();" >수정</button></td>
+                <td><button type="button" class="btn btn-warning" style="color:white" onclick=" checkyear()" >수정</button></td>
             </tr>
             <input type="hidden" name="id" value="<?php echo $row["id"]?>">
             <?php

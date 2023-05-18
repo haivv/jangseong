@@ -31,42 +31,48 @@ else{
     </style>
     
     <script type="text/javascript" > 
-            //
+            
             function checkempty(){
-                var dem = 0;
+               
                 for(var q=1;q<6;q++){
                     if(document.getElementById('str'+q).value=="") {
                         document.getElementById('str'+q+'err').innerHTML="필수";
-                        dem+=1;
-
+                        
+                        
                     }
                     else{
                         document.getElementById('str'+q+'err').innerHTML="";
                     }   
                 }
-                if(dem == 0){
-                    document.fadd.submit();
-                }
+                
+             
    
             }   
 			
 			function checkyear(){
-            var str1 = document.getElementById('str1').value;
-            var firstStr1 = str1.slice(0, 2);
-            //alert("list 1: " + firstStr1);
-           
+                var str1 = document.getElementById('str1').value;
+                var firstStr1 = str1.slice(0, 2);
+                //alert("list 1: " + firstStr1);
+            
 
-            var str2 = document.getElementById('str3').value;
-            var firstStr2 = str2.slice(2, 4);
-			
-            var str3 = document.getElementById('str4').value;
-            var firstStr3 = str3.slice(0, 2);
+                var str2 = document.getElementById('str3').value;
+                var firstStr2 = str2.slice(2, 4);
+                
+                var str3 = document.getElementById('str4').value;
+                var firstStr3 = str3.slice(0, 2);
 
-            if((firstStr1 != firstStr2) || (firstStr1 != firstStr3) )
-            {
-                alert("기수와 입소일이 군번과 일치하지 않습니다!");
-            }  
-			
+                if((firstStr1 != firstStr2 )||(firstStr1 != firstStr3 ))
+                {
+
+                    alert("기수와 입소일이 군번과 일치하지 않습니다!");
+                    document.fadd.date.focus();
+                   
+                    
+                }
+                else{
+                    document.fadd.submit();
+                }
+       
         }
     </script>
     
@@ -76,7 +82,7 @@ else{
 <body>
     <div class="container">
         <div id="top">
-            <h2>회원 조회</h2>
+            <h2>회원 등록</h2>
             <div id="top-right">
                 <div class="btnlogout">
                     
@@ -89,12 +95,12 @@ else{
         </div>
     </div>
     
-    <form method="post" action="proadd.php" name="fadd">
+    <form action="proadd.php" method="post" name="fadd" >
     <div class="container" >
         <div id="listaction">
             <div id="add-right">
                 <a  href="list.php" type="button" class="btn btn-warning" >취소</a>
-                <button  type="button" class="btn btn-success" onclick="checkempty();checkyear()">회원 추가 </button>
+                <button  type="button" class="btn btn-success" onclick="checkempty(); checkyear();">회원 등록 </button>
                 <a type="hidden" href="import.php" class="btn btn-primary">불러오기</a>
             </div>
         </div>
@@ -138,6 +144,8 @@ else{
 
         </div>
     </div>
+
+    </form>
 
             
         

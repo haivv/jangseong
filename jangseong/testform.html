@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Call Multiple JavaScript Functions</title>
+</head>
+<body>
+  <h1>Call Multiple JavaScript Functions Example</h1>
+    <form action="add.php" name="fform">
+        <input type="text" name="username" id="username"/> <label id="user"></label><br>
+        <input type="password" name="password" id="password"/><label id="pass"></label><br>
+        <button type="button" onclick="function1();  function3();">Click me</button>
+    </form>
+
+  <script>
+    function function1() {
+        if(document.getElementById('username').value=="") {
+            document.getElementById('user').innerHTML="require";
+            return false;
+        }
+        else{
+            document.getElementById('user').innerHTML="";
+            return true;
+        }
+
+        if(document.getElementById('password').value=="") {
+            document.getElementById('pass').innerHTML="require";
+            return false;
+        }
+        else{
+            document.getElementById('pass').innerHTML="";
+            return true;
+        }
+
+    }
+
+    function function2() {
+      
+        if(document.getElementById('username').value==document.getElementById('password').value)
+        {
+            alert("qua on");
+            document.fform.submit();
+            return true;
+        }
+        else{
+            alert("khong on");
+            return false;
+        }
+       
+    
+    }
+    function function3(){
+        if((function1()=='false')||(function2()=='false')){
+            alert("khong ổn");
+        }
+        else{
+            alert("ok");
+        }
+    }
+  </script>
+</body>
+</html>

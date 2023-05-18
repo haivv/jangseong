@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>회원 조회</title>
+    <title>회원 등록</title>
     <link rel="stylesheet" href="style.css">
     
     <script src="src/bootstrap.bundle.min.js"></script>
@@ -41,7 +41,7 @@
 <body>
 <div class="container"  >
         <div id="top">
-            <h2>회원 조회</h2>
+            <h2>회원 등록</h2>
             <div id="top-right">
                 <div class="btnlogout">
                     
@@ -59,7 +59,7 @@
             <div id="right">
                     <div id="add-right"> 
                         <a  href="list.php" type="button" class="btn btn-warning" >취소</a>
-                        <button  type="button" class="btn btn-success" onclick="checkempty()">회원 추가 </button>
+                        <button  type="button" class="btn btn-success" onclick="checkempty()">회원 등록 </button>
                     </div>
                 </form>    
             </div>
@@ -68,7 +68,7 @@
     <form method="post" action="" name="" enctype="multipart/form-data">
           
     <div class="container mt-3">
-            <input type="file" name="excel" required value="">
+            <input type="file" name="excel" required value=""  accept=".xls, .xlsx">
             <button  type="submit"  name="import" class="btn btn-primary">불러오기</button>
         </div>
         

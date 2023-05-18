@@ -22,9 +22,6 @@ else{
     
     
     <script type="text/javascript" > 
-      
-          
-
 
             function checkall(){
                 var numofmem = document.getElementById("numofmem").value;
@@ -117,9 +114,9 @@ else{
             <thead class="table-dark">
                 <tr>
                     <th>&nbsp;</th>
-                    <th class="">장비</th>
+                    <th class="">모드</th>
                     <th class="">합격 횟수</th>
-                    <th class="">시험 횟수</th>
+                    <th class="">훈련 횟수</th>
                     <th class="">총 훈련 시간</th>
                     
                 </tr>

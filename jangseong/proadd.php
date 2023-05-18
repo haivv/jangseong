@@ -13,7 +13,7 @@ $result = $conn->query($sql);
 echo $sql;
 echo "<script>
 alert('회원 추가가 완료되었습니다!');
-window.location.assign('add.php');
+window.location.assign('list.php');
 </script>";
 
 ?>

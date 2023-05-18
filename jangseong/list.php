@@ -141,7 +141,7 @@ else{
             <div id="right">
                 <div id="btnaction">
                     <button type="button" id="btndelete" class="btn" onclick="checkCheckbox()">회원 삭제</button>
-                    <a href="add.php" type="button" id="btnadd" class="btn btn-success">회원 추가 </a>
+                    <a href="add.php" type="button" id="btnadd" class="btn btn-success">회원 등록 </a>
                     <a href="export.php" class="btn btn-primary" id="btndownload">다운로드</a>      
                 </div>
 
@@ -182,7 +182,7 @@ else{
                     if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                     }
-                    $per_page_record = 4;  // Number of entries to show in a page.
+                    $per_page_record = 6;  // Number of entries to show in a page.
 
     // Look for a GET variable page if not found default is 1.
 
@@ -209,13 +209,13 @@ else{
                 
 
                 <tr>
-                    <td class="text-center " > <input class="form-check-input justify-content-center checkitem"   type="checkbox" id="myCheck<?php  echo $num;?>" name="mem[]" value="<?php echo $row['id'];?>"></td>
+                    <td class="text-center" > <input class="form-check-input justify-content-center checkitem"   type="checkbox" id="myCheck<?php  echo $num;?>" name="mem[]" value="<?php echo $row['id'];?>"></td>
                     <td><?php echo $row['num']; ?></td>
                     <td><?php echo $row['class']; ?></td>
                     <td><?php echo $row['date']; ?></td>
                     <td><?php echo $row['memID']; ?></td>
                     <td><?php echo $row['name']; ?></td>
-                    <td id="cot"><a href="view.php?memID=<?php echo $row['memID']; ?>" class="btn btn-primary" >상세보기</a> <a href="edit.php?id=<?php echo $memberID ?>" class="btn btn-warning" style="color:white" >수정</a></td>
+                    <td id="cot"><a href="view.php?memID=<?php echo $row['memID']; ?>" class="btn btn-primary" >상세정보</a> <a href="edit.php?id=<?php echo $memberID ?>" class="btn btn-warning" style="color:white" >수정</a></td>
                 </tr>
             
                 <?php
@@ -238,7 +238,6 @@ else{
     </div>
     
     <div    class="container">
-
         <ul class="pagination  justify-content-center"  >
     
             <?php

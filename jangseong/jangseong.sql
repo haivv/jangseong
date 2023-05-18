@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2023 at 07:19 AM
+-- Generation Time: May 12, 2023 at 09:16 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -77,7 +77,6 @@ INSERT INTO `authority` (`id`, `name`) VALUES
 CREATE TABLE `member` (
   `id` int(11) NOT NULL,
   `num` varchar(10) NOT NULL,
-  `class` varchar(10) NOT NULL,
   `date` date NOT NULL,
   `memID` varchar(20) NOT NULL,
   `name` varchar(20) NOT NULL,
@@ -88,16 +87,12 @@ CREATE TABLE `member` (
 -- Dumping data for table `member`
 --
 
-INSERT INTO `member` (`id`, `num`, `class`, `date`, `memID`, `name`, `password`) VALUES
-(1, '23-2', '인천', '2023-04-17', '23-000001', '정재혁', ''),
-(2, '23-2', '울산', '2023-04-17', '23-000002', '김신우', ''),
-(3, '23-2', '대구', '2023-04-17', '23-000003', '황희철', ''),
-(4, '24-1', '서울', '2024-01-17', '24-000002', '권정인', ''),
-(53, '23', '울산', '2023-05-03', '23-44444', '임은수', ''),
-(54, '23', '대구', '2023-05-15', '23-1111', '임은수', ''),
-(55, '23', '서울', '2023-05-09', '23-12345', '임은수', ''),
-(56, '23', '서울', '2023-05-02', '23-11111', '김원상', ''),
-(57, '22', '울산', '2022-10-14', '22-123145', '김원수', '');
+INSERT INTO `member` (`id`, `num`, `date`, `memID`, `name`, `password`) VALUES
+(1, '23-2', '2023-04-17', '23-000001', '정재혁', ''),
+(2, '23-2', '2023-04-17', '23-000002', '김신우', ''),
+(3, '23-2', '2023-04-17', '23-000003', '황희철', ''),
+(4, '23-1', '2024-01-17', '24-000002', '권정인', ''),
+(52, '22-3', '2023-10-14', '23-123145', '김원수', '');
 
 -- --------------------------------------------------------
 
@@ -180,7 +175,7 @@ ALTER TABLE `authority`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `record`

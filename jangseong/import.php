@@ -120,13 +120,19 @@
                         
                         $sql = "INSERT INTO member VALUES (NULL, '$num', '$class', '$date', '$memID', '$name','')";
 						
-                        $result = $conn->query($sql);
+                        //$result = $conn->query($sql);
                         
+                        if ($conn->query($sql) === TRUE) {
+                            echo "군번".$memID."은 추가 성공한다!";
+                          } else {
+                            echo "군번".$memID."은 존재한다! <br>" ;
+                          }
+                       
                       
                   
                  
                     }
-			echo "불러오기가 완료되었습니다. <a href='list.php'> 홈 화면으로 돌아갑니다. </a>";
+			//echo "불러오기가 완료되었습니다. <a href='list.php'> 홈 화면으로 돌아갑니다. </a>";
                 }
                 ?>
             

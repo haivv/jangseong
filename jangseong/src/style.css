@@ -49,6 +49,8 @@ button{
     width: 450px;
     height: 500px;
     margin: auto;
+   
+    padding-top: 160px;
   
 }
 #user, #pass, #send{
@@ -77,7 +79,7 @@ button{
 
 #logo1 img{
     width: 100%;
-    margin-top: 240px;
+    /* margin-top: 240px; */
 }
 
 #form-login{

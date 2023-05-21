@@ -113,7 +113,7 @@ else{
                 
                     
                     <button id="btnSearch" type="submit"><img src="imgs/search.png"></button>
-                    <input type="text" id="txtSearch" placeholder="검색어를 입력하세요" name="txtsearch" >
+                    <input type="text" id="txtSearch" placeholder="검색어를 입력하세요" name="txtsearch" required >
                 </form>    
             </div>
         </div>

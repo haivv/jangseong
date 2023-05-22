@@ -57,7 +57,7 @@ else{
 
                 if((firstStr11 != firstStr12 )||(firstStr11 != firstStr13 ))
                 {
-                    alert("기수와 입소일이 군번과 일치하지 않습니다!");
+                    alert("1행에서  기수와 입소일이 군번과 일치하지 않습니다!");
                     document.fadd.num1.focus();
                     return false;
                 }
@@ -69,9 +69,19 @@ else{
                 }
 
             }
-            
+            //row 2
             function checkrow2()
             {
+                var str21 = document.getElementById('str6').value;    
+                var str22 = document.getElementById('str7').value;
+                var str23 = document.getElementById('str8').value;  
+                var str24 = document.getElementById('str9').value;
+                var str25 = document.getElementById('str10').value;
+              
+
+                var firstStr21 = str21.slice(0, 2);
+                var firstStr23 = str23.slice(2, 4);
+                var firstStr24 = str24.slice(0, 2);
                 var count = 0;
                 for(var q=6 ; q<11 ; q++){
                     if(document.getElementById('str'+q).value=="")
@@ -80,46 +90,56 @@ else{
                     }
 
                 }
-                //alert(count);
-
+              
                 if(count != 5){
-                    for(var q=6;q<11;q++){
+                    
+                    var dem = 0;
+                    for(var q=6 ; q<11 ;q ++){
+                     
                         if(document.getElementById('str'+q).value=="") {
-                            document.getElementById('str'+q+'err').innerHTML="필수";                        
+                            document.getElementById('str'+q+'err').innerHTML="필수";   
+                            dem++;                         
                         }
                         else{
-                            document.getElementById('str'+q+'err').innerHTML="";
+                            document.getElementById('str'+q+'err').innerHTML="";                
                         } 
                     }
-
-                    var str21 = document.getElementById('str6').value;
-                    var firstStr21 = str21.slice(0, 2);
-                    var str22 = document.getElementById('str8').value;
-                    var firstStr22 = str22.slice(2, 4);
                     
-                    var str23 = document.getElementById('str9').value;
-                    var firstStr23 = str23.slice(0, 2);
-
-                    if((firstStr21 != firstStr22 )||(firstStr21 != firstStr23 ))
+                    if((firstStr21 != firstStr23 )||(firstStr21 != firstStr24 ))
                     {
-                        alert("기수와 입소일이 군번과 일치하지 않습니다!");
-                        document.fadd.num2.focus(); 
-                    }   
-
-                }
-                else{
-                    for(var q=6;q<11;q++){
-                        document.getElementById('str'+q+'err').innerHTML="";
-                        
+                        alert("2행에서 기수와 입소일이 군번과 일치하지 않습니다!");  
+                        return false;
                     }
-                }
+                    else if (dem>0){
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }                     
+                } //end if(count != 5){
+                else{
+                    
+                    for(var q=5;q<11;q++){
+                        document.getElementById('str'+q+'err').innerHTML="";
+                        return true;
+                    }
+                }   
             }
-
 
 
             //row 3
             function checkrow3()
             {
+                var str31 = document.getElementById('str11').value;    
+                var str32 = document.getElementById('str12').value;
+                var str33 = document.getElementById('str13').value;  
+                var str34 = document.getElementById('str14').value;
+                var str35 = document.getElementById('str15').value;
+              
+
+                var firstStr31 = str31.slice(0, 2);
+                var firstStr33 = str33.slice(2, 4);
+                var firstStr34 = str34.slice(0, 2);
                 var count = 0;
                 for(var q=11 ; q<16 ; q++){
                     if(document.getElementById('str'+q).value=="")
@@ -128,44 +148,55 @@ else{
                     }
 
                 }
-                //alert(count);
-
+              
                 if(count != 5){
-                    for(var q=11;q<16;q++){
+                    
+                    var dem = 0;
+                    for(var q=11 ; q<16 ;q ++){
+                     
                         if(document.getElementById('str'+q).value=="") {
-                            document.getElementById('str'+q+'err').innerHTML="필수";                        
+                            document.getElementById('str'+q+'err').innerHTML="필수";   
+                            dem++;                         
                         }
                         else{
-                            document.getElementById('str'+q+'err').innerHTML="";
+                            document.getElementById('str'+q+'err').innerHTML="";                
                         } 
                     }
-
-                    var str31 = document.getElementById('str11').value;
-                    var firstStr31 = str31.slice(0, 2);
-                    var str32 = document.getElementById('str13').value;
-                    var firstStr32 = str32.slice(2, 4);
                     
-                    var str33 = document.getElementById('str14').value;
-                    var firstStr33 = str33.slice(0, 2);
-
-                    if((firstStr31 != firstStr32 )||(firstStr31 != firstStr33 ))
+                    if((firstStr31 != firstStr33 )||(firstStr31 != firstStr34 ))
                     {
-                        alert("기수와 입소일이 군번과 일치하지 않습니다!");
-                        document.fadd.num3.focus(); 
-                    }   
-
-                }
+                        alert("3행에서 기수와 입소일이 군번과 일치하지 않습니다!");  
+                        return false;
+                    }
+                    else if (dem>0){
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }                     
+                } //end if(count != 5){
                 else{
+                    
                     for(var q=11;q<16;q++){
                         document.getElementById('str'+q+'err').innerHTML="";
-                        
+                        return true;
                     }
-                }
+                }   
             }
 
-            //row 4
-            function checkrow4()
+             //row 4
+             function checkrow4()
             {
+                var str41 = document.getElementById('str16').value;    
+                var str42 = document.getElementById('str17').value;
+                var str43 = document.getElementById('str18').value;  
+                var str44 = document.getElementById('str19').value;
+                var str45 = document.getElementById('str20').value;
+              
+
+                var firstStr41 = str41.slice(0, 2);
+                var firstStr43 = str43.slice(2, 4);
+                var firstStr44 = str44.slice(0, 2);
                 var count = 0;
                 for(var q=16 ; q<21 ; q++){
                     if(document.getElementById('str'+q).value=="")
@@ -174,46 +205,55 @@ else{
                     }
 
                 }
-                //alert(count);
-
+              
                 if(count != 5){
-                    for(var q=16;q<21;q++){
+                    
+                    var dem = 0;
+                    for(var q=16 ; q<21 ;q ++){
+                     
                         if(document.getElementById('str'+q).value=="") {
-                            document.getElementById('str'+q+'err').innerHTML="필수";                        
+                            document.getElementById('str'+q+'err').innerHTML="필수";   
+                            dem++;                         
                         }
                         else{
-                            document.getElementById('str'+q+'err').innerHTML="";
+                            document.getElementById('str'+q+'err').innerHTML="";                
                         } 
                     }
-
-                    var str41 = document.getElementById('str16').value;
-                    var firstStr41 = str41.slice(0, 2);
-                    var str42 = document.getElementById('str18').value;
-                    var firstStr42 = str42.slice(2, 4);
                     
-                    var str43 = document.getElementById('str19').value;
-                    var firstStr43 = str43.slice(0, 2);
-
-                    if((firstStr41 != firstStr42 )||(firstStr41 != firstStr43 ))
+                    if((firstStr41 != firstStr43 )||(firstStr41 != firstStr44 ))
                     {
-                        alert("기수와 입소일이 군번과 일치하지 않습니다!");
-                        document.fadd.num4.focus(); 
-                    }   
-
-                }
+                        alert("4행에서 기수와 입소일이 군번과 일치하지 않습니다!");  
+                        return false;
+                    }
+                    else if (dem>0){
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }                     
+                } //end if(count != 5){
                 else{
+                    
                     for(var q=16;q<21;q++){
                         document.getElementById('str'+q+'err').innerHTML="";
-                        
+                        return true;
                     }
-                }
+                }   
             }
 
-            
-              
-             //row 5
+            //row 5
             function checkrow5()
             {
+                var str51 = document.getElementById('str21').value;    
+                var str52 = document.getElementById('str22').value;
+                var str53 = document.getElementById('str23').value;  
+                var str54 = document.getElementById('str24').value;
+                var str55 = document.getElementById('str25').value;
+              
+
+                var firstStr51 = str51.slice(0, 2);
+                var firstStr53 = str53.slice(2, 4);
+                var firstStr54 = str54.slice(0, 2);
                 var count = 0;
                 for(var q=21 ; q<26 ; q++){
                     if(document.getElementById('str'+q).value=="")
@@ -222,40 +262,43 @@ else{
                     }
 
                 }
-                //alert(count);
-
+              
                 if(count != 5){
-                    for(var q=21;q<26;q++){
+                    var dem = 0;
+                    for(var q=21 ; q<26 ;q ++){
                         if(document.getElementById('str'+q).value=="") {
-                            document.getElementById('str'+q+'err').innerHTML="필수";                        
+                            document.getElementById('str'+q+'err').innerHTML="필수";   
+                            dem++;                         
                         }
                         else{
-                            document.getElementById('str'+q+'err').innerHTML="";
+                            document.getElementById('str'+q+'err').innerHTML="";                
                         } 
                     }
-
-                    var str51 = document.getElementById('str21').value;
-                    var firstStr51 = str51.slice(0, 2);
-                    var str52 = document.getElementById('str23').value;
-                    var firstStr52 = str52.slice(2, 4);
                     
-                    var str53 = document.getElementById('str24').value;
-                    var firstStr53 = str53.slice(0, 2);
-
-                    if((firstStr51 != firstStr52 )||(firstStr51 != firstStr53 ))
+                    if((firstStr51 != firstStr53 ) || (firstStr51 != firstStr54 ))
                     {
-                        alert("기수와 입소일이 군번과 일치하지 않습니다!");
-                        document.fadd.num5.focus(); 
-                    }   
-
-                }
+                        alert("5행에서 기수와 입소일이 군번과 일치하지 않습니다!");  
+                        return false;
+                    }
+                    else if (dem>0){
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }                     
+                } //end if(count != 5){
                 else{
+                    
                     for(var q=21;q<26;q++){
                         document.getElementById('str'+q+'err').innerHTML="";
-                        
+                        return true;
                     }
-                }
+                }   
             }
+
+            
+
+
 
 
             //row 6
@@ -280,8 +323,6 @@ else{
                 }
             
                 if(count != 5){
-                
-                    
                     var count = 0;
                     for(var q=26;q<31;q++){
                         if(document.getElementById('str'+q).value=="") {
@@ -289,12 +330,10 @@ else{
                             count++;                         
                         }
                         else{
-                            document.getElementById('str'+q+'err').innerHTML="";
-                            
+                            document.getElementById('str'+q+'err').innerHTML="";                
                         } 
                     }
                     
-
                     if((firstStr61 != firstStr63 )||(firstStr61 != firstStr64 ))
                     {
                         alert("6행에서 기수와 입소일이 군번과 일치하지 않습니다!");  
@@ -305,8 +344,7 @@ else{
                     }
                     else{
                         return true;
-                    }
-                     
+                    }                     
                 } //end if(count != 5){
                 else{
                     
@@ -314,19 +352,15 @@ else{
                         document.getElementById('str'+q+'err').innerHTML="";
                         return true;
                     }
-     
-                
-                    
-                }
-       
-                
+                }   
             }
            
 		
             function checkall(){
-                if((checkrow6()==true)&& (checkrow1==true)){
-                    document.fadd.submit();
-                }
+               // alert(checkrow2());
+                if((checkrow1()==true) && (checkrow2()==true) && (checkrow3()==true) && (checkrow4()==true) && (checkrow5()==true) &&(checkrow6()==true)){
+                   document.fadd.submit();
+                 }
 
              
                 
@@ -357,7 +391,7 @@ else{
         <div id="listaction">
             <div id="add-right">
                 <a  href="list.php" type="button" class="btn btn-warning" >취소</a>
-                <button  type="button" class="btn btn-success" onclick=" checkrow1(); checkrow2(); checkrow3(); checkrow4(); checkrow5(); checkrow6(); checkall();">회원 등록 </button>
+                <button  type="button" class="btn btn-success" onclick="checkall();">회원 등록 </button>
                 <a type="hidden" href="import.php" class="btn btn-primary">불러오기</a>
             </div>
         </div>

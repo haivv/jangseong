@@ -98,6 +98,7 @@ else{
 
 
     <div class="container" >
+
         <div id="listaction">
             <div id="right">
                 <div id="btnaction">
@@ -125,108 +126,110 @@ else{
 
     
     <div class="container" >
-    <?php
-    require 'config.php';
-    if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-    }
+        
+        <?php
+        require 'config.php';
+        if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+        }
 
-                 $per_page_record = 6;  // Number of entries to show in a page.
+                    $per_page_record = 6;  // Number of entries to show in a page.
 
-    // Look for a GET variable page if not found default is 1.
+        // Look for a GET variable page if not found default is 1.
 
-                    if (isset($_GET["page"])) {
-                        $page  = $_GET["page"];
-                    }
-                    else {
-                        $page=1;
-                    }
-                    $start_from = ($page-1) * $per_page_record;
+                        if (isset($_GET["page"])) {
+                            $page  = $_GET["page"];
+                        }
+                        else {
+                            $page=1;
+                        }
+                        $start_from = ($page-1) * $per_page_record;
 
-                    //get search option
-                    if((!isset($_POST["searchoption"])||$_POST["searchoption"]=="")&&(!isset($_POST["txtsearch"]) ||$_POST["txtsearch"]==""))
-                    {
-                        $sql = "SELECT * FROM member ORDER BY id DESC LIMIT $start_from, $per_page_record ";
-                    }
-                    else{
-                        $txtsearch = $_POST["txtsearch"];
-                        if(!isset($_POST['searchoption'])) {
-                           $sql = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
-                        } else {
-                            $selected = $_POST['searchoption'];
+                        //get search option
+                        if((!isset($_POST["searchoption"])||$_POST["searchoption"]=="")&&(!isset($_POST["txtsearch"]) ||$_POST["txtsearch"]==""))
+                        {
+                            $sql = "SELECT * FROM member ORDER BY id DESC LIMIT $start_from, $per_page_record ";
+                        }
+                        else{
+                            $txtsearch = $_POST["txtsearch"];
+                            if(!isset($_POST['searchoption'])) {
+                            $sql = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
+                            } else {
+                                $selected = $_POST['searchoption'];
 
 
-                            if($_POST["txtsearch"] ==""){
-                                $sql = "SELECT * FROM member ORDER BY id DESC LIMIT $start_from, $per_page_record ";
-                            }
-                            else{
-                                
-                                if($selected=="name"){
-                                    $sql = "SELECT * FROM member where name ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
-
-                                }
-                                else if($selected=="gunbeon"){
-                                    $sql = "SELECT * FROM member where memID ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
+                                if($_POST["txtsearch"] ==""){
+                                    $sql = "SELECT * FROM member ORDER BY id DESC LIMIT $start_from, $per_page_record ";
                                 }
                                 else{
-                                    $sql = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
+                                    
+                                    if($selected=="name"){
+                                        $sql = "SELECT * FROM member where name ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
+
+                                    }
+                                    else if($selected=="gunbeon"){
+                                        $sql = "SELECT * FROM member where memID ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
+                                    }
+                                    else{
+                                        $sql = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
+                                    }
+
                                 }
 
                             }
 
                         }
 
-                    }
 
 
 
+                        if((!isset($_POST["searchoption"])||$_POST["searchoption"]=="")&&(!isset($_POST["txtsearch"]) ||$_POST["txtsearch"]==""))
+                        {
+                            $sql2 = "SELECT * FROM member  ";
+                        }
+                        else{
+                            $txtsearch = $_POST["txtsearch"];
+                            if(!isset($_POST['searchoption'])) {
+                            $sql2 = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch'  ";
+                            } else {
+                                $selected = $_POST['searchoption'];
 
-                    if((!isset($_POST["searchoption"])||$_POST["searchoption"]=="")&&(!isset($_POST["txtsearch"]) ||$_POST["txtsearch"]==""))
-                    {
-                        $sql2 = "SELECT * FROM member  ";
-                    }
-                    else{
-                        $txtsearch = $_POST["txtsearch"];
-                        if(!isset($_POST['searchoption'])) {
-                           $sql2 = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch'  ";
-                        } else {
-                            $selected = $_POST['searchoption'];
 
-
-                            if($_POST["txtsearch"] ==""){
-                                $sql2 = "SELECT * FROM member ";
-                            }
-                            else{
-                                
-                                if($selected=="name"){
-                                    $sql2 = "SELECT * FROM member where name ='$txtsearch'  ";
-
-                                }
-                                else if($selected=="gunbeon"){
-                                    $sql2 = "SELECT * FROM member where memID ='$txtsearch'  ";
+                                if($_POST["txtsearch"] ==""){
+                                    $sql2 = "SELECT * FROM member ";
                                 }
                                 else{
-                                    $sql2 = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch'  ";
+                                    
+                                    if($selected=="name"){
+                                        $sql2 = "SELECT * FROM member where name ='$txtsearch'  ";
+
+                                    }
+                                    else if($selected=="gunbeon"){
+                                        $sql2 = "SELECT * FROM member where memID ='$txtsearch'  ";
+                                    }
+                                    else{
+                                        $sql2 = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch'  ";
+                                    }
+
                                 }
 
                             }
 
                         }
 
-                    }
+                    // Get num of result
 
-                // Get num of result
+                    $result2 = $conn->query($sql2);
+                    $num2 = $result2->num_rows;
+                    echo "결과 ".$num2." 명!!!";
 
-                $result2 = $conn->query($sql2);
-                $num2 = $result2->num_rows;
-                echo "결과 ".$num2." 명!!!";
-
-                
-            ?>
+                    
+                ?>
+            
     </div>
 
     <div class="container">
-   
+    <div id="main">
         <table class="table">
         <form method="get" action="delete.php" name="listmember">
             <thead class="table-dark">
@@ -290,7 +293,7 @@ else{
             </tbody>
             </form>
         </table>
-        
+        </div> <!--end main-->
     </div>
 
 

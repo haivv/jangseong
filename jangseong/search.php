@@ -132,8 +132,9 @@ else{
         if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
         }
-
-                    $per_page_record = 6;  // Number of entries to show in a page.
+        $txtsearch = $_POST["txtsearch"];
+/*
+                        $per_page_record = 6;  // Number of entries to show in a page.
 
         // Look for a GET variable page if not found default is 1.
 
@@ -180,7 +181,8 @@ else{
 
                         }
 
-
+*/
+                        $sql = "SELECT * FROM member where name like '%$txtsearch%' OR memID ='$txtsearch'";
 
 
                         if((!isset($_POST["searchoption"])||$_POST["searchoption"]=="")&&(!isset($_POST["txtsearch"]) ||$_POST["txtsearch"]==""))
@@ -190,7 +192,7 @@ else{
                         else{
                             $txtsearch = $_POST["txtsearch"];
                             if(!isset($_POST['searchoption'])) {
-                            $sql2 = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch'  ";
+                            $sql2 = "SELECT * FROM member where name like '%$txtsearch%' OR memID ='$txtsearch'  ";
                             } else {
                                 $selected = $_POST['searchoption'];
 
@@ -201,14 +203,14 @@ else{
                                 else{
                                     
                                     if($selected=="name"){
-                                        $sql2 = "SELECT * FROM member where name ='$txtsearch'  ";
+                                        $sql2 = "SELECT * FROM member where name like '%$txtsearch%'  ";
 
                                     }
                                     else if($selected=="gunbeon"){
                                         $sql2 = "SELECT * FROM member where memID ='$txtsearch'  ";
                                     }
                                     else{
-                                        $sql2 = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch'  ";
+                                        $sql2 = "SELECT * FROM member where name like '%$txtsearch%' OR memID ='$txtsearch'  ";
                                     }
 
                                 }
@@ -234,7 +236,7 @@ else{
         <form method="get" action="delete.php" name="listmember">
             <thead class="table-dark">
             <tr>
-                    <th  class="text-center firstcol"  ><input class="form-check-input checklist" type="checkbox" id="myCheck" onclick="checkall()"></th>
+                    <th  class="text-center firstcol"  ><input class="form-check-input checklist" style="position:relative; left:-5px; " type="checkbox" id="myCheck" onclick="checkall()"></th>
                     <th class="listcol">기수</th>
                     <th class="listcol">클래스</th>
                     <th class="listcol">입소일</th>
@@ -267,13 +269,13 @@ else{
 
             <tr>
                     
-                    <td class="text-center" > <input class="form-check-input justify-content-center checkitem"   type="checkbox" id="myCheck<?php  echo $num;?>" name="mem[]" value="<?php echo $row['id'];?>"></td>
+                    <td class="text-center" > <input class="form-check-input justify-content-center checkitem" style="position:relative; left:-5px; "   type="checkbox" id="myCheck<?php  echo $num;?>" name="mem[]" value="<?php echo $row['id'];?>"></td>
                     <td><?php echo $row['num']; ?></td>
                     <td><?php echo $row['class']; ?></td>
                     <td><?php echo $row['date']; ?></td>
                     <td><?php echo $row['memID']; ?></td>
                     <td><?php echo $row['name']; ?></td>
-                    <td id="cot" ><a href="view.php?memID=<?php echo $row['memID']; ?>" class="btn btn-primary btnfix" style="position:relative; left:30px;" >상세정보</a> <a href="edit.php?id=<?php echo $memberID ?>" class="btn btn-warning btnfix" style="color:white; float:right; margin-right:20px; position:relative; top:5px;" >수정</a></td>
+                    <td id="cot" ><a href="view.php?memID=<?php echo $row['memID']; ?>" class="btn btn-primary btnfix" style="position:relative; left:50px;" >상세정보</a> <a href="edit.php?id=<?php echo $memberID ?>" class="btn btn-warning btnfix" style="color:white; float:right; margin-right:20px; position:relative; top:5px;" >수정</a></td>
              </tr>
            
             <?php
@@ -309,29 +311,7 @@ else{
 
                 echo "</br>";
 
-                // Number of pages required.
-                $total_pages = ceil($total_records / $per_page_record);
-                $pagLink = "";
-                if($page>=2){
-                  //  echo "<li class='page-item' ><a class='page-link' id='paging-left' href='search.php?page=".($page-1)."'>  이전 </a></li>";
-                }
-
-                for ($i=1; $i<=$total_pages; $i++) {
-                    if ($i == $page) {
-                      //  $pagLink .= "<li class='page-item active'><a class = 'page-link' href='search.php?page=".$i."'>".$i." </a></li>";
-                        
-                    }
-                    else  {
-                       // $pagLink .= "<li class='page-item '><a class='page-link' href='search.php?page=".$i."'> ".$i." </a></li>";
-                    }
-                }
-
-               // echo $pagLink;
-
-                if($page<$total_pages){
-                  //  echo "<li class='page-item'><a class='page-link' href='search.php?page=".($page+1)."'>  다음 </a></li>";
-                }
-
+               
                 ?>
         </ul>
 

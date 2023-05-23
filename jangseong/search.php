@@ -1,5 +1,7 @@
 <?php
 session_start();
+header("Cache-Control: no-cache, must-revalidate");
+header("Expires: Sat, 1 Jan 2000 00:00:00 GMT");
 if(!isset($_SESSION["login"]))
 {
     header('location: index.php');
@@ -229,13 +231,13 @@ else{
         <form method="get" action="delete.php" name="listmember">
             <thead class="table-dark">
             <tr>
-                <th class="text-center firstcol " ><input class="form-check-input checklist"  type="checkbox" id="myCheck" onclick="checkall()"></th>
-                <th class="">기수</th>
-                <th class="">클래스</th>
-                <th class="">입소일</th>
-                <th class="">군번</th>
-                <th class="">이름</th>
-                <th class="lastcol">&nbsp;</th>
+                    <th  class="text-center firstcol"  ><input class="form-check-input checklist" type="checkbox" id="myCheck" onclick="checkall()"></th>
+                    <th class="listcol">기수</th>
+                    <th class="listcol">클래스</th>
+                    <th class="listcol">입소일</th>
+                    <th class="listcol">군번</th>
+                    <th class="listcol">이름</th>
+                    <th >&nbsp;</th>
             </tr>
             </thead>
             <tbody>
@@ -261,14 +263,15 @@ else{
             
 
             <tr>
-                <td class="text-center"><input class="form-check-input checkitem" type="checkbox"  id="myCheck<?php  echo $num;?>" name="mem[]" value="<?php echo $row['id'];?>"></td>
-                <td><?php echo $row['num']; ?></td>
-                <td><?php echo $row['class']; ?></td>
-                <td><?php echo $row['date']; ?></td>
-                <td><?php echo $row['memID']; ?></td>
-                <td><?php echo $row['name']; ?></td>
-                <td><a href="view.php?memID=<?php echo $row['memID']; ?>" class="btn btn-primary" >상세보기</a>  <a href="edit.php?id=<?php echo $memberID ?>" class="btn btn-warning" style="color:white" >수정</a></td>
-            </tr>
+                    
+                    <td class="text-center" > <input class="form-check-input justify-content-center checkitem"   type="checkbox" id="myCheck<?php  echo $num;?>" name="mem[]" value="<?php echo $row['id'];?>"></td>
+                    <td><?php echo $row['num']; ?></td>
+                    <td><?php echo $row['class']; ?></td>
+                    <td><?php echo $row['date']; ?></td>
+                    <td><?php echo $row['memID']; ?></td>
+                    <td><?php echo $row['name']; ?></td>
+                    <td id="cot" ><a href="view.php?memID=<?php echo $row['memID']; ?>" class="btn btn-primary btnfix" style="position:relative; left:30px;" >상세정보</a> <a href="edit.php?id=<?php echo $memberID ?>" class="btn btn-warning btnfix" style="color:white; float:right; margin-right:20px; position:relative; top:5px;" >수정</a></td>
+             </tr>
            
             <?php
                 $num+=1;
@@ -307,23 +310,23 @@ else{
                 $total_pages = ceil($total_records / $per_page_record);
                 $pagLink = "";
                 if($page>=2){
-                    echo "<li class='page-item' ><a class='page-link' id='paging-left' href='search.php?page=".($page-1)."'>  이전 </a></li>";
+                  //  echo "<li class='page-item' ><a class='page-link' id='paging-left' href='search.php?page=".($page-1)."'>  이전 </a></li>";
                 }
 
                 for ($i=1; $i<=$total_pages; $i++) {
                     if ($i == $page) {
-                        $pagLink .= "<li class='page-item active'><a class = 'page-link' href='search.php?page=".$i."'>".$i." </a></li>";
+                      //  $pagLink .= "<li class='page-item active'><a class = 'page-link' href='search.php?page=".$i."'>".$i." </a></li>";
                         
                     }
                     else  {
-                        $pagLink .= "<li class='page-item '><a class='page-link' href='search.php?page=".$i."'> ".$i." </a></li>";
+                       // $pagLink .= "<li class='page-item '><a class='page-link' href='search.php?page=".$i."'> ".$i." </a></li>";
                     }
                 }
 
-                echo $pagLink;
+               // echo $pagLink;
 
                 if($page<$total_pages){
-                    echo "<li class='page-item'><a class='page-link' href='search.php?page=".($page+1)."'>  다음 </a></li>";
+                  //  echo "<li class='page-item'><a class='page-link' href='search.php?page=".($page+1)."'>  다음 </a></li>";
                 }
 
                 ?>

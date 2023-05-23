@@ -2,6 +2,7 @@
 require 'config.php';
 $id = $_POST["id"];
 
+
 if(!isset($_POST['num']))
 {
     $_POST['num']="";
@@ -44,27 +45,50 @@ else{
 }
 
 
-            $sqlck1 = "SELECT * FROM member  where memID ='$memID' ";
-            $resultck1 = $conn->query($sqlck1);
-            if ($resultck1->num_rows > 0) {
-                echo "<script>
-                alert('입력한 군번은 회원정보에 존재합니다.');
-                window.location.assign('list.php');
-                </script>";
-            }else{
+$memIDfixed=$_POST["memIDfixed"];
 
+if($memID==$memIDfixed){
+    $sql= "UPDATE member SET num = '$num', class = '$class', date = '$date', memID = '$memID', name = '$name' WHERE id = $id";
+  
+    $result = $conn->query($sql);
+    echo "<script>
+    alert('수정이 완료되었습니다!');
+    window.location.assign('list.php ');
+    </script>";
+}
+else{
 
+    $sqlck1 = "SELECT * FROM member  where memID ='$memID' ";
+    $resultck1 = $conn->query($sqlck1);
+    if ($resultck1->num_rows > 0) {
+        echo "<script>
+        alert('입력한 군번은 회원정보에 존재합니다.');
+        window.location.assign('edit.php?id=$id');
+        </script>";
+    }else{
 
-    
-                    $sql= "UPDATE member SET num = '$num', class = '$class', date = '$date', memID = '$memID', name = '$name' WHERE id = $id";
+        $sql= "UPDATE member SET num = '$num', class = '$class', date = '$date', memID = '$memID', name = '$name' WHERE id = $id";
                     //echo $sql;
-                    $result = $conn->query($sql);
-            }
+        $result = $conn->query($sql);
+        echo "<script>
+        alert('수정이 완료되었습니다!');
+        window.location.assign('list.php');
+        </script>";
+
+
+            
+    }
+}
+            
     
-echo "<script>
-alert('수정이 완료되었습니다!');
-window.location.assign('list.php');
-</script>";
+              
+              
+                   
+
+
+           
+    
+
 
 //header('location: list.php');
 

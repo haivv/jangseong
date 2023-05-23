@@ -390,9 +390,9 @@ else{
     <div class="container" >
         <div id="listaction">
             <div id="add-right">
-                <a  href="list.php" type="button" class="btn btn-warning" >취소</a>
-                <button  type="button" class="btn btn-success" onclick="checkall();">회원 등록 </button>
-                <a type="hidden" href="import.php" class="btn btn-primary">불러오기</a>
+                <a  href="list.php" type="button" class="btn btn-warning btnfix ml" >취소</a>
+                <button  type="button" class="btn btn-success btnfix ms-2" onclick="checkall();">회원 등록 </button>
+                <a type="hidden" href="import.php" class="btn btn-primary btnfix ms-2">불러오기</a>
             </div>
         </div>
     </div>

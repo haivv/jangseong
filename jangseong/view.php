@@ -23,49 +23,49 @@ else{
     
     <script type="text/javascript" > 
 
-            function checkall(){
-                var numofmem = document.getElementById("numofmem").value;
-                if(document.getElementById("myCheck").checked == true)   {
-                    for (var i = 0; i<numofmem; i++){
-						document.getElementById("myCheck"+i).checked = true;                
-					}
+            // function checkall(){
+            //     var numofmem = document.getElementById("numofmem").value;
+            //     if(document.getElementById("myCheck").checked == true)   {
+            //         for (var i = 0; i<numofmem; i++){
+			// 			document.getElementById("myCheck"+i).checked = true;                
+			// 		}
       
-                }
-                else
-                {
-                    for (var j = 0; j<numofmem; j++){
-						document.getElementById("myCheck"+j).checked = false;  
-					}
-                }
-                return false;
-            }
+            //     }
+            //     else
+            //     {
+            //         for (var j = 0; j<numofmem; j++){
+			// 			document.getElementById("myCheck"+j).checked = false;  
+			// 		}
+            //     }
+            //     return false;
+            // }
 			
             
-            function checkCheckbox() {
-                var numofmem = document.getElementById("numofmem").value;
+            // function checkCheckbox() {
+            //     var numofmem = document.getElementById("numofmem").value;
               
 
-                var dem = 0;
-                for (var i = 0; i<numofmem; i++) {
-                    if(document.getElementById("myCheck"+i).checked == true)  {
-                        dem+=1;
-                    }
-                }
-                if(dem==0) {
-                    alert("선택하세요!!!");
-                }
-                else{
-                     let text = "회원을 삭제하겠습니까?";
-                    if (confirm(text) == true) {
-                         document.listmember.submit();
+            //     var dem = 0;
+            //     for (var i = 0; i<numofmem; i++) {
+            //         if(document.getElementById("myCheck"+i).checked == true)  {
+            //             dem+=1;
+            //         }
+            //     }
+            //     if(dem==0) {
+            //         alert("선택하세요!!!");
+            //     }
+            //     else{
+            //          let text = "회원을 삭제하겠습니까?";
+            //         if (confirm(text) == true) {
+            //              document.listmember.submit();
 
-                     } else {
+            //          } else {
                         
-                     }
+            //          }
 
-                }
+            //     }
                
-            }
+            // }
             
     </script>
     
@@ -125,10 +125,10 @@ else{
             <tbody>
             <?php
                 
-               function result_numof_pass($equip){
+               function result_numof_pass($mode){
                 require 'config.php';
                 $memID=$_GET["memID"];
-                $sql = "SELECT * FROM record where memID = '$memID' and equipment='$equip'";
+                $sql = "SELECT * FROM record where memID = '$memID' and mode='$mode'";
                 $result = $conn->query($sql);
                 $pass = 0;
                 while($row2 = $result->fetch_assoc()) {
@@ -140,10 +140,10 @@ else{
                }
 
 
-               function result_numof_test($equip){
+               function result_numof_test($mode){
                 require 'config.php';
                 $memID=$_GET["memID"];
-                $sql = "SELECT * FROM record where memID = '$memID' and equipment='$equip'";
+                $sql = "SELECT * FROM record where memID = '$memID' and mode='$mode'";
                 
                 $result = $conn->query($sql);
                 $coutoftest = 0;
@@ -159,10 +159,10 @@ else{
                }
 
 
-               function count_time($equip){
+               function count_time($mode){
                     require 'config.php';
                     $memID=$_GET["memID"];
-                    $sql = "SELECT * FROM record where memID = '$memID' and equipment='$equip'";
+                    $sql = "SELECT * FROM record where memID = '$memID' and mode='$mode'";
                     $result = $conn->query($sql);
                     $total_time = 0;
                     $time_list=array();
@@ -194,130 +194,151 @@ else{
                     return $total_time_str;
                }
 
-               switch($_SESSION["authority"]){    
-                case 2:                    
+            //    switch($_SESSION["authority"]){    
+            //     case 2:                    
                    
-                    echo "<style>#rowdata2,#rowdata3,#rowdata4,#rowdata5{display:none;}</style>";
-                    break;
-                case "3":         
-                    echo "<style>#rowdata1,#rowdata3,#rowdata4,#rowdata5{display:none;}</style>";
-                    break;
-                case 4:                
-                    echo "<style>#rowdata1,#rowdata2,#rowdata4,#rowdata5{display:none;}</style>";
-                    break;
-                case 5:               
-                    echo "<style>#rowdata1,#rowdata2,#rowdata3,#rowdata5{display:none;}</style>";
-                    break;
-                case 6:                
-                    echo "<style>#rowdata1,#rowdata2,#rowdata3,#rowdata4{display:none;}</style>";
-                    break;
-                default:
-                    echo "<style>#rowdata5,#rowdata2,#rowdata3,#rowdata4{display:none;}</style>";
-                break;
+            //         echo "<style>#rowdata2,#rowdata3,#rowdata4,#rowdata5{display:none;}</style>";
+            //         break;
+            //     case "3":         
+            //         echo "<style>#rowdata1,#rowdata3,#rowdata4,#rowdata5{display:none;}</style>";
+            //         break;
+            //     case 4:                
+            //         echo "<style>#rowdata1,#rowdata2,#rowdata4,#rowdata5{display:none;}</style>";
+            //         break;
+            //     case 5:               
+            //         echo "<style>#rowdata1,#rowdata2,#rowdata3,#rowdata5{display:none;}</style>";
+            //         break;
+            //     case 6:                
+            //         echo "<style>#rowdata1,#rowdata2,#rowdata3,#rowdata4{display:none;}</style>";
+            //         break;
+            //     default:
+            //         echo "<style>#rowdata5,#rowdata2,#rowdata3,#rowdata4{display:none;}</style>";
+            //     break;
 
-            }
+            // }
 
             ?>
                 <tr  id="rowdata1">      
                     <td>&nbsp;</td>
-                    <td >휠형 굴착기</td>
-                    <td>
-                    <?php
-                    echo result_numof_pass("휠형 굴착기");
-                    ?>
-                    </td>
+                    <td >연습</td>
                     <td>
                         <?php
-                            echo result_numof_test("휠형 굴착기");
-                        ?>
-                    </td>
-                    <td>
-                        <?php
-                        echo count_time("휠형 굴착기");
-                        ?>
-                    
-                    </td>        
-                </tr>
-                <tr id="rowdata2">     
-                    <td>&nbsp;</td> 
-                    <td>궤도형 굴착기</td>
-                    <td>
-                        <?php
-                        echo result_numof_pass("궤도형 굴착기");
+                        if(result_numof_pass("연습")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo result_numof_pass("연습"). "회" ;
+                        }
+                        
                         ?>
 
                     </td>
                     <td>    
                         <?php
-                            echo result_numof_test("궤도형 굴착기");
+                         if(result_numof_pass("연습")==0)
+                         {
+                             echo "-";
+                         }
+                         else{
+                            echo result_numof_test("연습"). "회";
+                         }
                         ?>
 
                     </td>
                     <td>
                         <?php
-                        echo count_time("궤도형 굴착기");
+                        if(result_numof_pass("연습")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo count_time("연습");
+                        }
+                        ?>
+                    </td>       
+                </tr>
+                <tr id="rowdata2">     
+                    <td>&nbsp;</td> 
+                    <td>시험</td>
+                    <td>
+                        <?php
+                        if(result_numof_pass("시험")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo result_numof_pass("시험"). "회" ;
+                        }
+                        
+                        ?>
+
+                    </td>
+                    <td>    
+                        <?php
+                         if(result_numof_pass("시험")==0)
+                         {
+                             echo "-";
+                         }
+                         else{
+                            echo result_numof_test("시험"). "회";
+                         }
+                        ?>
+
+                    </td>
+                    <td>
+                        <?php
+                        if(result_numof_pass("시험")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo count_time("시험");
+                        }
                         ?>
                     </td>        
                 </tr>
                 <tr id="rowdata3"> 
                     <td>&nbsp;</td>     
-                    <td>도저</td>
+                    <td>실전</td>
                     <td>
                         <?php
-                        echo result_numof_pass("도저");
+                        if(result_numof_pass("실전")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo result_numof_pass("실전"). "회" ;
+                        }
+                        
                         ?>
+
+                    </td>
+                    <td>    
+                        <?php
+                         if(result_numof_pass("실전")==0)
+                         {
+                             echo "-";
+                         }
+                         else{
+                            echo result_numof_test("실전"). "회";
+                         }
+                        ?>
+
                     </td>
                     <td>
                         <?php
-                            echo result_numof_test("도저");
+                        if(result_numof_pass("실전")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo count_time("실전");
+                        }
                         ?>
-                    </td>
-                    <td>
-                        <?php
-                        echo count_time("도저");
-                        ?>
-                    </td>        
+                    </td>      
                 </tr>
-                <tr id="rowdata4">     
-                    <td>&nbsp;</td> 
-                    <td>로더</td>
-                    <td>
-                        <?php
-                        echo result_numof_pass("로더");
-                        ?>
-                    </td>
-                    <td>
-                        <?php
-                            echo result_numof_test("로더");
-                        ?>
-                    </td>
-                    <td>
-                        <?php
-                        echo count_time("로더");
-                        ?>
-                    </td>        
-                </tr>
-                <tr id="rowdata5">  
-                    <td>&nbsp;</td>
-                    <td>그레이더</td>
-                    <td>
-                        <?php
-                            echo result_numof_pass("그레이더");
-                        ?>
-                    </td>
-                    <td>
-                        <?php
-                            echo result_numof_test("그레이더");
-                        ?>
-                    </td>
-                    <td>
-                        <?php
-                        echo count_time("그레이더");
-                        ?>
-                    </td>          
-                    <?php             
-                    ?>
-                </tr>
+                
             <?php
             
             $conn->close();

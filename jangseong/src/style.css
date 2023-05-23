@@ -236,7 +236,8 @@ button{
     margin-bottom: 32px;
 }
 .firstcol{
-    width: 100px;
+    width: 80px;
+    background: #00B247;
 }
 
 tbody tr{

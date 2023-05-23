@@ -98,11 +98,11 @@ else{
                                         $sqlck1 = "SELECT * FROM member  where memID ='$memID1' ";
                                         $resultck1 = $conn->query($sqlck1);
                                         if ($resultck1->num_rows > 0) {
-                                            echo "군번 ". $memID1. " 존제했다<br>";
+                                            echo "<p style='padding-left: 0px; '> ". $memID1. " 군번은 회원정보에 존재합니다. </p>";
                                         }else{
                                             $sql1 = "INSERT INTO member VALUES (NULL, '$num1','$class1', '$date1', '$memID1', '$name1','');";
                                             $conn->query($sql1);
-                                            echo "군번 ".$memID1. "추가 원료했다!<br>";
+                                            echo "<p style='padding-left: 0px; '> ".$memID1. " 군번을 추가하였습니다. </p>";
                                         }
 
 
@@ -124,11 +124,11 @@ else{
                                             $resultck2 = $conn->query($sqlck2);
                                             if ($resultck2->num_rows > 0) {
                                         
-                                                echo"군번 ". $memID2. " 존제했다<br>";
+                                                echo"<p style='padding-left: 0px; '> ". $memID2. " 군번은 회원정보에 존재합니다. </p>";
                                             }else{
                                                 $sql2 = "INSERT INTO member VALUES (NULL, '$num2','$class2', '$date2', '$memID2', '$name2','');";
                                                 $conn->query($sql2);
-                                                echo "군번 ".$memID2. "추가 원료했다!<br>";
+                                                echo "<p style='padding-left: 0px; '> ".$memID2. " 군번을 추가하였습니다. </p>";
                                             }
                                         
                                         }
@@ -154,11 +154,11 @@ else{
                                         $sqlck3 = "SELECT * FROM member  where memID ='$memID3' ";
                                         $resultck3 = $conn->query($sqlck3);
                                         if ($resultck3->num_rows > 0) {
-                                            echo "군번".$memID3. " 존제했다<br>";
+                                            echo "<p style='padding-left: 0px; '>".$memID3. " 군번은 회원정보에 존재합니다. </p><br>";
                                         }else{
                                             $sql3 = "INSERT INTO member VALUES (NULL, '$num3','$class3', '$date3', '$memID3', '$name3','');";
                                             $conn->query($sql3);
-                                            echo "군번 ".$memID3. "추가 원료했다!<br>";
+                                            echo "<p style='padding-left: 0px; '> ".$memID3. "군번을 추가하였습니다. </p><br>";
                                         }
 
                                     }
@@ -181,11 +181,11 @@ else{
                                         $resultck4 = $conn->query($sqlck4);
                                         if ($resultck4->num_rows > 0) {
 
-                                            echo "군번". $memID4. " 존제했다<br>";
+                                            echo "<p style='padding-left: 0px; '>". $memID4. " 군번은 회원정보에 존재합니다.";
                                         }else{
                                             $sql4 = "INSERT INTO member VALUES (NULL, '$num4','$class4', '$date4', '$memID4', '$name4','');";
                                             $conn->query($sql4);
-                                            echo "군번 ".$memID4. "추가 원료했다!<br>";
+                                            echo "<p style='padding-left: 0px; '> ".$memID4. " 군번을 추가하였습니다. </p>";
                                         }
 
                                     }
@@ -208,11 +208,11 @@ else{
                                         $resultck5 = $conn->query($sqlck5);
                                         if ($resultck5->num_rows > 0) {
 
-                                            echo "군번 ".$memID5. "존제했다<br>";
+                                            echo "<p style='padding-left: 0px; '> ".$memID5. " 군번은 회원정보에 존재합니다.";
                                         }else{
                                             $sql5 = "INSERT INTO member VALUES (NULL, '$num5','$class5', '$date5', '$memID5', '$name5','');";
                                             $conn->query($sql5);
-                                            echo "군번 ".$memID5. "추가 원료했다!<br>";
+                                            echo "<p style='padding-left: 0px; '> ".$memID5. " 군번을 추가하였습니다. </p>";
                                         }
 
                                     }
@@ -234,11 +234,11 @@ else{
                                         $resultck6 = $conn->query($sqlck6);
                                         if ($resultck6->num_rows > 0) {
                                             
-                                            echo "군번 ". $memID6. " 존제했다<br>";
+                                            echo "<p style='padding-left: 0px; '> ". $memID6. " 군번은 회원정보에 존재합니다.<br>";
                                         }else{
                                             $sql6 = "INSERT INTO member VALUES (NULL, '$num6','$class6', '$date6', '$memID6', '$name6','');";
                                             $conn->query($sql6);
-                                            echo "군번 ". $memID6. "추가 원료했다!<br>";
+                                            echo "<p style='padding-left: 0px; '>". $memID6. " 군번을 추가하였습니다. </p>";
                                         }
 
                                     }

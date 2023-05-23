@@ -103,7 +103,12 @@ button{
 
 
 /* list.php */
-
+.btnfix{
+    width: 102px;
+    height: 42px;
+    font-size: 16px;
+    font-weight: 600;
+}
 
 #listaction{
     width: 100%;
@@ -151,18 +156,18 @@ button{
     color: #fff;
     width: 102px;
     height: 42px;
-    margin-right: 12px;
+    margin-right: 10px;
 }
 
 #btnadd{
     background:#00B247;
     width: 102px;
     height: 42px;
-    margin-right: 12px;
+    margin-right: 10px;
     
 }
 #btndownload{
-    margin: 0px;
+    margin-right: 2px;
     width: 102px;
     height: 42px;
 
@@ -196,7 +201,7 @@ button{
     height: 42px;
     border-radius: 6px;
     float: left;
-    margin-right: 11px;
+    margin-right: 12px;
 
 }
 #txtSearch{
@@ -260,7 +265,7 @@ a{
  
 /* list page */
 .listcol{
-    width: 15%;
+    width: 14%;
     
   }
 
@@ -289,3 +294,29 @@ background: red;
 
 
 /* add page */
+
+/* import */
+#importform{
+    margin: auto;
+    width: 440px;
+    min-height: 100px;
+    padding-bottom: 20px;
+    
+}
+#importfile{
+    line-height: 36px;
+   
+    
+    
+}
+#btnimport{
+    width:112px;
+    height: 42px;
+    margin-top: 20px;
+    position: relative;
+    top: -6px;
+    
+}
+#boxcontainer{
+    margin-top: 32px;
+}

@@ -221,7 +221,7 @@ else{
 
                     $result2 = $conn->query($sql2);
                     $num2 = $result2->num_rows;
-                    echo "결과 ".$num2." 명!!!";
+                    echo "검색 결과 ".$num2." 명";
 
                     
                 ?>

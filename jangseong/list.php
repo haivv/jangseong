@@ -1,5 +1,7 @@
 <?php
 session_start();
+header("Cache-Control: no-cache, must-revalidate");
+header("Expires: Sat, 1 Jan 2000 00:00:00 GMT");
 require 'config.php';
 
 if(isset($_POST["user"]))
@@ -209,6 +211,7 @@ else{
                 
 
                 <tr>
+                    
                     <td class="text-center" > <input class="form-check-input justify-content-center checkitem"   type="checkbox" id="myCheck<?php  echo $num;?>" name="mem[]" value="<?php echo $row['id'];?>"></td>
                     <td><?php echo $row['num']; ?></td>
                     <td><?php echo $row['class']; ?></td>

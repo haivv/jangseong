@@ -102,14 +102,14 @@ else{
         <div id="listaction">
             <div id="right">
                 <div id="btnaction">
-                    <button type="button" id="btndelete" class="btn" onclick="checkCheckbox()">회원 삭제</button>
-                    <a href="add.php" type="button" id="btnadd" class="btn btn-success">회원 등록 </a>
-                    <a href="export.php" class="btn btn-primary" id="btndownload">다운로드</a>      
+                    <button type="button" id="btndelete" class="btn btnfix" onclick="checkCheckbox()">회원 삭제</button>
+                    <a href="add.php" type="button" id="btnadd" class="btn btn-success btnfix">회원 등록 </a>
+                    <a href="export.php" class="btn btn-primary btnfix" id="btndownload ">다운로드</a>      
                 </div>
 
                 <form action="search.php" method="post">
                     
-                    <select name="searchoption" id="searchoption">
+                    <select name="searchoption" id="searchoption" class="btnfix">
                         <option value ="name">이름</option>
                         <option value ="kulbon">군번</option>
                     </select>

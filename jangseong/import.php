@@ -58,94 +58,107 @@
         <div id="listaction">
             <div id="right">
                     <div id="add-right"> 
-                        <a  href="list.php" type="button" class="btn btn-warning" >취소</a>
-                        <button  type="button" class="btn btn-success" onclick="checkempty()">회원 등록 </button>
+                        <a  href="list.php" type="button" class="btn btn-warning btnfix" id="btncancel" >취소</a>
+                        <button  type="button" class="btn btn-success btnfix" onclick="checkempty()">회원 등록 </button>
                     </div>
                 </form>    
             </div>
         </div>
-    </div>
+    
+    
     <form method="post" action="" name="" enctype="multipart/form-data">
           
-    <div class="container mt-3">
-            <input type="file" name="excel" required value=""  accept=".xls, .xlsx">
-            <button  type="submit"  name="import" class="btn btn-primary">불러오기</button>
-        </div>
-        
-        <div class="container  mt-3">
-            <table class="table mt-3">
+    <div class="bg-white " id="boxcontainer">
+            
+            <table class="table">
                 <thead class="table-dark">
                 <tr>
-                    <th id="col1"><input class="form-check-input" type="checkbox" id="myCheck" onclick="checkall()"></th>
-                    <th id="col2">기수</th>
-                    <th id="col2">클래스</th>
-                    <th id="col3">입소일</th>
-                    <th id="col4">군번</th>
-                    <th id="col5">이름</th>
+                    <th id="col1">&nbsp;</th>
+                    <th id="col2">&nbsp;</th>
+                    <th id="col2">&nbsp;</th>
+                    <th id="col3">&nbsp;</th>
+                    <th id="col4">&nbsp;</th>
+                    <th id="col5">&nbsp;</th>
                     <th id="col6">&nbsp;</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php
-                require 'config.php';
-                $dem=0;
-                if(isset($_POST["import"])){
-                    $fileName = $_FILES["excel"]["name"];
-                    $fileExtension = explode('.', $fileName);
-                    $fileExtension = strtolower(end($fileExtension));
-                    $newFileName = date("Y.m.d") . " - " . date("h.i.sa") . "." . $fileExtension;
-
-                    $targetDirectory = "uploads/" . $newFileName;
-                    move_uploaded_file($_FILES['excel']['tmp_name'], $targetDirectory);
-
-                    error_reporting(0);
-                    ini_set('display_errors', 0);
-
-                    require 'excelReader/excel_reader2.php';
-                    require 'excelReader/SpreadsheetReader.php';
-
-                    $reader = new SpreadsheetReader($targetDirectory);
-                    
-                    foreach($reader as $key => $row){
-
-                       
-                        $num = $row[1];
-                        $class = $row[2];
-
-                        $date = $row[3];
-                        $newdate = date('d-m-yy', strtotime($date));
-                        $memID = $row[4];
-                        $name = $row[5];
-
-                        
-                        $sql = "INSERT INTO member VALUES (NULL, '$num', '$class', '$date', '$memID', '$name','')";
-						
-                        //$result = $conn->query($sql);
-                        
-                        if ($conn->query($sql) === TRUE) {
-                            echo "군번".$memID."은 추가 성공한다!";
-                          } else {
-                            echo "군번".$memID."은 존재한다! <br>" ;
-                          }
-                       
-                      
-                  
-                 
-                    }
-			//echo "불러오기가 완료되었습니다. <a href='list.php'> 홈 화면으로 돌아갑니다. </a>";
-                }
-                ?>
-            
+                
+                
                 </tbody>
                 
             </table>
-            
-        </div>
-        </form>
+
+                
+            <div id="importform">
+                <input type="file" name="excel" id="importfile" required value=""  accept=".xls, .xlsx">
+                <button  type="submit"  name="import" class="btn btn-primary btnfix" id="btnimport">불러오기</button><br>
+
+
+                <?php
+                        
+                        require 'config.php';
+                        $dem=0;
+                        if(isset($_POST["import"])){
+                            echo "<p style='text-align:center; font-weight:bold; font-size:24px; margin-top:20px;'>경보</p>";
+                            $fileName = $_FILES["excel"]["name"];
+                            $fileExtension = explode('.', $fileName);
+                            $fileExtension = strtolower(end($fileExtension));
+                            $newFileName = date("Y.m.d") . " - " . date("h.i.sa") . "." . $fileExtension;
+
+                            $targetDirectory = "uploads/" . $newFileName;
+                            move_uploaded_file($_FILES['excel']['tmp_name'], $targetDirectory);
+
+                            error_reporting(0);
+                            ini_set('display_errors', 0);
+
+                            require 'excelReader/excel_reader2.php';
+                            require 'excelReader/SpreadsheetReader.php';
+
+                            $reader = new SpreadsheetReader($targetDirectory);
+                            
+                            foreach($reader as $key => $row){
+
+                            
+                                $num = $row[1];
+                                $class = $row[2];
+
+                                $date = $row[3];
+                                $newdate = date('d-m-yy', strtotime($date));
+                                $memID = $row[4];
+                                $name = $row[5];
+                                
+
+                                
+                                $sql = "INSERT INTO member VALUES (NULL, '$num', '$class', '$date', '$memID', '$name','')";
+                                
+                                //$result = $conn->query($sql);
+                                
+                                if ($conn->query($sql) === TRUE) {
+                                    echo "<p style='padding-left: 70px; '>" . $memID." 군번을 추가하였습니다. </p>";
+                                } else {
+                                    echo "<p style='padding-left: 70px; '>" . $memID." 군번은 회원정보에 존재합니다. </p>" ;
+                                }
+                            
+                            
+                        
+                        
+                            }
+                    //echo "불러오기가 완료되었습니다. <a href='list.php'> 홈 화면으로 돌아갑니다. </a>";
+                        }
+                        ?>
+        
+
+            </div>       
+           
+                            
+        
+    </form>
+    </div>
         
        
 
-    
+    </div>  
             
     
 

@@ -142,14 +142,14 @@ else{
         <div id="listaction">
             <div id="right">
                 <div id="btnaction">
-                    <button type="button" id="btndelete" class="btn" onclick="checkCheckbox()">회원 삭제</button>
-                    <a href="add.php" type="button" id="btnadd" class="btn btn-success">회원 등록 </a>
-                    <a href="export.php" class="btn btn-primary" id="btndownload">다운로드</a>      
+                    <button type="button" id="btndelete" class="btn btnfix" onclick="checkCheckbox()">회원 삭제</button>
+                    <a href="add.php" type="button" id="btnadd" class="btn btn-success btnfix">회원 등록 </a>
+                    <a href="export.php" class="btn btn-primary btnfix" id="btndownload">다운로드</a>      
                 </div>
 
                 <form action="search.php" method="post">
                     
-                    <select name="searchoption" id="searchoption">
+                    <select name="searchoption" id="searchoption" class="btnfix">
                         <option value ="name">이름</option>
                         <option value ="kulbon">군번</option>
                     </select>
@@ -175,7 +175,7 @@ else{
                     <th class="listcol">입소일</th>
                     <th class="listcol">군번</th>
                     <th class="listcol">이름</th>
-                    <th class="listcol">&nbsp;</th>
+                    <th >&nbsp;</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -218,7 +218,7 @@ else{
                     <td><?php echo $row['date']; ?></td>
                     <td><?php echo $row['memID']; ?></td>
                     <td><?php echo $row['name']; ?></td>
-                    <td id="cot"><a href="view.php?memID=<?php echo $row['memID']; ?>" class="btn btn-primary" >상세정보</a> <a href="edit.php?id=<?php echo $memberID ?>" class="btn btn-warning" style="color:white" >수정</a></td>
+                    <td id="cot" ><a href="view.php?memID=<?php echo $row['memID']; ?>" class="btn btn-primary btnfix" style="position:relative; left:30px;" >상세정보</a> <a href="edit.php?id=<?php echo $memberID ?>" class="btn btn-warning btnfix" style="color:white; float:right; margin-right:20px; position:relative; top:5px;" >수정</a></td>
                 </tr>
             
                 <?php

@@ -1,3 +1,30 @@
+<?php
+session_start();
+if(isset($_GET["logout"]))
+{
+   session_destroy();
+}
+
+?>
+<script>
+// Check if the browser supports the CacheStorage API
+if ('caches' in window) {
+  // Open the cache storage
+  caches.open('my-cache-name').then(function(cache) {
+    // Clear all caches
+    cache.keys().then(function(cacheNames) {
+      cacheNames.forEach(function(cacheName) {
+        cache.delete(cacheName);
+      });
+    }).then(function() {
+      console.log('Cache successfully deleted!');
+    }).catch(function(error) {
+      console.log('Error deleting cache:', error);
+    });
+  });
+}
+</script>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +40,10 @@
     <link rel="stylesheet" href="src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
+       
+       
+
+
         function checkfile(){
 
                     if(document.getElementById('user').value=="") {
@@ -36,6 +67,16 @@
                 document.flogin.submit();
                 
             }
+
+        document.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            // Execute your code here
+            checkfile();
+        }
+        });
+
+
+        
     </script>
     
 </head>
@@ -53,7 +94,7 @@
                 <span class="error" id ="usererr"> </span>
                 <input type="password" name="pass" id="pass" placeholder="비밀번호를 입력해주세요."  >
                 <span class="error" id ="passerr"> </span>
-                <button type="button" id="send" class="btn btn-dark mt-3" onclick="checkfile();">로그인</button>
+                <button type="button" id="send" class="btn btn-dark mt-3" onclick="checkfile()">로그인</button>
 
             </form>
         

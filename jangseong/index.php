@@ -40,18 +40,14 @@ if ('caches' in window) {
     <link rel="stylesheet" href="src/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>
-       
-       
 
 
         function checkfile(){
-
                     if(document.getElementById('user').value=="") {
                         document.getElementById('usererr').innerHTML="등록되지 않은 ID입니다.";
                          return false;   
                     }
                     else{
-
                         document.getElementById('usererr').innerHTML="";    
                     }   
                     
@@ -60,7 +56,6 @@ if ('caches' in window) {
                         return false;
                     }
                     else{
-                        
                         document.getElementById('passerr').innerHTML="";   
                     }   
 
@@ -75,8 +70,6 @@ if ('caches' in window) {
         }
         });
 
-
-        
     </script>
     
 </head>

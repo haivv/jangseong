@@ -29,10 +29,17 @@ else{
         
 
     </style>
+    <script>
+        // message box
+        function showMessageBox() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+            }
+    </script>
 
 </head>
 
-<body>
+<body onload="showMessageBox()">
     <div class="container">
         <div id="top">
             <h2>회원 등록</h2>
@@ -62,201 +69,209 @@ else{
         
     <div class="container ">
         <div id="main">
-        <table class="table mt-3">
-                    <thead class="table-dark">
-                    <tr>
-                        <th>&nbsp;</th>
-                        <th>&nbsp;</th>
-                        <th >&nbsp;</th>
-                        <th  >&nbsp;</th>
-                        <th >&nbsp;</th>
-                        <th>&nbsp;</th>
-                        <th >&nbsp;</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    
-                    <input type="hidden" id="numofmem" value="<?php  ?>">
-                    
-                    <!-- add 1 -->
-                    <tr?>
+            <table class="table mt-3">
+                        <thead class="table-dark">
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th >&nbsp;</th>
+                            <th  >&nbsp;</th>
+                            <th >&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th >&nbsp;</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         
-                        <td colspan="7" style="text-align:center" >
-                           
-                            <?php
-                                echo "<b style='font-size: 36px;'>공고!</b> <br>";
-                                    require 'config.php';
-
-                                
-                                        $num1 = $_POST["num1"];
-                                        $class1 = $_POST["class1"];
-                                        $date1 = $_POST["date1"];
-                                        $memID1 = $_POST["memID1"];
-                                        $name1 = $_POST["name1"];
-
-
-                                        $sqlck1 = "SELECT * FROM member  where memID ='$memID1' ";
-                                        $resultck1 = $conn->query($sqlck1);
-                                        if ($resultck1->num_rows > 0) {
-                                            echo "<p style='padding-left: 0px; '> ". $memID1. " 군번은 회원정보에 존재합니다. </p>";
-                                        }else{
-                                            $sql1 = "INSERT INTO member VALUES (NULL, '$num1','$class1', '$date1', '$memID1', '$name1','');";
-                                            $conn->query($sql1);
-                                            echo "<p style='padding-left: 0px; '> ".$memID1. " 군번을 추가하였습니다. </p>";
-                                        }
-
-
-                                    // add row 2
-                                
-                                        if(($_POST["num2"]) == ''){
-                                        
-                                            //echo "have not row 2 <br>";
-                                        }
-                                        else
-                                        {
-                                            $num2 = $_POST["num2"];
-                                            $class2 = $_POST["class2"];
-                                            $date2 = $_POST["date2"];
-                                            $memID2 = $_POST["memID2"];
-                                            $name2 = $_POST["name2"];
-                                        
-                                            $sqlck2 = "SELECT * FROM member  where memID ='$memID2' ";
-                                            $resultck2 = $conn->query($sqlck2);
-                                            if ($resultck2->num_rows > 0) {
-                                        
-                                                echo"<p style='padding-left: 0px; '> ". $memID2. " 군번은 회원정보에 존재합니다. </p>";
-                                            }else{
-                                                $sql2 = "INSERT INTO member VALUES (NULL, '$num2','$class2', '$date2', '$memID2', '$name2','');";
-                                                $conn->query($sql2);
-                                                echo "<p style='padding-left: 0px; '> ".$memID2. " 군번을 추가하였습니다. </p>";
-                                            }
-                                        
-                                        }
-                                        
-                                    
-
-
-
-
-                                    // add row 3
-                                    if(($_POST["num3"]) == ''){
-                                        
-                                       // echo "have not row 3 <br>";
-                                    }
-                                    else
-                                    {
-                                        $num3 = $_POST["num3"];
-                                        $class3 = $_POST["class3"];
-                                        $date3 = $_POST["date3"];
-                                        $memID3 = $_POST["memID3"];
-                                        $name3 = $_POST["name3"];
-
-                                        $sqlck3 = "SELECT * FROM member  where memID ='$memID3' ";
-                                        $resultck3 = $conn->query($sqlck3);
-                                        if ($resultck3->num_rows > 0) {
-                                            echo "<p style='padding-left: 0px; '>".$memID3. " 군번은 회원정보에 존재합니다. </p><br>";
-                                        }else{
-                                            $sql3 = "INSERT INTO member VALUES (NULL, '$num3','$class3', '$date3', '$memID3', '$name3','');";
-                                            $conn->query($sql3);
-                                            echo "<p style='padding-left: 0px; '> ".$memID3. "군번을 추가하였습니다. </p><br>";
-                                        }
-
-                                    }
-
-
-                                    // add row 4
-                                    if(($_POST["num4"]) == ''){
-                                        
-                                       // echo "have not row 4 <br>";
-                                    }
-                                    else
-                                    {
-                                        $num4 = $_POST["num4"];
-                                        $class4 = $_POST["class4"];
-                                        $date4 = $_POST["date4"];
-                                        $memID4 = $_POST["memID4"];
-                                        $name4 = $_POST["name4"];
-
-                                        $sqlck4 = "SELECT * FROM member  where memID ='$memID4' ";
-                                        $resultck4 = $conn->query($sqlck4);
-                                        if ($resultck4->num_rows > 0) {
-
-                                            echo "<p style='padding-left: 0px; '>". $memID4. " 군번은 회원정보에 존재합니다.";
-                                        }else{
-                                            $sql4 = "INSERT INTO member VALUES (NULL, '$num4','$class4', '$date4', '$memID4', '$name4','');";
-                                            $conn->query($sql4);
-                                            echo "<p style='padding-left: 0px; '> ".$memID4. " 군번을 추가하였습니다. </p>";
-                                        }
-
-                                    }
-
-
-                                    // add row 5
-                                    if(($_POST["num5"]) == ''){
-                                        
-                                        //echo "have not row 5 <br>";
-                                    }
-                                    else
-                                    {
-                                        $num5 = $_POST["num5"];
-                                        $class5 = $_POST["class5"];
-                                        $date5 = $_POST["date5"];
-                                        $memID5 = $_POST["memID5"];
-                                        $name5 = $_POST["name5"];
-
-                                        $sqlck5 = "SELECT * FROM member  where memID ='$memID5' ";
-                                        $resultck5 = $conn->query($sqlck5);
-                                        if ($resultck5->num_rows > 0) {
-
-                                            echo "<p style='padding-left: 0px; '> ".$memID5. " 군번은 회원정보에 존재합니다.";
-                                        }else{
-                                            $sql5 = "INSERT INTO member VALUES (NULL, '$num5','$class5', '$date5', '$memID5', '$name5','');";
-                                            $conn->query($sql5);
-                                            echo "<p style='padding-left: 0px; '> ".$memID5. " 군번을 추가하였습니다. </p>";
-                                        }
-
-                                    }
-
-
-                                    // add row 6
-                                    if(($_POST["num6"]) ==''){
-                                        //echo "have not row 6 <br>";
-                                    }
-                                    else
-                                    {
-                                        $num6 = $_POST["num6"];
-                                        $class6 = $_POST["class6"];
-                                        $date6 = $_POST["date6"];
-                                        $memID6 = $_POST["memID6"];
-                                        $name6 = $_POST["name6"];
-
-                                        $sqlck6 = "SELECT * FROM member  where memID ='$memID6' ";
-                                        $resultck6 = $conn->query($sqlck6);
-                                        if ($resultck6->num_rows > 0) {
-                                            
-                                            echo "<p style='padding-left: 0px; '> ". $memID6. " 군번은 회원정보에 존재합니다.<br>";
-                                        }else{
-                                            $sql6 = "INSERT INTO member VALUES (NULL, '$num6','$class6', '$date6', '$memID6', '$name6','');";
-                                            $conn->query($sql6);
-                                            echo "<p style='padding-left: 0px; '>". $memID6. " 군번을 추가하였습니다. </p>";
-                                        }
-
-                                    }
-
-                                    
-                                    ?>
-                                    
-                                </td>
+                        <input type="hidden" id="numofmem" value="<?php  ?>">
+                        
+                        <!-- add 1 -->
+                        <tr>
+                        
+                            <td colspan="7" style="text-align:center" >
+                            </td>
                             </tr>
-                            
-                
-                
-                </tbody>
-                
+    
+                    </tbody>
+                    
             </table>
+                           
+            <div id='myModal' class='modal'>
+                <div class='modal-content1'>
+                    
+                    
+                        <?php
+                            
+                                require 'config.php';
+
+                    
+                                    $num1 = $_POST["num1"];
+                                    $class1 = $_POST["class1"];
+                                    $date1 = $_POST["date1"];
+                                    $memID1 = $_POST["memID1"];
+                                    $name1 = $_POST["name1"];
+
+
+                                    $sqlck1 = "SELECT * FROM member  where memID ='$memID1' ";
+                                    $resultck1 = $conn->query($sqlck1);
+                                    if ($resultck1->num_rows > 0) {
+                                        echo "<p> ". $memID1. " 군번은 회원정보에 존재합니다. </p> <br>";
+                                        
+
+                                       
+                                    }else{
+                                        $sql1 = "INSERT INTO member VALUES (NULL, '$num1','$class1', '$date1', '$memID1', '$name1','');";
+                                        $conn->query($sql1);
+                                        echo "<p > ".$memID1. " 군번을 추가하였습니다. </p> <br>";
+                                    }
+
+
+                                // add row 2
+                            
+                                    if(($_POST["num2"]) == ''){
+                                    
+                                        //echo "have not row 2 <br>";
+                                    }
+                                    else
+                                    {
+                                        $num2 = $_POST["num2"];
+                                        $class2 = $_POST["class2"];
+                                        $date2 = $_POST["date2"];
+                                        $memID2 = $_POST["memID2"];
+                                        $name2 = $_POST["name2"];
+                                    
+                                        $sqlck2 = "SELECT * FROM member  where memID ='$memID2' ";
+                                        $resultck2 = $conn->query($sqlck2);
+                                        if ($resultck2->num_rows > 0) {
+                                    
+                                            echo"<p>". $memID2. " 군번은 회원정보에 존재합니다. </p> <br>";
+                                            
+                                        }else{
+                                            $sql2 = "INSERT INTO member VALUES (NULL, '$num2','$class2', '$date2', '$memID2', '$name2','');";
+                                            $conn->query($sql2);
+                                            echo "<p> ".$memID2. " 군번을 추가하였습니다. </p> <br>";
+                                        }
+                                    
+                                    }
+
+                                // add row 3
+                                if(($_POST["num3"]) == ''){
+                                    
+                                    // echo "have not row 3 <br>";
+                                }
+                                else
+                                {
+                                    $num3 = $_POST["num3"];
+                                    $class3 = $_POST["class3"];
+                                    $date3 = $_POST["date3"];
+                                    $memID3 = $_POST["memID3"];
+                                    $name3 = $_POST["name3"];
+
+                                    $sqlck3 = "SELECT * FROM member  where memID ='$memID3' ";
+                                    $resultck3 = $conn->query($sqlck3);
+                                    if ($resultck3->num_rows > 0) {
+                                        echo "<p >".$memID3. " 군번은 회원정보에 존재합니다. </p> <br>";
+                                    }else{
+                                        $sql3 = "INSERT INTO member VALUES (NULL, '$num3','$class3', '$date3', '$memID3', '$name3','');";
+                                        $conn->query($sql3);
+                                        echo "<p > ".$memID3. "군번을 추가하였습니다. </p> <br>";
+                                    }
+
+                                }
+
+
+                                // add row 4
+                                if(($_POST["num4"]) == ''){
+                                    
+                                    // echo "have not row 4 <br>";
+                                }
+                                else
+                                {
+                                    $num4 = $_POST["num4"];
+                                    $class4 = $_POST["class4"];
+                                    $date4 = $_POST["date4"];
+                                    $memID4 = $_POST["memID4"];
+                                    $name4 = $_POST["name4"];
+
+                                    $sqlck4 = "SELECT * FROM member  where memID ='$memID4' ";
+                                    $resultck4 = $conn->query($sqlck4);
+                                    if ($resultck4->num_rows > 0) {
+
+                                        echo "<p >". $memID4. " 군번은 회원정보에 존재합니다.</p> <p>";
+                                    }else{
+                                        $sql4 = "INSERT INTO member VALUES (NULL, '$num4','$class4', '$date4', '$memID4', '$name4','');";
+                                        $conn->query($sql4);
+                                        echo "<p > ".$memID4. " 군번을 추가하였습니다. </p> <br>";
+                                    }
+
+                                }
+
+
+                                // add row 5
+                                if(($_POST["num5"]) == ''){
+                                    
+                                    //echo "have not row 5 <br>";
+                                }
+                                else
+                                {
+                                    $num5 = $_POST["num5"];
+                                    $class5 = $_POST["class5"];
+                                    $date5 = $_POST["date5"];
+                                    $memID5 = $_POST["memID5"];
+                                    $name5 = $_POST["name5"];
+
+                                    $sqlck5 = "SELECT * FROM member  where memID ='$memID5' ";
+                                    $resultck5 = $conn->query($sqlck5);
+                                    if ($resultck5->num_rows > 0) {
+
+                                        echo "<p>".$memID5. " 군번은 회원정보에 존재합니다.</p> <br>";
+                                    }else{
+                                        $sql5 = "INSERT INTO member VALUES (NULL, '$num5','$class5', '$date5', '$memID5', '$name5','');";
+                                        $conn->query($sql5);
+                                        echo "<p>".$memID5. " 군번을 추가하였습니다. </p> <br>";
+                                    }
+
+                                }
+
+
+                                // add row 6
+                                if(($_POST["num6"]) ==''){
+                                    //echo "have not row 6 <br>";
+                                }
+                                else
+                                {
+                                    $num6 = $_POST["num6"];
+                                    $class6 = $_POST["class6"];
+                                    $date6 = $_POST["date6"];
+                                    $memID6 = $_POST["memID6"];
+                                    $name6 = $_POST["name6"];
+
+                                    $sqlck6 = "SELECT * FROM member  where memID ='$memID6' ";
+                                    $resultck6 = $conn->query($sqlck6);
+                                    if ($resultck6->num_rows > 0) {
+                                        
+                                        echo "<p>". $memID6. " 군번은 회원정보에 존재합니다.</p> <br>";
+                                    }else{
+                                        $sql6 = "INSERT INTO member VALUES (NULL, '$num6','$class6', '$date6', '$memID6', '$name6','');";
+                                        $conn->query($sql6);
+                                        echo "<p>". $memID6. " 군번을 추가하였습니다. </p> <br>";
+                                    }
+
+                                }
+
+                                
+                                ?>
+                                  <br>
+                                <p id="lastchild">
+                                        <a  href='list.php'  class='btn btn-dark btnfix'>회원조회</a> <a  href='add.php'  class='btn btn-dark btnfix'>취소</a>     
+                                </p> 
+                            </div>
+                    </div>
+                </div>
+            </div>                     
 
     </div>
-</div>
+
 
 </form>
 

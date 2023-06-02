@@ -23,49 +23,16 @@ else{
     
     <script type="text/javascript" > 
 
-            // function checkall(){
-            //     var numofmem = document.getElementById("numofmem").value;
-            //     if(document.getElementById("myCheck").checked == true)   {
-            //         for (var i = 0; i<numofmem; i++){
-			// 			document.getElementById("myCheck"+i).checked = true;                
-			// 		}
-      
-            //     }
-            //     else
-            //     {
-            //         for (var j = 0; j<numofmem; j++){
-			// 			document.getElementById("myCheck"+j).checked = false;  
-			// 		}
-            //     }
-            //     return false;
-            // }
-			
-            
-            // function checkCheckbox() {
-            //     var numofmem = document.getElementById("numofmem").value;
-              
+           // message box
+           function showMessageBox() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+            }
 
-            //     var dem = 0;
-            //     for (var i = 0; i<numofmem; i++) {
-            //         if(document.getElementById("myCheck"+i).checked == true)  {
-            //             dem+=1;
-            //         }
-            //     }
-            //     if(dem==0) {
-            //         alert("선택하세요!!!");
-            //     }
-            //     else{
-            //          let text = "회원을 삭제하겠습니까?";
-            //         if (confirm(text) == true) {
-            //              document.listmember.submit();
-
-            //          } else {
-                        
-            //          }
-
-            //     }
-               
-            // }
+            function hideMessageBox() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+            }
             
     </script>
     
@@ -73,6 +40,17 @@ else{
 </head>
 
 <body>
+      <!-- logout message -->
+    <div id='myModal' class='modal'>
+        <div class='modal-content'>
+          <p>로그아웃 하시겠습니까?</p>
+          <p> 
+                <a  href='index.php?logout' type='button' class='btn btn-dark btnfix'>확인</a>
+                <a  href='#' onclick='hideMessageBox();'  class='btn btn-dark btnfix'>취소</a>
+          </p>
+        </div>
+    </div>       
+
     <div class="container"  >
         <div id="top">
             <h2>
@@ -99,7 +77,7 @@ else{
                     <a id="home" href="list.php">
                         <img src="imgs/home.png">
                     </a>
-                    <a id="logtext" href="logout.php" >로그아웃</a>
+                    <a id="logtext" href="#" onclick="showMessageBox()" >로그아웃</a>
                 </div>
             </div>
         </div>

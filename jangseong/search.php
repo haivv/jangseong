@@ -59,19 +59,43 @@ else{
                     }
                 }
                 if(dem==0) {
-                    alert("선택하세요!!!");
+
+                    var modal = document.getElementById("selmes");
+                    modal.style.display = "block";
+                    //alert("선택하세요!!!");
                 }
                 else{
-                     let text = "회원을 삭제하겠습니까?";
-                    if (confirm(text) == true) {
-                         document.listmember.submit();
-
-                     } else {
-                        
-                     }
+                    var modal = document.getElementById("delmes");
+                    modal.style.display = "block";
 
                 }
                
+            }
+
+
+            function hidecheckCheckbox(){
+                var modal = document.getElementById("selmes");
+                modal.style.display = "none";
+            }
+            function hidedeleteCheckbox(){
+                var modal = document.getElementById("delmes");
+                modal.style.display = "none";
+            }
+            function deleteSubmit(){
+                document.listmember.submit();
+
+            }
+
+
+            // message box
+            function showMessageBox() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+            }
+
+            function hideMessageBox() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
             }
     </script>
     
@@ -79,6 +103,39 @@ else{
 </head>
 
 <body>
+      <!-- logout message -->
+    <div id='myModal' class='modal'>
+        <div class='modal-content'>
+          <p>로그아웃 하시겠습니까?</p>
+          <p>
+                <a  href='index.php?logout' type='button' class='btn btn-dark btnfix'>확인</a>
+                <a  href='#' onclick='hideMessageBox();'  class='btn btn-dark btnfix'>취소</a>
+          </p>
+        </div>
+    </div>
+
+    <!-- select item to delete message -->
+    <div id='selmes' class='modal'>
+        <div class='modal-content'>
+          <p>삭제할 회원을 선택해주세요!</p>
+          <p>
+                <a  href='#' onclick='hidecheckCheckbox();'  class='btn btn-dark btnfix'>확인</a>
+                
+          </p>
+        </div>
+    </div>
+
+    <!-- delete message -->
+    <div id='delmes' class='modal'>
+        <div class='modal-content'>
+          <p>회원을 삭제하겠습니까?</p>
+          <p>
+                <a  href='#' onclick='hidedeleteCheckbox();'  class='btn btn-dark btnfix'>취소</a>
+                <a  href='#'  onclick='deleteSubmit();' type='button' class='btn btn-dark btnfix'>확인</a>
+                
+          </p>
+        </div>
+    </div>
 
     <div class="container"  >
         <div id="top">
@@ -89,7 +146,7 @@ else{
                     <a id="home" href="list.php">
                         <img src="imgs/home.png">
                     </a>
-                    <a id="logtext" href="logout.php" >로그아웃</a>
+                    <a id="logtext" href="#" onclick="showMessageBox()" >로그아웃</a>
                 </div>
             </div>
         </div>
@@ -132,98 +189,29 @@ else{
         if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
         }
+ 
+            
         $txtsearch = $_POST["txtsearch"];
-/*
-                        $per_page_record = 6;  // Number of entries to show in a page.
+        if(!isset($_POST['searchoption'])) {
+            $sql = "SELECT * FROM member where name like '%$txtsearch%'  ";
+        } else {
+            $selected = $_POST['searchoption'];  
+            if($selected=="name"){
+                $sql = "SELECT * FROM member where name like '%$txtsearch%' ";
+            }
+            else{
+                $sql = "SELECT * FROM member where memID ='$txtsearch'  ";
+            }
+        }
 
-        // Look for a GET variable page if not found default is 1.
-
-                        if (isset($_GET["page"])) {
-                            $page  = $_GET["page"];
-                        }
-                        else {
-                            $page=1;
-                        }
-                        $start_from = ($page-1) * $per_page_record;
-
-                        //get search option
-                        if((!isset($_POST["searchoption"])||$_POST["searchoption"]=="")&&(!isset($_POST["txtsearch"]) ||$_POST["txtsearch"]==""))
-                        {
-                            $sql = "SELECT * FROM member ORDER BY id DESC LIMIT $start_from, $per_page_record ";
-                        }
-                        else{
-                            $txtsearch = $_POST["txtsearch"];
-                            if(!isset($_POST['searchoption'])) {
-                            $sql = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
-                            } else {
-                                $selected = $_POST['searchoption'];
-
-
-                                if($_POST["txtsearch"] ==""){
-                                    $sql = "SELECT * FROM member ORDER BY id DESC LIMIT $start_from, $per_page_record ";
-                                }
-                                else{
-                                    
-                                    if($selected=="name"){
-                                        $sql = "SELECT * FROM member where name ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
-
-                                    }
-                                    else if($selected=="gunbeon"){
-                                        $sql = "SELECT * FROM member where memID ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
-                                    }
-                                    else{
-                                        $sql = "SELECT * FROM member where name='$txtsearch' OR memID ='$txtsearch' ORDER BY id DESC LIMIT $start_from, $per_page_record ";
-                                    }
-
-                                }
-
-                            }
-
-                        }
-
-*/
-                        $sql = "SELECT * FROM member where name like '%$txtsearch%' OR memID ='$txtsearch'";
-
-
-                        if((!isset($_POST["searchoption"])||$_POST["searchoption"]=="")&&(!isset($_POST["txtsearch"]) ||$_POST["txtsearch"]==""))
-                        {
-                            $sql2 = "SELECT * FROM member  ";
-                        }
-                        else{
-                            $txtsearch = $_POST["txtsearch"];
-                            if(!isset($_POST['searchoption'])) {
-                            $sql2 = "SELECT * FROM member where name like '%$txtsearch%' OR memID ='$txtsearch'  ";
-                            } else {
-                                $selected = $_POST['searchoption'];
-
-
-                                if($_POST["txtsearch"] ==""){
-                                    $sql2 = "SELECT * FROM member ";
-                                }
-                                else{
-                                    
-                                    if($selected=="name"){
-                                        $sql2 = "SELECT * FROM member where name like '%$txtsearch%'  ";
-
-                                    }
-                                    else if($selected=="gunbeon"){
-                                        $sql2 = "SELECT * FROM member where memID ='$txtsearch'  ";
-                                    }
-                                    else{
-                                        $sql2 = "SELECT * FROM member where name like '%$txtsearch%' OR memID ='$txtsearch'  ";
-                                    }
-
-                                }
-
-                            }
-
-                        }
+                
+                    
 
                     // Get num of result
 
-                    $result2 = $conn->query($sql2);
-                    $num2 = $result2->num_rows;
-                    echo "검색 결과 ".$num2." 명";
+                    $result = $conn->query($sql);
+                    $num = $result->num_rows;
+                    echo "검색 결과 ".$num." 명";
 
                     
                 ?>
@@ -247,10 +235,6 @@ else{
             </thead>
             <tbody>
             <?php
-
-
-                
-
 
                    
                     $result = $conn->query($sql);
@@ -299,23 +283,7 @@ else{
     </div>
 
 
-    <div    class="container">
-        <ul class="pagination  justify-content-center"  >
     
-            <?php
-
-                $query = "SELECT COUNT(*) FROM member ORDER BY id";
-                $rs_result = mysqli_query($conn, $query);
-                $row = mysqli_fetch_row($rs_result);
-                $total_records = $row[0];
-
-                echo "</br>";
-
-               
-                ?>
-        </ul>
-
-    </div>
 
 
 

@@ -54,22 +54,22 @@ else{
 
 ?>
 <script>
-// Check if the browser supports the CacheStorage API
-if ('caches' in window) {
-  // Open the cache storage
-  caches.open('my-cache-name').then(function(cache) {
-    // Clear all caches
-    cache.keys().then(function(cacheNames) {
-      cacheNames.forEach(function(cacheName) {
-        cache.delete(cacheName);
-      });
-    }).then(function() {
-      console.log('Cache successfully deleted!');
-    }).catch(function(error) {
-      console.log('Error deleting cache:', error);
-    });
-  });
-}
+// // Check if the browser supports the CacheStorage API
+// if ('caches' in window) {
+//   // Open the cache storage
+//   caches.open('my-cache-name').then(function(cache) {
+//     // Clear all caches
+//     cache.keys().then(function(cacheNames) {
+//       cacheNames.forEach(function(cacheName) {
+//         cache.delete(cacheName);
+//       });
+//     }).then(function() {
+//       console.log('Cache successfully deleted!');
+//     }).catch(function(error) {
+//       console.log('Error deleting cache:', error);
+//     });
+//   });
+// }
 </script>
 
 <!DOCTYPE html>
@@ -87,9 +87,6 @@ if ('caches' in window) {
     <link rel="stylesheet" href="src/style.css">
     
     <script type="text/javascript" > 
-        
-
-
             function checkall(){
                 var numofmem = document.getElementById("numofmem").value;
                 if(document.getElementById("myCheck").checked == true)   {
@@ -118,25 +115,40 @@ if ('caches' in window) {
                     }
                 }
                 if(dem==0) {
-                    alert("삭제할 회원을 선택해주세요!");
+                    var modal = document.getElementById("selmes");
+                    modal.style.display = "block";
+                    
                 }
                 else{
-                     let text = "회원을 삭제하겠습니까?";
-                    if (confirm(text) == true) {
-                         document.listmember.submit();
+                    var modal = document.getElementById("delmes");
+                    modal.style.display = "block";
 
-                     } else {
-                        
-                     }
 
                 }
                
             }
-            function checklogout() {
-                if (confirm("로그아웃 하시겠습니까?")) {
-                    window.location.assign('index.php?logout');
-                    
-                }
+            function hidecheckCheckbox(){
+                var modal = document.getElementById("selmes");
+                modal.style.display = "none";
+            }
+            function hidedeleteCheckbox(){
+                var modal = document.getElementById("delmes");
+                modal.style.display = "none";
+            }
+            function deleteSubmit(){
+                document.listmember.submit();
+
+            }
+
+			// message box
+            function showMessageBox() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+            }
+
+            function hideMessageBox() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
             }
     </script>
     
@@ -144,6 +156,39 @@ if ('caches' in window) {
 </head>
 
 <body>
+	 <!-- logout message -->
+    <div id='myModal' class='modal'>
+        <div class='modal-content'>
+          <p>로그아웃 하시겠습니까?</p>
+          <p>    
+                <a  href='index.php?logout' type='button' class='btn btn-dark btnfix'>확인</a>
+                <a  href='#' onclick='hideMessageBox();'  class='btn btn-dark btnfix'>취소</a>
+          </p>
+        </div>
+    </div>
+    
+     <!-- select item to delete message -->
+     <div id='selmes' class='modal'>
+        <div class='modal-content'>
+          <p>삭제할 회원을 선택해주세요!</p>
+          <p>
+                <a  href='#' onclick='hidecheckCheckbox();'  class='btn btn-dark btnfix'>확인</a>
+                
+          </p>
+        </div>
+    </div>
+
+    <!-- delete message -->
+    <div id='delmes' class='modal'>
+        <div class='modal-content'>
+          <p>회원을 삭제하겠습니까?</p>
+          <p>
+                <a  href='#'  onclick='deleteSubmit();' type='button' class='btn btn-dark btnfix'>확인</a>
+                <a  href='#' onclick='hidedeleteCheckbox();'  class='btn btn-dark btnfix'>취소</a>
+                
+          </p>
+        </div>
+    </div>
 
     <div class="container"  >
         <div id="top">
@@ -154,7 +199,7 @@ if ('caches' in window) {
                     <a id="home" href="list.php">
                         <img src="imgs/home.png">
                     </a>
-                    <a id="logtext" href="#" onclick="checklogout()" >로그아웃</a>
+                    <a id="logtext" href="#" onclick="showMessageBox();" >로그아웃</a>
                 </div>
             </div>
         </div>

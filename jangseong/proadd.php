@@ -263,7 +263,7 @@ else{
                                 ?>
                                   <br>
                                 <p id="lastchild">
-                                        <a  href='list.php'  class='btn btn-dark btnfix'>회원조회</a> <a  href='add.php'  class='btn btn-dark btnfix'>취소</a>     
+                                        <a  href='list.php'  class='btn btn-dark btnfix'>회원조회</a> <a  href='add.php'  class='btn btn-dark btnfix'>회원 등록</a>     
                                 </p> 
                             </div>
                     </div>

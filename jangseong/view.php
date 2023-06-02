@@ -19,7 +19,8 @@ else{
     <script src="src/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="src/bootstrap.min.css">
     <link rel="stylesheet" href="src/style.css">
-
+    
+    
     <script type="text/javascript" > 
 
            // message box
@@ -200,38 +201,38 @@ else{
                     <td >연습</td>
                     <td>
                         <?php
-                        if(result_numof_pass("연습")==0)
-                        {
+                        if(result_numof_test("연습")==0){
                             echo "-";
                         }
                         else{
-                            echo result_numof_pass("연습"). "회" ;
+                            echo result_numof_pass("연습"). "회";
                         }
+                       
                         
                         ?>
 
                     </td>
                     <td>    
                         <?php
-                         if(result_numof_pass("연습")==0)
-                         {
-                             echo "-";
-                         }
-                         else{
-                            echo result_numof_test("연습"). "회";
-                         }
+                            if(result_numof_test("연습")==0){
+                                echo "-";
+                            }
+                            else{
+                                echo result_numof_test("연습"). "회";
+                            }
+                         
                         ?>
 
                     </td>
                     <td>
                         <?php
-                        if(result_numof_pass("연습")==0)
-                        {
-                            echo "-";
-                        }
-                        else{
-                            echo count_time("연습");
-                        }
+                            if(result_numof_test("연습")==0){
+                                echo "-";
+                            }
+                            else{
+                                echo count_time("연습");
+                            }
+                        
                         ?>
                     </td>       
                 </tr>
@@ -240,7 +241,7 @@ else{
                     <td>시험</td>
                     <td>
                         <?php
-                        if(result_numof_pass("시험")==0)
+                        if(result_numof_test("시험")==0)
                         {
                             echo "-";
                         }
@@ -253,7 +254,7 @@ else{
                     </td>
                     <td>    
                         <?php
-                         if(result_numof_pass("시험")==0)
+                         if(result_numof_test("시험")==0)
                          {
                              echo "-";
                          }
@@ -265,7 +266,7 @@ else{
                     </td>
                     <td>
                         <?php
-                        if(result_numof_pass("시험")==0)
+                        if(result_numof_test("시험")==0)
                         {
                             echo "-";
                         }
@@ -280,7 +281,7 @@ else{
                     <td>실전</td>
                     <td>
                         <?php
-                        if(result_numof_pass("실전")==0)
+                        if(result_numof_test("실전")==0)
                         {
                             echo "-";
                         }
@@ -293,7 +294,7 @@ else{
                     </td>
                     <td>    
                         <?php
-                         if(result_numof_pass("실전")==0)
+                         if(result_numof_test("실전")==0)
                          {
                              echo "-";
                          }
@@ -305,7 +306,7 @@ else{
                     </td>
                     <td>
                         <?php
-                        if(result_numof_pass("실전")==0)
+                        if(result_numof_test("실전")==0)
                         {
                             echo "-";
                         }

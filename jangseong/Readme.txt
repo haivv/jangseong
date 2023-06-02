@@ -1,5 +1,5 @@
 # jangseong
 
 login account
-username: admin
+username: member1
 password: 123

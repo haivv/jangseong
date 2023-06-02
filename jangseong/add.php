@@ -13,7 +13,7 @@ else{
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>회원 조회</title>
+    <title>회원 등록</title>
     <link rel="stylesheet" href="style.css">
     
     <script src="src/bootstrap.bundle.min.js"></script>
@@ -32,82 +32,101 @@ else{
     
     <script type="text/javascript" > 
           
-          function checknum(rowNo, strNum){
+          function checknum(rowNo,strNum){
             var num = document.getElementById(strNum).value;
             var titlemess = document.getElementById("mess");
+            var firstNum = num.substr(0,2);
+            var lastNum = num.substr(3,2);
+            var countOfCheck = 0;
                 if(num.length != 5 ){
-                    var modal = document.getElementById("checkNumMes");
+                   var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML  = rowNo + "행에서 기수 양식은 'yy-xx' 입니다.";
-                    return false;
+                    titlemess.innerHTML  = rowNo + "행에서 기수 양식은 'yy-xx' 입니다. <br>";
+                    countOfCheck += 1;
 
                 }
                 if(num.substr(2,1) != '-'){
 
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML = rowNo + "행에서 기수 양식은 'yy-xx' 입니다.";
-                    return false;
+                    titlemess.innerHTML = rowNo + "행에서 기수 양식은 'yy-xx' 입니다. <br>";
+                    countOfCheck += 1;
                 }
-                var firstNum = num.substr(0,2);
-                var lastNum = num.substr(3,2);
-               
                 if(isNaN(firstNum)){
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML = rowNo + "행에서 기수의 처음 2자는 숫자여야 합니다.";
-                    return false;
+                    titlemess.innerHTML = rowNo + "행에서 기수의 처음 2자는 숫자여야 합니다.<br>";
+                    countOfCheck += 1;
                 }
                 if(isNaN(lastNum)){
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML = rowNo + "행에서 기수의 마지막 2자는 숫자여야 합니다.";
-                    return false;
-
+                    titlemess.innerHTML = rowNo + "행에서 기수의 마지막 2자는 숫자여야 합니다.<br>";
+                    countOfCheck += 1;
                 }
+
+                if(countOfCheck > 0){
+                    return false;
+                }
+                else{ 
+                    return true;
+                }
+
           }
 
           function checkmemID(rowNo, strMemID){
             var memID = document.getElementById(strMemID).value;
             var titlemess = document.getElementById("mess");
-                if(memID.length != 9 ){
+            var firstmemID = memID.substr(0,2);
+            var lastmemID = memID.substr(3,6);
+            var countOfCheck = 0;
+            
+                if (memID.length != 9 ){
+                   
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML  = rowNo + "행에서 군번 양식은 'yy-xxxxxx' 입니다.";
-                    return false;
+                    titlemess.innerHTML  = rowNo + "행에서 군번 양식은 'yy-xxxxxx' 입니다. <br>";
+                    countOfCheck += 1;
                     
                 }
                 if(memID.substr(2,1) != '-'){
 
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML = rowNo + "행에서 군번 양식은 'yy-xxxxxx' 입니다.";
-                    return false;
+                    titlemess.innerHTML = rowNo + "행에서 군번 양식은 'yy-xxxxxx' 입니다.<br>";
+                    countOfCheck += 1;
                 }
-                var firstmemID = memID.substr(0,2);
-                var lastmemID = memID.substr(3,6);
-               
+                
                 if(isNaN(firstmemID)){
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML = rowNo + "행에서 군번의 처음 2자는 숫자여야 합니다.";
-                    return false;
+                    titlemess.innerHTML = rowNo + "행에서 군번의 처음 2자는 숫자여야 합니다.<br>";
+                    countOfCheck += 1;
                 }
                 if(isNaN(lastmemID)){
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML = rowNo + "행에서 군번의 마지막 6자는 숫자여야 합니다.";
-                    return false;
-
+                    titlemess.innerHTML = rowNo + "행에서 군번의 마지막 6자는 숫자여야 합니다.<br>";
+                    countOfCheck += 1;
                 }
+                if(countOfCheck > 0){
+                    return false;
+                }
+                else{ 
+                    return true;
+                }
+                
+                
           }
 
         function checkrow1(){
+            var countOfCheck1 = 0;
             var count = 0;
             for(var q=1;q<6;q++){
                 if(document.getElementById('str'+q).value=="") {
                     document.getElementById('str'+q+'err').innerHTML="필수";
                     count++;
+                    countOfCheck1 +=1;
                 }
                 else{
                     document.getElementById('str'+q+'err').innerHTML="";
@@ -122,7 +141,7 @@ else{
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
                     titlemess.innerHTML  = rowNo + "행에서 기수 양식은 'yy-xx' 입니다.";
-                    return false;
+                    countOfCheck1 +=1;
 
                 }
                 if(num.substr(2,1) != '-'){
@@ -130,7 +149,7 @@ else{
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
                     titlemess.innerHTML = rowNo + "행에서 기수 양식은 'yy-xx' 입니다.";
-                    return false;
+                    countOfCheck1 +=1;
                 }
                 var firstNum = num.substr(0,2);
                 var lastNum = num.substr(3,2);
@@ -139,13 +158,13 @@ else{
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
                     titlemess.innerHTML = rowNo + "행에서 기수의 처음 2자는 숫자여야 합니다.";
-                    return false;
+                    countOfCheck1 +=1;
                 }
                 if(isNaN(lastNum)){
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
                     titlemess.innerHTML = rowNo + "행에서 기수의 마지막 2자는 숫자여야 합니다.";
-                    return false;
+                    countOfCheck1 +=1;
 
                 }
             }
@@ -153,9 +172,10 @@ else{
 
 
             if(document.getElementById('str4').value != ""){
-
-
                 checkmemID(1,'str4');
+                if(checkmemID(1,'str4')==false){
+                    countOfCheck1 +=1;
+                }
             }
             
             var str11 = document.getElementById('str1').value;
@@ -172,12 +192,14 @@ else{
                 var modal = document.getElementById("checkNumMes");
                 modal.style.display = "block";
                 titlemess.innerHTML = ("1행에서  기수와 입소일이 군번과 일치하지 않습니다!");
-
+                countOfCheck1 +=1;
 
                 document.fadd.num1.focus();
-                return false;
+                
             }
-            else if(count>0){
+           // alert("count of check 1:"+ countOfCheck1);
+
+            if(countOfCheck1 > 0){
                 return false;
             }
             else{
@@ -185,21 +207,22 @@ else{
             }
         }
 
-        //row 2
-        function checkrow2()
+       //row 2
+       function checkrow2()
         {
+            var countOfCheck2 = 0;
             var str21 = document.getElementById('str6').value;    
             var str22 = document.getElementById('str7').value;
             var str23 = document.getElementById('str8').value;  
             var str24 = document.getElementById('str9').value;
             var str25 = document.getElementById('str10').value;
             
-
             var firstStr21 = str21.slice(0, 2);
             var firstStr23 = str23.slice(2, 4);
             var firstStr24 = str24.slice(0, 2);
+            
             var count = 0;
-            for(var q=6 ; q<11 ; q++){
+            for(var q=6 ; q<11; q++){
                 if(document.getElementById('str'+q).value=="")
                 {
                     count ++;
@@ -209,67 +232,42 @@ else{
             
             if(count != 5){
                 
-                var dem = 0;
+                //var dem = 0;
                 for(var q=6 ; q<11 ;q ++){
                     
                     if(document.getElementById('str'+q).value=="") {
                         document.getElementById('str'+q+'err').innerHTML="필수";   
-                        dem++;                         
+                        countOfCheck2 += 1;                         
                     }
                     else{
                         document.getElementById('str'+q+'err').innerHTML="";                
                     } 
                 }
-                //check 기수
+
+                var titlemess = document.getElementById("mess");
                 if(document.getElementById('str6').value != ""){
-                        var rowNo=2;
-                        var num = document.getElementById('str6').value;
-                        var titlemess = document.getElementById("mess");
-                        if(num.length != 5 ){
-                            var modal = document.getElementById("checkNumMes");
-                            modal.style.display = "block";
-                            titlemess.innerHTML  = rowNo + "행에서 기수 양식은 'yy-xx' 입니다.";
-                            return false;
-
-                        }
-                        if(num.substr(2,1) != '-'){
-
-                            var modal = document.getElementById("checkNumMes");
-                            modal.style.display = "block";
-                            titlemess.innerHTML = rowNo + "행에서 기수 양식은 'yy-xx' 입니다.";
-                            return false;
-                        }
-                        var firstNum = num.substr(0,2);
-                        var lastNum = num.substr(3,2);
-                    
-                        if(isNaN(firstNum)){
-                            var modal = document.getElementById("checkNumMes");
-                            modal.style.display = "block";
-                            titlemess.innerHTML = rowNo + "행에서 기수의 처음 2자는 숫자여야 합니다.";
-                            return false;
-                        }
-                        if(isNaN(lastNum)){
-                            var modal = document.getElementById("checkNumMes");
-                            modal.style.display = "block";
-                            titlemess.innerHTML = rowNo + "행에서 기수의 마지막 2자는 숫자여야 합니다.";
-                            return false;
-
-                        }
+                    checknum(2,'str6');
+                    if(checknum(2,'str6')==false){
+                        countOfCheck2 += 1 ;  
                     }
-
                 }
-                //check  군번
+
                 if(document.getElementById('str9').value != ""){
                     checkmemID(2,'str9');
+                    if(checkmemID(2,'str9')==false){
+                        countOfCheck2 += 1;  
+                    }
                 }
                 
                 if((firstStr21 != firstStr23 )||(firstStr21 != firstStr24 ))
                 {
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML = ("2행에서  기수와 입소일이 군번과 일치하지 않습니다!");
+                    titlemess.innerHTML = ("2행에서  기수와 입소일이 군번과 일치하지 않습니다.");
+                    countOfCheck2 += 1;  
                 }
-                else if (dem>0){
+               // alert("count check row 2: "+countOfCheck2);
+                if (countOfCheck2 > 0){
                     return false;
                 }
                 else{
@@ -278,64 +276,75 @@ else{
             } //end if(count != 5){
             else{
                 
-                for(var q=5;q<11;q++){
+                for(var q=6;q<11;q++){
                     document.getElementById('str'+q+'err').innerHTML="";
-                    return true;
                 }
-             
+                return true;
+            }   
+        
+            
         }
 
-
         //row 3
-        function checkrow3()
+       function checkrow3()
         {
+            var countOfCheck3 = 0;
             var str31 = document.getElementById('str11').value;    
             var str32 = document.getElementById('str12').value;
             var str33 = document.getElementById('str13').value;  
             var str34 = document.getElementById('str14').value;
             var str35 = document.getElementById('str15').value;
             
-
             var firstStr31 = str31.slice(0, 2);
             var firstStr33 = str33.slice(2, 4);
             var firstStr34 = str34.slice(0, 2);
+            
             var count = 0;
-            for(var q=11 ; q<16 ; q++){
+            for(var q=11 ; q<16; q++){
                 if(document.getElementById('str'+q).value=="")
                 {
                     count ++;
                 }
-
             }
             
             if(count != 5){
                 
-                var dem = 0;
+                //var dem = 0;
                 for(var q=11 ; q<16 ;q ++){
                     
                     if(document.getElementById('str'+q).value=="") {
                         document.getElementById('str'+q+'err').innerHTML="필수";   
-                        dem++;                         
+                        countOfCheck3 += 1;                         
                     }
                     else{
                         document.getElementById('str'+q+'err').innerHTML="";                
                     } 
                 }
 
+                var titlemess = document.getElementById("mess");
                 if(document.getElementById('str11').value != ""){
                     checknum(3,'str11');
+                    if(checknum(3,'str11')==false){
+                        countOfCheck3 += 1 ;  
+                    }
                 }
 
                 if(document.getElementById('str14').value != ""){
                     checkmemID(3,'str14');
+                    if(checkmemID(3,'str14')==false){
+                        countOfCheck3 += 1;  
+                    }
                 }
                 
                 if((firstStr31 != firstStr33 )||(firstStr31 != firstStr34 ))
                 {
-                    alert("3행에서 기수와 입소일이 군번과 일치하지 않습니다!");  
-                    return false;
+                    var modal = document.getElementById("checkNumMes");
+                    modal.style.display = "block";
+                    titlemess.innerHTML = ("3행에서  기수와 입소일이 군번과 일치하지 않습니다.");
+                    countOfCheck3 += 1;  
                 }
-                else if (dem>0){
+               // alert("count check row 2: "+countOfCheck3);
+                if (countOfCheck3 > 0){
                     return false;
                 }
                 else{
@@ -346,62 +355,72 @@ else{
                 
                 for(var q=11;q<16;q++){
                     document.getElementById('str'+q+'err').innerHTML="";
-                    return true;
                 }
+                return true;
             }   
+        
+            
         }
-
-            //row 4
-            function checkrow4()
+     //row 4
+     function checkrow4()
         {
+            var countOfCheck4 = 0;
             var str41 = document.getElementById('str16').value;    
             var str42 = document.getElementById('str17').value;
             var str43 = document.getElementById('str18').value;  
             var str44 = document.getElementById('str19').value;
             var str45 = document.getElementById('str20').value;
             
-
             var firstStr41 = str41.slice(0, 2);
             var firstStr43 = str43.slice(2, 4);
             var firstStr44 = str44.slice(0, 2);
+            
             var count = 0;
-            for(var q=16 ; q<21 ; q++){
+            for(var q=16 ; q<21; q++){
                 if(document.getElementById('str'+q).value=="")
                 {
                     count ++;
                 }
-
             }
             
             if(count != 5){
                 
-                var dem = 0;
+                //var dem = 0;
                 for(var q=16 ; q<21 ;q ++){
                     
                     if(document.getElementById('str'+q).value=="") {
                         document.getElementById('str'+q+'err').innerHTML="필수";   
-                        dem++;                         
+                        countOfCheck4 += 1;                         
                     }
                     else{
                         document.getElementById('str'+q+'err').innerHTML="";                
                     } 
                 }
 
+                var titlemess = document.getElementById("mess");
                 if(document.getElementById('str16').value != ""){
                     checknum(4,'str16');
+                    if(checknum(4,'str16')==false){
+                        countOfCheck4 += 1 ;  
+                    }
                 }
 
                 if(document.getElementById('str19').value != ""){
                     checkmemID(4,'str19');
+                    if(checkmemID(4,'str19')==false){
+                        countOfCheck4 += 1;  
+                    }
                 }
-                
                 
                 if((firstStr41 != firstStr43 )||(firstStr41 != firstStr44 ))
                 {
-                    alert("4행에서 기수와 입소일이 군번과 일치하지 않습니다!");  
-                    return false;
+                    var modal = document.getElementById("checkNumMes");
+                    modal.style.display = "block";
+                    titlemess.innerHTML = ("4행에서  기수와 입소일이 군번과 일치하지 않습니다.");
+                    countOfCheck4 += 1;  
                 }
-                else if (dem>0){
+                //alert("count check row 4: "+countOfCheck4);
+                if (countOfCheck4 > 0){
                     return false;
                 }
                 else{
@@ -412,60 +431,73 @@ else{
                 
                 for(var q=16;q<21;q++){
                     document.getElementById('str'+q+'err').innerHTML="";
-                    return true;
                 }
+                return true;
             }   
+        
+            
         }
-
+      
         //row 5
         function checkrow5()
         {
+            var countOfCheck5 = 0;
             var str51 = document.getElementById('str21').value;    
             var str52 = document.getElementById('str22').value;
             var str53 = document.getElementById('str23').value;  
             var str54 = document.getElementById('str24').value;
             var str55 = document.getElementById('str25').value;
             
-
             var firstStr51 = str51.slice(0, 2);
             var firstStr53 = str53.slice(2, 4);
             var firstStr54 = str54.slice(0, 2);
+            
             var count = 0;
-            for(var q=21 ; q<26 ; q++){
+            for(var q=21 ; q<26; q++){
                 if(document.getElementById('str'+q).value=="")
                 {
                     count ++;
                 }
-
             }
             
             if(count != 5){
-                var dem = 0;
+                
+                //var dem = 0;
                 for(var q=21 ; q<26 ;q ++){
+                    
                     if(document.getElementById('str'+q).value=="") {
                         document.getElementById('str'+q+'err').innerHTML="필수";   
-                        dem++;                         
+                        countOfCheck5 += 1;                         
                     }
                     else{
                         document.getElementById('str'+q+'err').innerHTML="";                
                     } 
                 }
-                
+
+                var titlemess = document.getElementById("mess");
                 if(document.getElementById('str21').value != ""){
                     checknum(5,'str21');
+                    if(checknum(5,'str21')==false){
+                        countOfCheck5 += 1 ;  
+                    }
                 }
 
                 if(document.getElementById('str24').value != ""){
                     checkmemID(5,'str24');
+                    if(checkmemID(5,'str24')==false){
+                        countOfCheck5 += 1;  
+                    }
                 }
                 
-
-                if((firstStr51 != firstStr53 ) || (firstStr51 != firstStr54 ))
+                if((firstStr51 != firstStr53 )||(firstStr51 != firstStr54 ))
                 {
-                    alert("5행에서 기수와 입소일이 군번과 일치하지 않습니다!");  
-                    return false;
+                    var modal = document.getElementById("checkNumMes");
+                    modal.style.display = "block";
+                    titlemess.innerHTML = ("5행에서  기수와 입소일이 군번과 일치하지 않습니다.");
+                    countOfCheck5 += 1;  
                 }
-                else if (dem>0){
+                //alert("count check row 5: "+countOfCheck5);
+                if (countOfCheck5 > 0){
                     return false;
                 }
                 else{
@@ -476,58 +508,73 @@ else{
                 
                 for(var q=21;q<26;q++){
                     document.getElementById('str'+q+'err').innerHTML="";
-                    return true;
                 }
+                return true;
             }   
+        
+            
         }
 
         //row 6
         function checkrow6()
         {
+            var countOfCheck6 = 0;
             var str61 = document.getElementById('str26').value;    
             var str62 = document.getElementById('str27').value;
             var str63 = document.getElementById('str28').value;  
             var str64 = document.getElementById('str29').value;
             var str65 = document.getElementById('str30').value;
-
+            
             var firstStr61 = str61.slice(0, 2);
             var firstStr63 = str63.slice(2, 4);
             var firstStr64 = str64.slice(0, 2);
+            
             var count = 0;
-            for(var q=26 ; q<31 ; q++){
+            for(var q=26 ; q<31; q++){
                 if(document.getElementById('str'+q).value=="")
                 {
                     count ++;
                 }
-
             }
-        
+            
             if(count != 5){
-                var count = 0;
-                for(var q=26;q<31;q++){
+                
+                //var dem = 0;
+                for(var q=26 ; q<31 ;q ++){
+                    
                     if(document.getElementById('str'+q).value=="") {
                         document.getElementById('str'+q+'err').innerHTML="필수";   
-                        count++;                         
+                        countOfCheck6 += 1;                         
                     }
                     else{
                         document.getElementById('str'+q+'err').innerHTML="";                
                     } 
                 }
 
+                var titlemess = document.getElementById("mess");
                 if(document.getElementById('str26').value != ""){
                     checknum(6,'str26');
+                    if(checknum(6,'str26')==false){
+                        countOfCheck6 += 1 ;  
+                    }
                 }
 
                 if(document.getElementById('str29').value != ""){
                     checkmemID(6,'str29');
+                    if(checkmemID(6,'str29')==false){
+                        countOfCheck6 += 1;  
+                    }
                 }
                 
                 if((firstStr61 != firstStr63 )||(firstStr61 != firstStr64 ))
                 {
-                    alert("6행에서 기수와 입소일이 군번과 일치하지 않습니다!");  
-                    return false;
+                    var modal = document.getElementById("checkNumMes");
+                    modal.style.display = "block";
+                    titlemess.innerHTML = ("6행에서  기수와 입소일이 군번과 일치하지 않습니다.");
+                    countOfCheck6 += 1;  
                 }
-                else if (count>0){
+              //  alert("count check row 6: "+countOfCheck6);
+                if (countOfCheck6 > 0){
                     return false;
                 }
                 else{
@@ -538,17 +585,24 @@ else{
                 
                 for(var q=26;q<31;q++){
                     document.getElementById('str'+q+'err').innerHTML="";
-                    return true;
                 }
+                return true;
             }   
-        }
         
-    
+            
+        }
+
         function checkall(){
-            // alert(checkrow2());
+            
             if((checkrow1()==true) && (checkrow2()==true) && (checkrow3()==true) && (checkrow4()==true) && (checkrow5()==true) &&(checkrow6()==true)){
+            
                 document.fadd.submit();
                 }
+           
+            // alert("row2:"+ checkrow2());
+            // alert("row3:"+ checkrow3());
+            // alert("row4:"+ checkrow4());
+            
 
         }
 
@@ -584,8 +638,8 @@ else{
         <div class='modal-content'>
           <p>로그아웃 하시겠습니까?</p>
           <p>
-                <a  href='#' onclick='hideMessageBox();'  class='btn btn-dark btnfix'>취소</a>
                 <a  href='index.php?logout' type='button' class='btn btn-dark btnfix'>확인</a>
+                <a  href='#' onclick='hideMessageBox();'  class='btn btn-dark btnfix'>취소</a>
           </p>
         </div>
     </div>
@@ -625,7 +679,7 @@ else{
         <div id="listaction">
             <div id="add-right">
                 <a  href="list.php" type="button" class="btn btn-warning btnfix ml" >취소</a>
-                <button  type="button" class="btn btn-success btnfix ms-2" onclick="checkrow2()">회원 등록 </button>
+                <button  type="button" class="btn btn-success btnfix ms-2" onclick="checkall();">회원 등록 </button>
                 <!-- <button  type="button" class="btn btn-success btnfix ms-2" onclick="checknum();checkall();">회원 등록 </button> -->
                 <a type="hidden" href="import.php" class="btn btn-primary btnfix ms-2">불러오기</a>
             </div>

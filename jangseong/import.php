@@ -20,9 +20,9 @@
           
             line-height: 40px;
         }
-        .modal-content{
+        /* .modal-content{
             
-        }
+        } */
         /* .modal-content p{
             width: 100%;
             
@@ -248,7 +248,6 @@
                                                 echo "<p>".$rowNo."행에서 기수와 입소일이 군번과 일치하지 않습니다.</p>";
                                                 $countCheck +=1;
                                                 
-
                                             }
 
                                             

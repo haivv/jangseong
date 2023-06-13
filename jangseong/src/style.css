@@ -1,0 +1,495 @@
+/*index.php*/
+* {
+	margin: 0;
+}
+
+body {
+	background: #F5F6F9;
+	font-family: 'Pretendard';
+	line-height: 24px !important;
+	font-size: 16px !important;
+}
+
+#top {
+	width: 100%;
+	height: 53px;
+	margin-top: 160px;
+
+}
+
+h2 {
+	width: 500px;
+	float: left;
+
+	font-size: 37.9px;
+	font-weight: 700;
+	line-height: 53.06px;
+	font-family: 'Pretendard';
+	padding-bottom: 32px;
+}
+
+#home {
+	float: right;
+	margin-top: 5px;
+}
+
+#home img {
+	width: 42px;
+}
+
+#logtext {
+	line-height: 53px;
+	float: right;
+	margin-right: 10px;
+	font-weight: bold;
+
+
+}
+
+button {
+	font-size: 16px !important;
+	line-height: 150%;
+	margin: 0px;
+
+
+}
+
+#wrap {
+	width: 450px;
+	height: 500px;
+	margin: auto;
+	padding-top: 8%;
+
+}
+
+#user,
+#pass,
+#send {
+	width: 430px;
+	height: 60px;
+	margin-top: 10px;
+	padding: 5px;
+
+}
+
+#user,
+#pass {
+	border-radius: 5px;
+	border: 1px solid rgba(137, 137, 137, 0.3);
+}
+
+.error {
+	color: #F65633;
+}
+
+
+
+#logo1 {
+	width: 60%;
+	margin: auto;
+
+}
+
+
+#logo1 img {
+	width: 100%;
+	/* margin-top: 240px; */
+}
+
+#form-login {
+	margin: 0px 0px 50px 0px;
+	width: 80%;
+
+}
+
+#logoSimg {
+	width: 200px;
+	margin: auto;
+
+
+}
+
+#logoSimg img {
+	width: 100%;
+	margin-top: 2%;
+}
+
+
+
+
+
+/* list.php */
+.btnfix {
+	width: 102px;
+	height: 42px;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 30px;
+}
+
+#listaction {
+	width: 100%;
+	height: 42px;
+	margin-top: 32px;
+
+
+
+}
+
+
+#numofresult {
+	/* search page only */
+	width: 200px;
+	float: left;
+	height: 40px;
+	background: #00B247;
+}
+
+
+
+#right {
+
+	float: right;
+
+	margin-bottom: 10px;
+
+}
+
+#add-right {
+
+	float: right;
+	margin-bottom: 10px;
+}
+
+#top-right {
+	width: 200px;
+	float: right;
+}
+
+#btnaction {
+	float: left;
+	margin-right: 12px;
+
+}
+
+#btndelete {
+	background: #F32C00;
+	color: #fff;
+	width: 102px;
+	height: 42px;
+	margin-right: 10px;
+}
+
+#btnadd {
+	background: #00B247;
+	width: 102px;
+	height: 42px;
+	margin-right: 10px;
+
+}
+
+#btndownload {
+	margin-right: 2px;
+	width: 102px;
+	height: 42px;
+
+}
+
+#btnSearch {
+	border: 0px;
+	background: none;
+	cursor: pointer;
+	height: 40px;
+	width: 40px;
+	float: right;
+}
+
+#btnSearch img {
+	width: 41px;
+	height: 42;
+	position: relative;
+	top: -2px;
+	left: -5px;
+}
+
+#right form {
+	float: right;
+
+
+}
+
+#searchoption {
+	background: #000;
+	width: 102px;
+	height: 42px;
+	border-radius: 6px;
+	float: left;
+	margin-right: 12px;
+	padding-right: 25px;
+
+}
+
+#txtSearch {
+	width: 235px;
+	height: 42px;
+	border: 1px #898989 solid;
+	float: right;
+	border-radius: 5px;
+	position: relative;
+	left: 1px;
+
+}
+
+
+#txtSearch option {
+	color: #fff;
+}
+
+#right form select {
+	color: #fff;
+	border: 0px;
+	height: 42px;
+	padding: 0px 10px;
+}
+
+
+/* main */
+#main {
+	width: 100%;
+	margin-top: 32px;
+	margin-bottom: 32px;
+}
+
+.firstcol {
+	width: 80px;
+	background: #00B247;
+}
+
+tbody tr {
+	line-height: 52px;
+
+}
+
+a {
+	text-decoration: none;
+}
+
+table {
+	font-size: 16px;
+}
+
+/* paging */
+
+#paging-left {
+	border-radius: 5px 0px 0px 5px;
+
+}
+
+.first-line {
+	height: 32px !important;
+}
+
+
+
+tr {
+	background: #fff;
+}
+
+/* list page */
+.listcol {
+	width: 14%;
+
+}
+
+
+#messagebox {
+	background: red;
+}
+
+/*authority */
+#row1,
+#row2,
+#row3,
+#row4 {
+	display: none !important;
+	background: #00B247 !important;
+}
+
+
+
+.checklist {
+	position: relative;
+	left: -20px;
+}
+
+.checkitem {
+	position: relative;
+	top: 13px;
+	left: -20px;
+}
+
+
+/* add page */
+
+/* import */
+#importform {
+	margin: auto;
+	width: 440px;
+	min-height: 100px;
+	padding-bottom: 20px;
+
+}
+
+#importfile {
+	line-height: 36px;
+
+
+
+}
+
+#btnimport {
+	width: 112px;
+	height: 42px;
+	margin-top: 20px;
+	position: relative;
+	top: -6px;
+
+}
+
+#boxcontainer {
+	margin-top: 32px;
+}
+
+/* sort */
+.btnsort {
+	font-weight: bold;
+	width: 50px;
+	color: #fff;
+	font-size: 20px;
+}
+
+.listcol a {
+	color: white;
+}
+
+
+
+/* mesagebox */
+.myModal {
+	z-index: 100;
+}
+
+.page-item {
+	z-index: 10 !important;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 100;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+	background-color: #f1f1f1;
+	margin: 418px auto;
+	padding-left: 20px;
+	border: 1px solid #ccc;
+	width: 714px;
+	min-height: 244px;
+	position: relative;
+
+}
+
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.modal-content p:nth-child(1) {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 160%;
+
+	bottom: 36px;
+	margin: 36px;
+}
+
+.modal-content p:nth-child(2) {
+	float: right;
+	text-align: right;
+	margin: 50px 40px 0px 0px;
+}
+
+.modal-content p:nth-child(2) a {
+	font-size: 16px;
+	line-height: 160%;
+	font-weight: 400;
+	font-style: normal;
+	width: 130px;
+
+
+}
+
+.modal-content p:last-child {
+	position: absolute;
+	bottom: 36px;
+	right: 36px;
+}
+
+/* import message */
+.modal-content1 {
+	position: relative;
+}
+
+.modal-content1 p:nth-child(1) {
+
+	margin-top: 36px;
+}
+
+.modal-content1 p {
+	margin-left: 10px;
+}
+
+.modal-content1 {
+	background-color: #f1f1f1;
+	margin: 418px auto;
+	padding-left: 20px;
+	border: 1px solid #ccc;
+	width: 714px;
+	min-height: 244px;
+
+}
+
+.modal-content1 p:last-child {
+
+	position: absolute;
+	bottom: 10px;
+	right: 36px;
+}
+
+/* addMesCon */
+#addMesCon {
+	text-align: center;
+	position: relative;
+	top: -30px;
+}
+
+#addMesCon span {
+
+	height: 36px;
+
+}
+
+#MessInfo {
+	display: block;
+}

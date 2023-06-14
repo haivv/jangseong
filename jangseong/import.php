@@ -175,103 +175,137 @@
 
                                         $reader = new SpreadsheetReader($targetDirectory);
                                         $rowNo = 0;
+                                        $countCheck = 0;
                                         foreach($reader as $key => $row){
-                                            $rowNo +=1;
-                                            $countCheck = 0;
-                                            $num = $row[1];
-                                            $strNum = strlen($num);
-                                            
-                                            if($strNum !=5)
-                                            {
-                                                echo "<p>".$rowNo."행에서 기수 양식은 'yy-xx' 입니다.</p>";
-                                                $countCheck +=1;
-                                            }
-                                            
-                                            $firstNum = substr($num, 0, 2);
-                                            $lastNum = substr($num, 3, 2);
-                                            $arrayNum = substr($num, 2, 1);
-
-                                            if($arrayNum != '-'){
-                                                echo "<p>".$rowNo."기수의 세 번째 글자는 '-' 입니다..</p>";
-                                                $countCheck +=1;
-                                            }
-                                            if(is_numeric($firstNum)==false){
-                                                echo "<p>".$rowNo."행에서 기수의 처음 2자는 숫자여야 합니다.</p>";
-                                                $countCheck +=1;
-                                               
-                                            }
-                                            if(is_numeric($lastNum)==false){
-                                                echo "<p>".$rowNo."행에서 기수의 마지막 2자는 숫자여야 합니다.</p>";
-                                                $countCheck +=1;
-                                               
-                                            }
-
-                                            $class = $row[2];
-
-                                            $date = $row[3];
-                                            $newdate = date('d-m-yy', strtotime($date));
-                                            
-                                            $strYear = substr($date, 2, 2);
-
-                                            $memID = $row[4];
-
-                                            $firstMem = substr($memID, 0, 2);
-                                            $lastMem = substr($memID, 3, 6);
-                                            $arrayMem = substr($memID, 2, 1);
-
-                                            $stMem = strlen($memID);
-                                            if($stMem !=9)
-                                            {
-                                                echo "<p>".$rowNo."행에서 군번 양식은 'yy-xxxxxx' 입니다.</p>";
-                                                $countCheck +=1;
-                                            }
-
-                                            if($arrayMem != '-'){
-                                                echo "<p>".$rowNo."군번의 세 번째 글자는 '-' 입니다..</p>";
-                                                $countCheck +=1;
-                                            }
-                                            if(is_numeric($firstMem)==false){
-                                                echo "<p>".$rowNo."행에서 군번의 처음 2자는 숫자여야 합니다.</p>";
-                                                $countCheck +=1;
-                                               
-                                            }
-                                            if(is_numeric($lastMem)==false){
-                                                echo "<p>".$rowNo."행에서 군번의 마지막 6자는 숫자여야 합니다.</p>";
-                                                $countCheck +=1;
-                                               
-                                            }
-
-                                            $name = $row[5];
-                                            
-                                            
-                                            if(($firstNum != $strYear) || ($firstNum != $firstMem)){
-                                                echo "<p>".$rowNo."행에서 기수와 입소일이 군번과 일치하지 않습니다.</p>";
-                                                $countCheck +=1;
+                                            if(($row[1]!="") or($row[2]!="") or($row[3]!="") or($row[4]!="")){
+                                                $rowNo +=1;
                                                 
-
-                                            }
-
-                                            
-                                            if($countCheck == 0){
-                                                $sql = "INSERT INTO member VALUES (NULL, '$num', '$class', '$date', '$memID', '$name','')";
+                                                $num = $row[1];
+                                                $strNum = strlen($num);
                                                 
-                                                //$result = $conn->query($sql);
-                                                
-                                                if ($conn->query($sql) === TRUE) {
-                                                    echo "<p>" . $memID." 군번을 추가하였습니다. </p>";
-                                                } else {
-                                                    echo "<p>" . $memID." 군번은 회원정보에 존재합니다. </p>" ;
+                                                if($strNum !=5)
+                                                {
+                                                    echo "<p>".$rowNo."행에서 기수 양식은 'yy-xx' 입니다.</p>";
+                                                    $countCheck +=1;
                                                 }
-                                            }   
+                                                
+                                                $firstNum = substr($num, 0, 2);
+                                                $lastNum = substr($num, 3, 2);
+                                                $arrayNum = substr($num, 2, 1);
+
+                                                if($arrayNum != '-'){
+                                                    echo "<p>".$rowNo."행에서 기수의 세 번째 글자는 '-' 입니다..</p>";
+                                                    $countCheck +=1;
+                                                }
+                                                if(is_numeric($firstNum)==false){
+                                                    echo "<p>".$rowNo."행에서 기수의 처음 2자는 숫자여야 합니다.</p>";
+                                                    $countCheck +=1;
+                                                
+                                                }
+                                                if(is_numeric($lastNum)==false){
+                                                    echo "<p>".$rowNo."행에서 기수의 마지막 2자는 숫자여야 합니다.</p>";
+                                                    $countCheck +=1;
+                                                
+                                                }
+
+                                                $class = $row[2];
+
+                                                $date = $row[3];
+                                                //$newdate = date('d-m-yy', strtotime($date));
+                                                
+                                                $strYear = substr($date, 2, 2);
+
+                                                $memID = $row[4];
+
+                                                $firstMem = substr($memID, 0, 2);
+                                                $lastMem = substr($memID, 3, 6);
+                                                $arrayMem = substr($memID, 2, 1);
+
+                                                $stMem = strlen($memID);
+                                                if($stMem !=9)
+                                                {
+                                                    echo "<p>".$rowNo."행에서 군번 양식은 'yy-xxxxxx' 입니다.</p>";
+                                                    $countCheck +=1;
+                                                }
+
+                                                if($arrayMem != '-'){
+                                                    echo "<p>".$rowNo."군번의 세 번째 글자는 '-' 입니다..</p>";
+                                                    $countCheck +=1;
+                                                }
+                                                if(is_numeric($firstMem)==false){
+                                                    echo "<p>".$rowNo."행에서 군번의 처음 2자는 숫자여야 합니다.</p>";
+                                                    $countCheck +=1;
+                                                
+                                                }
+                                                if(is_numeric($lastMem)==false){
+                                                    echo "<p>".$rowNo."행에서 군번의 마지막 6자는 숫자여야 합니다.</p>";
+                                                    $countCheck +=1;
+                                                
+                                                }
+
+                                                $name = $row[5];
+                                                
+                                                
+                                                if(($firstNum != $strYear) || ($firstNum != $firstMem)){
+                                                    echo "<p>".$rowNo."행에서 기수와 입소일이 군번과 일치하지 않습니다.</p>";
+                                                    $countCheck +=1;
+                                                    
+
+                                                }
+
+                                            }//end if row excel empty
+                                              
                                             
                                            // $rowNo ++;
-                                        }
+                                        }//end check
+
+                                        
+                                        if($countCheck == 0){
+                                            foreach($reader as $key => $row){  
+                                                $num = $row[1];
+                                                $class = $row[2];
+                                                $date = $row[3];
+                                                $memID = $row[4];
+                                                $name = $row[5];
+
+                                                if(($row[1]!="") or($row[2]!="") or($row[3]!="") or($row[4]!="")){
+
+                                                    
+                                                    $sqlCheck = "SELECT * FROM member WHERE memID = '$memID'";
+                                                    $resultCheck = mysqli_query($conn, $sqlCheck);
+                                                    $numOfcheck = mysqli_num_rows($resultCheck);
+                                                    if($numOfcheck == 0){
+                                                        $sql = "INSERT INTO member VALUES (NULL, '$num', '$class', '$date', '$memID', '$name','')";   
+                                                        if($result = mysqli_query($conn, $sql)){
+                                                            echo "<p>" . $memID." 군번을 추가하였습니다. </p>"; 
+                                                        }
+                                                        else{
+                                                            echo "<p>" . $memID." 군번은 회원정보에 존재합니다. </p>" ;
+                                                        }
+                                                    }else{
+                                                        echo "<p>" . $memID." 군번은 회원정보에 존재합니다. </p>" ;
+                                                    }
+                                                    
+                                                    //echo $numOfcheck;
+                                                    // $sql = "INSERT INTO member VALUES (NULL, '$num', '$class', '$date', '$memID', '$name','')";    
+                                                    // //$result = $conn->query($sql);
+                                                    // try {
+                                                    //     $result=$conn->query($sql);
+                                                        
+                                                    //     echo "<p>" . $memID." 군번을 추가하였습니다. </p>";
+                                                    // } catch(Exception $e) {
+                                                    //     echo "<p>" . $memID." 군번은 회원정보에 존재합니다. </p>" ;
+                                                    // }
+                                                    }
+                                                }
+                                        } 
+
                                     ?>
-                                    <br>
                                     
-                                    <p id="lastchild">
-                                        <a  href='list.php'  class='btn btn-dark btnfix'>회원조회</a> <a  href='import.php'  class='btn btn-dark btnfix'>취소</a>     
-                                    </p> 
+                                        <p id="lastchild">
+                                            <a  href='list.php'  class='btn btn-dark btnfix'>회원조회</a> <a  href='import.php'  class='btn btn-dark btnfix'>취소</a>     
+                                        </p> 
+                                    
                                 </div>
                             
                                 </div> 

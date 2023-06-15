@@ -120,7 +120,7 @@ else{
 
                                        
                                     }else{
-                                        $sql1 = "INSERT INTO member VALUES (NULL, '$num1','$class1', '$date1', '$memID1', '$name1','');";
+                                        $sql1 = "INSERT INTO member VALUES (NULL, '$num1','$class1', '$date1', '$memID1', '$name1');";
                                         $conn->query($sql1);
                                         echo "<p > ".$memID1. " 군번을 추가하였습니다. </p> <br>";
                                     }
@@ -147,7 +147,7 @@ else{
                                             echo"<p>". $memID2. " 군번은 회원정보에 존재합니다. </p> <br>";
                                             
                                         }else{
-                                            $sql2 = "INSERT INTO member VALUES (NULL, '$num2','$class2', '$date2', '$memID2', '$name2','');";
+                                            $sql2 = "INSERT INTO member VALUES (NULL, '$num2','$class2', '$date2', '$memID2', '$name2');";
                                             $conn->query($sql2);
                                             echo "<p> ".$memID2. " 군번을 추가하였습니다. </p> <br>";
                                         }
@@ -172,7 +172,7 @@ else{
                                     if ($resultck3->num_rows > 0) {
                                         echo "<p >".$memID3. " 군번은 회원정보에 존재합니다. </p> <br>";
                                     }else{
-                                        $sql3 = "INSERT INTO member VALUES (NULL, '$num3','$class3', '$date3', '$memID3', '$name3','');";
+                                        $sql3 = "INSERT INTO member VALUES (NULL, '$num3','$class3', '$date3', '$memID3', '$name3');";
                                         $conn->query($sql3);
                                         echo "<p > ".$memID3. "군번을 추가하였습니다. </p> <br>";
                                     }
@@ -199,7 +199,7 @@ else{
 
                                         echo "<p >". $memID4. " 군번은 회원정보에 존재합니다.</p> <p>";
                                     }else{
-                                        $sql4 = "INSERT INTO member VALUES (NULL, '$num4','$class4', '$date4', '$memID4', '$name4','');";
+                                        $sql4 = "INSERT INTO member VALUES (NULL, '$num4','$class4', '$date4', '$memID4', '$name4');";
                                         $conn->query($sql4);
                                         echo "<p > ".$memID4. " 군번을 추가하였습니다. </p> <br>";
                                     }
@@ -226,7 +226,7 @@ else{
 
                                         echo "<p>".$memID5. " 군번은 회원정보에 존재합니다.</p> <br>";
                                     }else{
-                                        $sql5 = "INSERT INTO member VALUES (NULL, '$num5','$class5', '$date5', '$memID5', '$name5','');";
+                                        $sql5 = "INSERT INTO member VALUES (NULL, '$num5','$class5', '$date5', '$memID5', '$name5');";
                                         $conn->query($sql5);
                                         echo "<p>".$memID5. " 군번을 추가하였습니다. </p> <br>";
                                     }
@@ -252,7 +252,7 @@ else{
                                         
                                         echo "<p>". $memID6. " 군번은 회원정보에 존재합니다.</p> <br>";
                                     }else{
-                                        $sql6 = "INSERT INTO member VALUES (NULL, '$num6','$class6', '$date6', '$memID6', '$name6','');";
+                                        $sql6 = "INSERT INTO member VALUES (NULL, '$num6','$class6', '$date6', '$memID6', '$name6');";
                                         $conn->query($sql6);
                                         echo "<p>". $memID6. " 군번을 추가하였습니다. </p> <br>";
                                     }

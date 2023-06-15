@@ -275,7 +275,7 @@
                                                     $resultCheck = mysqli_query($conn, $sqlCheck);
                                                     $numOfcheck = mysqli_num_rows($resultCheck);
                                                     if($numOfcheck == 0){
-                                                        $sql = "INSERT INTO member VALUES (NULL, '$num', '$class', '$date', '$memID', '$name','')";   
+                                                        $sql = "INSERT INTO member VALUES (NULL, '$num', '$class', '$date', '$memID', '$name')";   
                                                         if($result = mysqli_query($conn, $sql)){
                                                             echo "<p>" . $memID." 군번을 추가하였습니다. </p>"; 
                                                         }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 14, 2023 at 08:10 AM
+-- Generation Time: Jun 15, 2023 at 08:09 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -118,8 +118,7 @@ ALTER TABLE `authority`
 -- Indexes for table `member`
 --
 ALTER TABLE `member`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `memID` (`memID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `record`

@@ -278,15 +278,15 @@ else{
                 </tr>
                 <tr id="rowdata3"> 
                     <td>&nbsp;</td>     
-                    <td>실전</td>
+                    <td>자율주행</td>
                     <td>
                         <?php
-                        if(result_numof_test("실전")==0)
+                        if(result_numof_test("자율주행")==0)
                         {
                             echo "-";
                         }
                         else{
-                            echo result_numof_pass("실전"). "회" ;
+                            echo result_numof_pass("자율주행"). "회" ;
                         }
                         
                         ?>
@@ -294,24 +294,24 @@ else{
                     </td>
                     <td>    
                         <?php
-                         if(result_numof_test("실전")==0)
+                         if(result_numof_test("자율주행")==0)
                          {
                              echo "-";
                          }
                          else{
-                            echo result_numof_test("실전"). "회";
+                            echo result_numof_test("자율주행"). "회";
                          }
                         ?>
 
                     </td>
                     <td>
                         <?php
-                        if(result_numof_test("실전")==0)
+                        if(result_numof_test("자율주행")==0)
                         {
                             echo "-";
                         }
                         else{
-                            echo count_time("실전");
+                            echo count_time("자율주행");
                         }
                         ?>
                     </td>      

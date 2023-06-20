@@ -57,7 +57,7 @@ else{
                 <?php
                 $memID = $_GET["memID"];
             // echo $memID;
-                echo $_SESSION["authority"];
+                //echo $_SESSION["authority"];
                 require 'config.php';
                 if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
@@ -177,9 +177,9 @@ else{
                    
                     echo "<style>#rowdata3{display:none;}</style>";
                     break;
-            //     case "3":         
-            //         echo "<style>#rowdata1,#rowdata3,#rowdata4,#rowdata5{display:none;}</style>";
-            //         break;
+                case 3:                    
+                    echo "<style>#rowdata3{display:none;}</style>";
+                    break;
             //     case 4:                
             //         echo "<style>#rowdata1,#rowdata2,#rowdata4,#rowdata5{display:none;}</style>";
             //         break;

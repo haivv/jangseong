@@ -316,6 +316,46 @@ else{
                         ?>
                     </td>      
                 </tr>
+                <tr id="rowdata4"> 
+                    <td>&nbsp;</td>     
+                    <td>자율작업</td>
+                    <td>
+                        <?php
+                        if(result_numof_test("자율작업")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo result_numof_pass("자율작업"). "회" ;
+                        }
+                        
+                        ?>
+
+                    </td>
+                    <td>    
+                        <?php
+                         if(result_numof_test("자율작업")==0)
+                         {
+                             echo "-";
+                         }
+                         else{
+                            echo result_numof_test("자율작업"). "회";
+                         }
+                        ?>
+
+                    </td>
+                    <td>
+                        <?php
+                        if(result_numof_test("자율작업")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo count_time("자율작업");
+                        }
+                        ?>
+                    </td>      
+                </tr>
                 
             <?php
             

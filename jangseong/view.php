@@ -57,7 +57,7 @@ else{
                 <?php
                 $memID = $_GET["memID"];
             // echo $memID;
-            //echo $_SESSION["authority"];
+                echo $_SESSION["authority"];
                 require 'config.php';
                 if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
@@ -172,11 +172,11 @@ else{
                     return $total_time_str;
                }
 
-            //    switch($_SESSION["authority"]){    
-            //     case 2:                    
+               switch($_SESSION["authority"]){    
+                case 2:                    
                    
-            //         echo "<style>#rowdata2,#rowdata3,#rowdata4,#rowdata5{display:none;}</style>";
-            //         break;
+                    echo "<style>#rowdata3{display:none;}</style>";
+                    break;
             //     case "3":         
             //         echo "<style>#rowdata1,#rowdata3,#rowdata4,#rowdata5{display:none;}</style>";
             //         break;
@@ -193,7 +193,7 @@ else{
             //         echo "<style>#rowdata5,#rowdata2,#rowdata3,#rowdata4{display:none;}</style>";
             //     break;
 
-            // }
+            }
 
             ?>
                 <tr  id="rowdata1">      

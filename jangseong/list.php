@@ -38,14 +38,23 @@ else{
 
 if(!isset($_SESSION["login"]))
 {
-    echo "
-    <div id='messagebox'>
-    <script>
-    alert('관리자 권한이 없는 계정입니다!');
-    window.location.assign('index.php');
-    </script>
+?>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="src/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="src/bootstrap.min.css">
+    <link rel="stylesheet" href="src/style.css">
+    <div  id='loginfail' class='modal' style="display:block !important">
+        <div class='modal-content'>
+          <p>관리자 권한이 없는 계정입니다!</p>
+          <p>
+                <a  href='index.php' onclick='hideMessLogin();'  class='btn btn-dark btnfix'>확인</a>
+                
+          </p>
+        </div>
     </div>
-    ";
+   
+    <?php
     
     //header('location: index.php');
 }
@@ -53,23 +62,7 @@ else{
 
 
 ?>
-<script>
-// // Check if the browser supports the CacheStorage API
-// if ('caches' in window) {
-//   // Open the cache storage
-//   caches.open('my-cache-name').then(function(cache) {
-//     // Clear all caches
-//     cache.keys().then(function(cacheNames) {
-//       cacheNames.forEach(function(cacheName) {
-//         cache.delete(cacheName);
-//       });
-//     }).then(function() {
-//       console.log('Cache successfully deleted!');
-//     }).catch(function(error) {
-//       console.log('Error deleting cache:', error);
-//     });
-//   });
-// }
+
 </script>
 
 <!DOCTYPE html>
@@ -150,12 +143,30 @@ else{
             var modal = document.getElementById("myModal");
             modal.style.display = "none";
             }
+
+            //login failed
+            
+            function hideMessLogin() {
+            var modal = document.getElementById("loginfail");
+            modal.style.display = "none";
+            }
     </script>
     
 
 </head>
 
 <body>
+    <!--login failed -->
+    <div id='loginfail' class='modal'>
+        <div class='modal-content'>
+          <p>관리자 권한이 없는 계정입니다!</p>
+          <p>
+                <a  href='index.php' onclick='hideMessLogin();'  class='btn btn-dark btnfix'>확인</a>
+                
+          </p>
+        </div>
+    </div>
+
 	 <!-- logout message -->
     <div id='myModal' class='modal'>
         <div class='modal-content'>

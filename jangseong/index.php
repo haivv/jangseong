@@ -69,12 +69,18 @@ if ('caches' in window) {
             checkfile();
         }
         });
+		
+		 window.history.forward();
+		function noBack()
+		{
+			window.history.forward();
+		}
 
     </script>
     
 </head>
 
-<body style="background:#363F50;">
+<body style="background:#363F50;" onLoad="noBack();" onpageshow="if (event.persisted) noBack();">
     <div id="wrap">
         <div id="logo1">
             <img src="imgs/military-logo.png" alt="">

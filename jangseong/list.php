@@ -150,12 +150,19 @@ else{
             var modal = document.getElementById("loginfail");
             modal.style.display = "none";
             }
+			
+			
+			window.history.forward();
+			function noBack()
+			{
+				window.history.forward();
+			}
     </script>
     
 
 </head>
 
-<body>
+<body onLoad="noBack();" onpageshow="if (event.persisted) noBack();">
     <!--login failed -->
     <div id='loginfail' class='modal'>
         <div class='modal-content'>

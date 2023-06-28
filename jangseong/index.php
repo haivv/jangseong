@@ -4,7 +4,10 @@ if(isset($_GET["logout"]))
 {
    session_destroy();
 }
-
+if(isset($_SESSION["login"])){
+    header("Location:list.php");
+    exit();
+}
 ?>
 <script>
 // Check if the browser supports the CacheStorage API
@@ -70,11 +73,12 @@ if ('caches' in window) {
         }
         });
 		
-		 window.history.forward();
-		function noBack()
-		{
-			window.history.forward();
-		}
+		window.addEventListener("pageshow", function(event) {
+            if (event.persisted) {
+           
+            window.location.href = "index.php";
+            }
+        });
 
     </script>
     

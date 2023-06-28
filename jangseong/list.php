@@ -152,11 +152,24 @@ else{
             }
 			
 			
-			window.history.forward();
-			function noBack()
-			{
-				window.history.forward();
-			}
+			// window.history.forward();
+			// function noBack()
+			// {
+			// 	window.history.forward();
+			// }
+            
+            // window.onpageshow = function(event) {
+            // if (event.persisted) {
+            //     location.reload();
+            // }
+            // };
+            window.addEventListener("pageshow", function(event) {
+                if (event.persisted) {
+                // Điều hướng trang PHP
+            // window.location.href = "list.php";
+                alert("back buttom");
+                }
+            });
     </script>
     
 

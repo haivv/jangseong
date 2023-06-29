@@ -158,7 +158,8 @@ else{
                 var str3 = document.getElementById('str4').value;
                 var firstStr3 = str3.slice(0, 2);
 
-                if((firstStr1 != firstStr2) || (firstStr1 != firstStr3) )
+                //if((firstStr1 != firstStr2) || (firstStr1 != firstStr3) )
+                if((firstStr1 != firstStr2))
                 {
                     //alert("기수와 입소일이 군번과 일치하지 않습니다!");
                     var modal = document.getElementById("myModal1");
@@ -225,7 +226,7 @@ else{
     <!--check year message-->
     <div id='myModal1' class='modal'>
         <div class='modal-content'>
-          <p>기수와 입소일이 군번과 일치하지 않습니다!</p>
+          <p>기수와 입소일이 일치하지 않습니다!</p>
           <p>
                 <a  href='#' onclick='hideMessageBoxYear();'  class='btn btn-dark btnfix'>확인</a>
           </p>

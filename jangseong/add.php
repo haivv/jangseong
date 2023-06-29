@@ -184,14 +184,16 @@ else{
             var str12 = document.getElementById('str3').value;
             var firstStr12 = str12.slice(2, 4);
             
-            var str13 = document.getElementById('str4').value;
-            var firstStr13 = str13.slice(0, 2);
+            // var str13 = document.getElementById('str4').value;
+            // var firstStr13 = str13.slice(0, 2);
             
-            if((firstStr11 != firstStr12 )||(firstStr11 != firstStr13 ))
+            //if((firstStr11 != firstStr12 )||(firstStr11 != firstStr13 ))
+            if((firstStr11 != firstStr12 ))
             {
                 var modal = document.getElementById("checkNumMes");
                 modal.style.display = "block";
-                titlemess.innerHTML = ("1행에서  기수와 입소일이 군번과 일치하지 않습니다!");
+                //titlemess.innerHTML = ("1행에서  기수와 입소일이 군번과 일치하지 않습니다!");
+                titlemess.innerHTML = ("1행에서  기수와 입소일이 일치하지 않습니다!");
                 countOfCheck1 +=1;
 
                 document.fadd.num1.focus();
@@ -259,11 +261,12 @@ else{
                     }
                 }
                 
-                if((firstStr21 != firstStr23 )||(firstStr21 != firstStr24 ))
+                //if((firstStr21 != firstStr23 )||(firstStr21 != firstStr24 ))
+                if((firstStr21 != firstStr23 ))
                 {
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML = ("2행에서  기수와 입소일이 군번과 일치하지 않습니다.");
+                    titlemess.innerHTML = ("2행에서  기수와 입소일이 일치하지 않습니다.");
                     countOfCheck2 += 1;  
                 }
                // alert("count check row 2: "+countOfCheck2);
@@ -336,11 +339,12 @@ else{
                     }
                 }
                 
-                if((firstStr31 != firstStr33 )||(firstStr31 != firstStr34 ))
+                //if((firstStr31 != firstStr33 )||(firstStr31 != firstStr34 ))
+                if((firstStr31 != firstStr33 ))
                 {
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML = ("3행에서  기수와 입소일이 군번과 일치하지 않습니다.");
+                    titlemess.innerHTML = ("3행에서  기수와 입소일이 일치하지 않습니다.");
                     countOfCheck3 += 1;  
                 }
                // alert("count check row 2: "+countOfCheck3);
@@ -412,11 +416,12 @@ else{
                     }
                 }
                 
-                if((firstStr41 != firstStr43 )||(firstStr41 != firstStr44 ))
+                //if((firstStr41 != firstStr43 )||(firstStr41 != firstStr44 ))
+                if((firstStr41 != firstStr43 ))
                 {
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML = ("4행에서  기수와 입소일이 군번과 일치하지 않습니다.");
+                    titlemess.innerHTML = ("4행에서  기수와 입소일이 일치하지 않습니다.");
                     countOfCheck4 += 1;  
                 }
                 //alert("count check row 4: "+countOfCheck4);
@@ -489,7 +494,8 @@ else{
                     }
                 }
                 
-                if((firstStr51 != firstStr53 )||(firstStr51 != firstStr54 ))
+                //if((firstStr51 != firstStr53 )||(firstStr51 != firstStr54 ))
+                if((firstStr51 != firstStr53  ))
                 {
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
@@ -566,11 +572,12 @@ else{
                     }
                 }
                 
-                if((firstStr61 != firstStr63 )||(firstStr61 != firstStr64 ))
+                //if((firstStr61 != firstStr63 )||(firstStr61 != firstStr64 ))
+                if((firstStr61 != firstStr63 ))
                 {
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML = ("6행에서  기수와 입소일이 군번과 일치하지 않습니다.");
+                    titlemess.innerHTML = ("6행에서  기수와 입소일이 일치하지 않습니다.");
                     countOfCheck6 += 1;  
                 }
               //  alert("count check row 6: "+countOfCheck6);

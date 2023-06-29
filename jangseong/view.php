@@ -174,24 +174,20 @@ else{
 
                switch($_SESSION["authority"]){   
                 case 2:                    
-                   
-                    echo "<style>#rowdata7,#rowdata8 {display:none;}</style>";
+                    echo "<style>#rowdata3,#rowdata4 ,#rowdata7 ,#rowdata8 {display:none;}</style>";
                     break; 
                 case 3:                    
-                   
-                    echo "<style>#rowdata1,#rowdata2 ,#rowdata5, #rowdata7,#rowdata8  {display:none;}</style>";
-                    break;
+                    echo "<style>#rowdata1,#rowdata2 ,#rowdata3 ,#rowdata4,#rowdata7,#rowdata8 ,#rowdata9 {display:none;}</style>";
+                    break; 
                 case 4:                    
-                    echo "<style>#rowdata1,#rowdata2,#rowdata3,#rowdata4,#rowdata5  {display:none;}</style>";
-                    break;
+                    echo "<style>#rowdata1,#rowdata2 ,#rowdata3 ,#rowdata4,#rowdata5,#rowdata6 ,#rowdata9 {display:none;}</style>";
+                    break; 
                 case 5:                    
-                    echo "<style>#rowdata1,#rowdata2,#rowdata3,#rowdata4 {display:none;}</style>";
-                    break;
-                    case 6:                    
-                   
-                        echo "<style>#rowdata7,#rowdata8 {display:none;}</style>";
-                        break; 
-                    case 3: 
+                    echo "<style>#rowdata1,#rowdata2 ,#rowdata3 ,#rowdata4,#rowdata5,#rowdata6 {display:none;}</style>";
+                    break; 
+                case 6:                    
+                    echo "<style>#rowdata5,#rowdata6,#rowdata7,#rowdata8 {display:none;}</style>";
+                    break; 
                         
             //     case 4:                
             //         echo "<style>#rowdata1,#rowdata2,#rowdata4,#rowdata5{display:none;}</style>";
@@ -291,6 +287,88 @@ else{
                 </tr>
                 <tr id="rowdata3"> 
                     <td>&nbsp;</td>     
+                    <td>기능연습</td>
+                    <td>
+                        <?php
+                        if(result_numof_test("기능연습")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo result_numof_pass("기능연습"). "회" ;
+                        }
+                        
+                        ?>
+
+                    </td>
+                    <td>    
+                        <?php
+                         if(result_numof_test("기능연습")==0)
+                         {
+                             echo "-";
+                         }
+                         else{
+                            echo result_numof_test("기능연습"). "회";
+                         }
+                        ?>
+
+                    </td>
+                    <td>
+                        <?php
+                        if(result_numof_test("기능연습")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo count_time("기능연습");
+                        }
+                        ?>
+                    </td>      
+                </tr>
+                <tr id="rowdata4"> 
+                    <td>&nbsp;</td>     
+                    <td>기능시험</td>
+                    <td>
+                        <?php
+                        if(result_numof_test("기능시험")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo result_numof_pass("기능시험"). "회" ;
+                        }
+                        
+                        ?>
+
+                    </td>
+                    <td>    
+                        <?php
+                         if(result_numof_test("기능시험")==0)
+                         {
+                             echo "-";
+                         }
+                         else{
+                            echo result_numof_test("기능시험"). "회";
+                         }
+                        ?>
+
+                    </td>
+                    <td>
+                        <?php
+                        if(result_numof_test("기능시험")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo count_time("기능시험");
+                        }
+                        ?>
+                    </td>      
+                </tr>
+                
+
+                <tr id="rowdata5"> 
+                    <td>&nbsp;</td>     
                     <td>굴착연습</td>
                     <td>
                         <?php
@@ -329,7 +407,8 @@ else{
                         ?>
                     </td>      
                 </tr>
-                <tr id="rowdata4"> 
+
+                <tr id="rowdata6"> 
                     <td>&nbsp;</td>     
                     <td>굴착시험</td>
                     <td>
@@ -450,8 +529,8 @@ else{
                         ?>
                     </td>      
                 </tr>
-
-                <tr id="rowdata5"> 
+                
+                <tr id="rowdata9"> 
                     <td>&nbsp;</td>     
                     <td>자율주행</td>
                     <td>
@@ -492,7 +571,7 @@ else{
                     </td>      
                 </tr>
 
-                <tr id="rowdata6"> 
+                <tr id="rowdata10"> 
                     <td>&nbsp;</td>     
                     <td>자율작업</td>
                     <td>
@@ -532,9 +611,6 @@ else{
                         ?>
                     </td>      
                 </tr>
-
-                
-
                 
             <?php
             

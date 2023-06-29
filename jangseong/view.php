@@ -198,14 +198,14 @@ else{
             ?>
                 <tr  id="rowdata1">      
                     <td>&nbsp;</td>
-                    <td >연습</td>
+                    <td >주행연습</td>
                     <td>
                         <?php
-                        if(result_numof_test("연습")==0){
+                        if(result_numof_test("주행연습")==0){
                             echo "-";
                         }
                         else{
-                            echo result_numof_pass("연습"). "회";
+                            echo result_numof_pass("주행연습"). "회";
                         }
                        
                         
@@ -214,11 +214,11 @@ else{
                     </td>
                     <td>    
                         <?php
-                            if(result_numof_test("연습")==0){
+                            if(result_numof_test("주행연습")==0){
                                 echo "-";
                             }
                             else{
-                                echo result_numof_test("연습"). "회";
+                                echo result_numof_test("주행연습"). "회";
                             }
                          
                         ?>
@@ -226,11 +226,11 @@ else{
                     </td>
                     <td>
                         <?php
-                            if(result_numof_test("연습")==0){
+                            if(result_numof_test("주행연습")==0){
                                 echo "-";
                             }
                             else{
-                                echo count_time("연습");
+                                echo count_time("주행연습");
                             }
                         
                         ?>
@@ -238,15 +238,15 @@ else{
                 </tr>
                 <tr id="rowdata2">     
                     <td>&nbsp;</td> 
-                    <td>시험</td>
+                    <td>주행시험</td>
                     <td>
                         <?php
-                        if(result_numof_test("시험")==0)
+                        if(result_numof_test("주행시험")==0)
                         {
                             echo "-";
                         }
                         else{
-                            echo result_numof_pass("시험"). "회" ;
+                            echo result_numof_pass("주행시험"). "회" ;
                         }
                         
                         ?>
@@ -254,29 +254,110 @@ else{
                     </td>
                     <td>    
                         <?php
-                         if(result_numof_test("시험")==0)
+                         if(result_numof_test("주행시험")==0)
                          {
                              echo "-";
                          }
                          else{
-                            echo result_numof_test("시험"). "회";
+                            echo result_numof_test("주행시험"). "회";
                          }
                         ?>
 
                     </td>
                     <td>
                         <?php
-                        if(result_numof_test("시험")==0)
+                        if(result_numof_test("주행시험")==0)
                         {
                             echo "-";
                         }
                         else{
-                            echo count_time("시험");
+                            echo count_time("주행시험");
                         }
                         ?>
                     </td>        
                 </tr>
                 <tr id="rowdata3"> 
+                    <td>&nbsp;</td>     
+                    <td>굴착연습</td>
+                    <td>
+                        <?php
+                        if(result_numof_test("굴착연습")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo result_numof_pass("굴착연습"). "회" ;
+                        }
+                        
+                        ?>
+
+                    </td>
+                    <td>    
+                        <?php
+                         if(result_numof_test("굴착연습")==0)
+                         {
+                             echo "-";
+                         }
+                         else{
+                            echo result_numof_test("굴착연습"). "회";
+                         }
+                        ?>
+
+                    </td>
+                    <td>
+                        <?php
+                        if(result_numof_test("굴착연습")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo count_time("굴착연습");
+                        }
+                        ?>
+                    </td>      
+                </tr>
+                <tr id="rowdata4"> 
+                    <td>&nbsp;</td>     
+                    <td>굴착시험</td>
+                    <td>
+                        <?php
+                        if(result_numof_test("굴착시험")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo result_numof_pass("굴착시험"). "회" ;
+                        }
+                        
+                        ?>
+
+                    </td>
+                    <td>    
+                        <?php
+                         if(result_numof_test("굴착시험")==0)
+                         {
+                             echo "-";
+                         }
+                         else{
+                            echo result_numof_test("굴착시험"). "회";
+                         }
+                        ?>
+
+                    </td>
+                    <td>
+                        <?php
+                        if(result_numof_test("굴착시험")==0)
+                        {
+                            echo "-";
+                        }
+                        else{
+                            echo count_time("굴착시험");
+                        }
+                        ?>
+                    </td>      
+                </tr>
+
+                <tr id="rowdata5"> 
                     <td>&nbsp;</td>     
                     <td>자율주행</td>
                     <td>
@@ -316,7 +397,8 @@ else{
                         ?>
                     </td>      
                 </tr>
-                <tr id="rowdata4"> 
+
+                <tr id="rowdata6"> 
                     <td>&nbsp;</td>     
                     <td>자율작업</td>
                     <td>

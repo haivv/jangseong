@@ -164,16 +164,17 @@ else{
                 var firstStr3 = str3.slice(0, 2);
 
                 //if((firstStr1 != firstStr2) || (firstStr1 != firstStr3) )
-                if((firstStr1 != firstStr3))
-                {
-                    //alert("기수와 입소일이 군번과 일치하지 않습니다!");
-                    var modal = document.getElementById("myModal1");
-                    modal.style.display = "block";
-                    return false;
-                }  
-                else{
-                    return true;
-                }
+                // if((firstStr1 != firstStr3))
+                // {
+                //     //alert("기수와 입소일이 군번과 일치하지 않습니다!");
+                //     var modal = document.getElementById("myModal1");
+                //     modal.style.display = "block";
+                //     return false;
+                // }  
+                // else{
+                //     return true;
+                // }
+                return true;
             }
             
             function hideMessageBoxYear() {

@@ -310,7 +310,7 @@ if ('caches' in window) {
                     <td><?php echo $row['date']; ?></td>
                     <td><?php echo $row['memID']; ?></td>
                     <td><?php echo $row['name']; ?></td>
-                    <td id="cot" ><a href="view.php?memID=<?php echo $row['memID']; ?>" class="btn btn-primary btnfix" style="position:relative; left:53px;" >상세정보</a> <a href="edit.php?id=<?php echo $memberID ?>" class="btn btn-warning btnfix" style="color:white; float:right; margin-right:20px; position:relative; " >수정</a></td>
+                    <td id="cot" ><a href="view.php?memID=<?php echo $row['memID']; ?>" class="btn btn-primary btnfix" style="" >상세정보</a> <a href="edit.php?id=<?php echo $memberID ?>" class="btn btn-warning btnfix" style="color:white; " >수정</a></td>
              </tr>
             
                 <?php

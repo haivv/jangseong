@@ -84,7 +84,7 @@ else{
                     
                         var modal = document.getElementById("checkNumMes");
                         modal.style.display = "block";
-                        titlemess.innerHTML  = "군번 양식은 'yy-xxxxxx/yy-xxxxxxxx' 입니다. <br>"+memID.length;
+                        titlemess.innerHTML  = "군번 양식은 'yy-xxxxxx/yy-xxxxxxxx' 입니다. <br>";
                         countOfCheck += 1;
                    
 

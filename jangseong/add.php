@@ -71,7 +71,6 @@ else{
                 else{ 
                     return true;
                 }
-
           }
 
           function checkmemID(rowNo, strMemID){
@@ -81,19 +80,19 @@ else{
             var lastmemID = memID.substr(3,6);
             var countOfCheck = 0;
             
-            if ((memID.length < 9)||(memID.length >11)) {
+            if ((memID.length != 9) && (memID.length !=11)) {
                    
-                    var modal = document.getElementById("checkNumMes");
-                    modal.style.display = "block";
-                    titlemess.innerHTML  = rowNo + "행에서 군번 양식은 'yy-xxxxxx/yy-xxxxxxx/yy-xxxxxxxx' 입니다. <br>";
-                    countOfCheck += 1;
+                        var modal = document.getElementById("checkNumMes");
+                        modal.style.display = "block";
+                        titlemess.innerHTML  = rowNo + "행에서 군번 양식은 'yy-xxxxxx/yy-xxxxxxxx' 입니다. <br>";
+                        countOfCheck += 1;
+                  
                     
                 }
                 if(memID.substr(2,1) != '-'){
-
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML = rowNo + "행에서 군번 양식은 'yy-xxxxxx' 입니다.<br>";
+                    titlemess.innerHTML = rowNo + "행에서 군번 양식은 'yy-xxxxxx/yy-xxxxxxxx' 입니다.<br>";
                     countOfCheck += 1;
                 }
                 
@@ -106,7 +105,7 @@ else{
                 if(isNaN(lastmemID)){
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML = rowNo + "행에서 군번의 마지막 6자는 숫자여야 합니다.<br>";
+                    titlemess.innerHTML = rowNo + "행에서 군번의 마지막 6/8자는 숫자여야 합니다.<br>";
                     countOfCheck += 1;
                 }
                 if(countOfCheck > 0){
@@ -182,8 +181,8 @@ else{
             var str11 = document.getElementById('str1').value;
             var firstStr11 = str11.slice(0, 2);
 
-            var str12 = document.getElementById('str3').value;
-            var firstStr12 = str12.slice(2, 4);
+            var str12 = document.getElementById('str4').value;
+            var firstStr12 = str12.slice(0, 2);
             
             // var str13 = document.getElementById('str4').value;
             // var firstStr13 = str13.slice(0, 2);
@@ -267,7 +266,7 @@ else{
                 }
                 
                 //if((firstStr21 != firstStr23 )||(firstStr21 != firstStr24 ))
-                if((firstStr21 != firstStr23 ))
+                if((firstStr21 != firstStr24 ))
                 {
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
@@ -349,7 +348,7 @@ else{
                 }
                 
                 //if((firstStr31 != firstStr33 )||(firstStr31 != firstStr34 ))
-                if((firstStr31 != firstStr33 ))
+                if((firstStr31 != firstStr34 ))
                 {
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
@@ -430,7 +429,7 @@ else{
                 }
                 
                 //if((firstStr41 != firstStr43 )||(firstStr41 != firstStr44 ))
-                if((firstStr41 != firstStr43 ))
+                if((firstStr41 != firstStr44 ))
                 {
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
@@ -512,7 +511,7 @@ else{
                 }
                 
                 //if((firstStr51 != firstStr53 )||(firstStr51 != firstStr54 ))
-                if((firstStr51 != firstStr53  ))
+                if((firstStr51 != firstStr54  ))
                 {
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
@@ -594,7 +593,7 @@ else{
                 }
                 
                 //if((firstStr61 != firstStr63 )||(firstStr61 != firstStr64 ))
-                if((firstStr61 != firstStr63 ))
+                if((firstStr61 != firstStr64 ))
                 {
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
@@ -630,7 +629,6 @@ else{
             // alert("row2:"+ checkrow2());
             // alert("row3:"+ checkrow3());
             // alert("row4:"+ checkrow4());
-            
 
         }
 

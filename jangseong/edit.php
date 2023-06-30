@@ -79,12 +79,15 @@ else{
             var lastmemID = memID.substr(3,8);
             var countOfCheck = 0;
             
-                if ((memID.length < 9)||(memID.length >11)) {
+                if ((memID.length != 9) && (memID.length !=11)) {
+                    
+                    
+                        var modal = document.getElementById("checkNumMes");
+                        modal.style.display = "block";
+                        titlemess.innerHTML  = "군번 양식은 'yy-xxxxxx/yy-xxxxxxxx' 입니다. <br>"+memID.length;
+                        countOfCheck += 1;
                    
-                    var modal = document.getElementById("checkNumMes");
-                    modal.style.display = "block";
-                    titlemess.innerHTML  = "군번 양식은 'yy-xxxxxx/yy-xxxxxxx/yy-xxxxxxxx' 입니다. <br>";
-                    countOfCheck += 1;
+
                     
                 }
                 if(memID.substr(2,1) != '-'){
@@ -161,7 +164,7 @@ else{
                 var firstStr3 = str3.slice(0, 2);
 
                 //if((firstStr1 != firstStr2) || (firstStr1 != firstStr3) )
-                if((firstStr1 != firstStr2))
+                if((firstStr1 != firstStr3))
                 {
                     //alert("기수와 입소일이 군번과 일치하지 않습니다!");
                     var modal = document.getElementById("myModal1");

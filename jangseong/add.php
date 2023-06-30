@@ -317,7 +317,7 @@ else{
                 }
             }
             
-            if(count != 5){
+            if(count != 4){
                 
                 //var dem = 0;
                 for(var q=11 ; q<16 ;q ++){
@@ -398,7 +398,7 @@ else{
                 }
             }
             
-            if(count != 5){
+            if(count != 4){
                 
                 //var dem = 0;
                 for(var q=16 ; q<21 ;q ++){
@@ -480,7 +480,7 @@ else{
                 }
             }
             
-            if(count != 5){
+            if(count != 4){
                 
                 //var dem = 0;
                 for(var q=21 ; q<26 ;q ++){
@@ -562,7 +562,7 @@ else{
                 }
             }
             
-            if(count != 5){
+            if(count != 4){
                 
                 //var dem = 0;
                 for(var q=26 ; q<31 ;q ++){

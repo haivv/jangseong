@@ -188,17 +188,17 @@ else{
             // var firstStr13 = str13.slice(0, 2);
             
             //if((firstStr11 != firstStr12 )||(firstStr11 != firstStr13 ))
-            if((firstStr11 != firstStr12 ))
-            {
-                var modal = document.getElementById("checkNumMes");
-                modal.style.display = "block";
-                //titlemess.innerHTML = ("1행에서  기수와 입소일이 군번과 일치하지 않습니다!");
-                titlemess.innerHTML = ("1행에서  기수와 입소일이 일치하지 않습니다!");
-                countOfCheck1 +=1;
+            // if((firstStr11 != firstStr12 ))
+            // {
+            //     var modal = document.getElementById("checkNumMes");
+            //     modal.style.display = "block";
+            //     //titlemess.innerHTML = ("1행에서  기수와 입소일이 군번과 일치하지 않습니다!");
+            //     titlemess.innerHTML = ("1행에서  기수와 군번이 일치하지 않습니다!");
+            //     countOfCheck1 +=1;
 
-                document.fadd.num1.focus();
+            //     document.fadd.num1.focus();
                 
-            }
+            // }
            // alert("count of check 1:"+ countOfCheck1);
 
             if(countOfCheck1 > 0){

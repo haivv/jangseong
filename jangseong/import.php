@@ -222,9 +222,9 @@
                                                 $arrayMem = substr($memID, 2, 1);
 
                                                 $stMem = strlen($memID);
-                                                if($stMem !=9)
+                                                if(($stMem !=9) && ($stMem !=11))
                                                 {
-                                                    echo "<p>".$rowNo."행에서 군번 양식은 'yy-xxxxxx' 입니다.</p>";
+                                                    echo "<p>".$rowNo."행에서 군번 양식은 'yy-xxxxxx/yy-xxxxxxxx' 입니다.</p>";
                                                     $countCheck +=1;
                                                 }
 
@@ -246,12 +246,12 @@
                                                 $name = $row[5];
                                                 
                                                 
-                                                if(($firstNum != $strYear) || ($firstNum != $firstMem)){
-                                                    echo "<p>".$rowNo."행에서 기수와 입소일이 군번과 일치하지 않습니다.</p>";
-                                                    $countCheck +=1;
+                                                // if(($firstNum != $strYear) || ($firstNum != $firstMem)){
+                                                //     echo "<p>".$rowNo."행에서 기수와 입소일이 군번과 일치하지 않습니다.</p>";
+                                                //     $countCheck +=1;
                                                     
 
-                                                }
+                                                // }
 
                                             }//end if row excel empty
                                               

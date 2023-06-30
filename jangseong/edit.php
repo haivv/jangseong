@@ -122,8 +122,10 @@ else{
                 var dem = 0;
                 for(var q=1;q<6;q++){
                     if(document.getElementById('str'+q).value=="") {
+                        if(q!=2){
                         document.getElementById('str'+q+'err').innerHTML="필수";
                         dem+=1;
+                        }
 
                     }
                     else{

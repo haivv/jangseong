@@ -115,8 +115,7 @@ else{
                 else{ 
                     return true;
                 }
-                
-                
+                        
           }
 
         function checkrow1(){
@@ -124,9 +123,11 @@ else{
             var count = 0;
             for(var q=1;q<6;q++){
                 if(document.getElementById('str'+q).value=="") {
-                    document.getElementById('str'+q+'err').innerHTML="필수";
-                    count++;
-                    countOfCheck1 +=1;
+                    if(q !=2){
+                        document.getElementById('str'+q+'err').innerHTML="필수";
+                        count++;
+                        countOfCheck1 +=1;
+                    }
                 }
                 else{
                     document.getElementById('str'+q+'err').innerHTML="";
@@ -225,21 +226,25 @@ else{
             
             var count = 0;
             for(var q=6 ; q<11; q++){
-                if(document.getElementById('str'+q).value=="")
-                {
-                    count ++;
-                }
+                if(q !=7){
+                    if(document.getElementById('str'+q).value=="")
+                    {
+                        count ++;
+                    }
+            }
 
             }
             
-            if(count != 5){
+            if(count != 4){
                 
                 //var dem = 0;
                 for(var q=6 ; q<11 ;q ++){
                     
                     if(document.getElementById('str'+q).value=="") {
-                        document.getElementById('str'+q+'err').innerHTML="필수";   
-                        countOfCheck2 += 1;                         
+                        if(q !=7){
+                            document.getElementById('str'+q+'err').innerHTML="필수";   
+                            countOfCheck2 += 1; 
+                        }                       
                     }
                     else{
                         document.getElementById('str'+q+'err').innerHTML="";                
@@ -304,9 +309,11 @@ else{
             
             var count = 0;
             for(var q=11 ; q<16; q++){
-                if(document.getElementById('str'+q).value=="")
-                {
-                    count ++;
+                if(q !=12){
+                    if(document.getElementById('str'+q).value=="")
+                    {
+                        count ++;
+                    }
                 }
             }
             
@@ -316,8 +323,10 @@ else{
                 for(var q=11 ; q<16 ;q ++){
                     
                     if(document.getElementById('str'+q).value=="") {
-                        document.getElementById('str'+q+'err').innerHTML="필수";   
-                        countOfCheck3 += 1;                         
+                        if(q !=12){
+                            document.getElementById('str'+q+'err').innerHTML="필수";   
+                            countOfCheck3 += 1;       
+                        }                  
                     }
                     else{
                         document.getElementById('str'+q+'err').innerHTML="";                
@@ -381,9 +390,11 @@ else{
             
             var count = 0;
             for(var q=16 ; q<21; q++){
-                if(document.getElementById('str'+q).value=="")
-                {
-                    count ++;
+                if(q !=17){
+                    if(document.getElementById('str'+q).value=="")
+                    {
+                        count ++;
+                    }
                 }
             }
             
@@ -393,8 +404,10 @@ else{
                 for(var q=16 ; q<21 ;q ++){
                     
                     if(document.getElementById('str'+q).value=="") {
-                        document.getElementById('str'+q+'err').innerHTML="필수";   
-                        countOfCheck4 += 1;                         
+                        if(q !=17){
+                            document.getElementById('str'+q+'err').innerHTML="필수";   
+                            countOfCheck4 += 1;      
+                        }                   
                     }
                     else{
                         document.getElementById('str'+q+'err').innerHTML="";                
@@ -459,9 +472,11 @@ else{
             
             var count = 0;
             for(var q=21 ; q<26; q++){
-                if(document.getElementById('str'+q).value=="")
-                {
-                    count ++;
+                if(q !=22){
+                    if(document.getElementById('str'+q).value=="")
+                    {
+                        count ++;
+                    }
                 }
             }
             
@@ -471,8 +486,10 @@ else{
                 for(var q=21 ; q<26 ;q ++){
                     
                     if(document.getElementById('str'+q).value=="") {
-                        document.getElementById('str'+q+'err').innerHTML="필수";   
-                        countOfCheck5 += 1;                         
+                        if(q !=22){
+                            document.getElementById('str'+q+'err').innerHTML="필수";   
+                            countOfCheck5 += 1;  
+                        }                       
                     }
                     else{
                         document.getElementById('str'+q+'err').innerHTML="";                
@@ -537,9 +554,11 @@ else{
             
             var count = 0;
             for(var q=26 ; q<31; q++){
-                if(document.getElementById('str'+q).value=="")
-                {
-                    count ++;
+                if(q !=27){
+                    if(document.getElementById('str'+q).value=="")
+                    {
+                        count ++;
+                    }
                 }
             }
             
@@ -549,8 +568,10 @@ else{
                 for(var q=26 ; q<31 ;q ++){
                     
                     if(document.getElementById('str'+q).value=="") {
-                        document.getElementById('str'+q+'err').innerHTML="필수";   
-                        countOfCheck6 += 1;                         
+                        if(q !=27){
+                            document.getElementById('str'+q+'err').innerHTML="필수";   
+                            countOfCheck6 += 1; 
+                        }                        
                     }
                     else{
                         document.getElementById('str'+q+'err').innerHTML="";                

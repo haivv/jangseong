@@ -246,12 +246,12 @@
                                                 $name = $row[5];
                                                 
                                                 
-                                                // if(($firstNum != $strYear) || ($firstNum != $firstMem)){
-                                                //     echo "<p>".$rowNo."행에서 기수와 입소일이 군번과 일치하지 않습니다.</p>";
-                                                //     $countCheck +=1;
+                                                if(($firstNum != $strYear) ){
+                                                    echo "<p>".$rowNo."행에서 기수와 입소일이 일치하지 않습니다.</p>";
+                                                    $countCheck +=1;
                                                     
 
-                                                // }
+                                                }
 
                                             }//end if row excel empty
                                               

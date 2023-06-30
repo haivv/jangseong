@@ -185,7 +185,7 @@ if (!isset($_SESSION["login"])) {
                 if ((firstStr11 != firstStr12)) {
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML = ("1행에서  기수와 입소일이 일치하지 않습니다!jj");
+                    titlemess.innerHTML = ("1행에서  기수와 입소일이 일치하지 않습니다!");
                     //   titlemess.innerHTML = ("1행에서  기수와 군번이 일치하지 않습니다!");
                     countOfCheck1 += 1;
 

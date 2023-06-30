@@ -76,14 +76,14 @@ else{
             var memID = document.getElementById(strMemID).value;
             var titlemess = document.getElementById("mess");
             var firstmemID = memID.substr(0,2);
-            var lastmemID = memID.substr(3,6);
+            var lastmemID = memID.substr(3,8);
             var countOfCheck = 0;
             
-                if (memID.length != 9 ){
+                if ((memID.length < 9)||(memID.length >11)) {
                    
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML  = "군번 양식은 'yy-xxxxxx' 입니다. <br>";
+                    titlemess.innerHTML  = "군번 양식은 'yy-xxxxxx/yy-xxxxxxx/yy-xxxxxxxx' 입니다. <br>";
                     countOfCheck += 1;
                     
                 }
@@ -104,7 +104,7 @@ else{
                 if(isNaN(lastmemID)){
                     var modal = document.getElementById("checkNumMes");
                     modal.style.display = "block";
-                    titlemess.innerHTML =  "군번의 마지막 6자는 숫자여야 합니다.<br>";
+                    titlemess.innerHTML =  "군번의 마지막 6~8자는 숫자여야 합니다.<br>";
                     countOfCheck += 1;
                 }
                 if(countOfCheck > 0){

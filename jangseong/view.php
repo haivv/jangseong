@@ -177,7 +177,7 @@ else{
                     echo "<style>#rowdata3,#rowdata4 ,#rowdata7 ,#rowdata8 {display:none;}</style>";
                     break; 
                 case 3:                    
-                    echo "<style>#rowdata1,#rowdata2 ,#rowdata3 ,#rowdata4,#rowdata7,#rowdata8 ,#rowdata9 {display:none;}</style>";
+                    echo "<style>#rowdata3 ,#rowdata4,#rowdata7,#rowdata8 {display:none;}</style>";
                     break; 
                 case 4:                    
                     echo "<style>#rowdata1,#rowdata2 ,#rowdata3 ,#rowdata4,#rowdata5,#rowdata6 ,#rowdata9 {display:none;}</style>";
